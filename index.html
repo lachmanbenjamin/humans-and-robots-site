@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Humans and Robots — AI Efficiency Consulting</title>
+  <meta name="description" content="We help growing businesses implement AI across social media, CRM, and marketing operations — delivering more output with less overhead.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Humans and Robots — AI Efficiency Consulting">
+  <meta property="og:description" content="Your team knows AI matters. We make it work. AI-augmented social media and CRM management for growing businesses.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lachmanbenjamin.com">
+  <meta property="og:site_name" content="Humans and Robots, LLC">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Humans and Robots — AI Efficiency Consulting">
+  <meta name="twitter:description" content="Your team knows AI matters. We make it work.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- Favicon (inline SVG as data URI) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='11' cy='12' r='6' fill='none' stroke='%231B474D' stroke-width='2.5'/%3E%3Crect x='15' y='6' width='12' height='12' rx='2' fill='none' stroke='%2320808D' stroke-width='2.5'/%3E%3Ccircle cx='19' cy='10' r='1.2' fill='%2320808D'/%3E%3Ccircle cx='23' cy='10' r='1.2' fill='%2320808D'/%3E%3Cline x1='18' y1='14' x2='24' y2='14' stroke='%2320808D' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='8' y1='22' x2='8' y2='28' stroke='%231B474D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='14' y1='22' x2='14' y2='28' stroke='%231B474D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='19' y1='20' x2='19' y2='28' stroke='%2320808D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='25' y1='20' x2='25' y2='28' stroke='%2320808D' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <!-- Theme initialization (prevent flash) -->
+  <script>
+    (function(){
+      var d = window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', d);
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container">
+      <a href="#" class="logo" aria-label="Humans and Robots — Home">
+        <!-- Logo SVG: Human silhouette merging with robot head -->
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <!-- Human head (circle) -->
+          <circle cx="12" cy="11" r="5.5" stroke="currentColor" stroke-width="2"/>
+          <!-- Human body (shoulders) -->
+          <path d="M4 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <!-- Robot head (rounded rect) -->
+          <rect x="19" y="5" width="13" height="11" rx="2.5" stroke="var(--color-accent, #20808D)" stroke-width="2" fill="none"/>
+          <!-- Robot eyes -->
+          <circle cx="23.5" cy="10" r="1.3" fill="var(--color-accent, #20808D)"/>
+          <circle cx="28.5" cy="10" r="1.3" fill="var(--color-accent, #20808D)"/>
+          <!-- Robot antenna -->
+          <line x1="25.5" y1="5" x2="25.5" y2="1.5" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="25.5" cy="1" r="1" fill="var(--color-accent, #20808D)"/>
+          <!-- Connection line between human and robot -->
+          <path d="M17 18h3c2 0 3.5 1.5 3.5 3.5V28" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2.5" fill="none"/>
+          <!-- Robot legs -->
+          <line x1="23" y1="16" x2="23" y2="28" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="29" y1="16" x2="29" y2="28" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-text">Humans &amp; Robots</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#the-math">The Math</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" data-mobile-toggle>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="#services" data-mobile-link>Services</a>
+    <a href="#the-math" data-mobile-link>The Math</a>
+    <a href="#about" data-mobile-link>About</a>
+    <a href="#contact" data-mobile-link>Contact</a>
+  </nav>
+
+  <main id="main">
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero__content">
+          <h1 id="hero-heading">Your team knows AI&nbsp;matters. We make it&nbsp;work.</h1>
+          <p class="hero__sub">We help growing businesses implement AI across social media, CRM, and marketing operations — delivering more output with less overhead.</p>
+          <a href="#contact" class="btn btn--hero">Let's Talk</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== THE PROBLEM ===== -->
+    <section class="section section--cream" aria-labelledby="problem-heading">
+      <div class="container container--narrow">
+        <div class="reveal">
+          <p class="section__label" id="problem-heading">The Problem</p>
+          <p class="problem__text">You're about to spend <em>$80K+</em> on a marketing hire. They'll need 90 days to ramp. Your competitors are already using AI to move faster. <em>There's a better way.</em></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="section section--white" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="section__label">What We Do</p>
+          <h2 class="section__heading" id="services-heading">Two pillars. One integrated strategy.</h2>
+          <p class="section__intro">We embed AI into your existing workflows — not as a replacement for people, but as a force multiplier.</p>
+        </div>
+        <div class="services-grid reveal-stagger">
+          <div class="service-card reveal">
+            <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="6" width="36" height="36" rx="4"/>
+              <circle cx="18" cy="20" r="4"/>
+              <circle cx="30" cy="20" r="4"/>
+              <path d="M14 32h20"/>
+              <path d="M18 28v4"/>
+              <path d="M30 28v4"/>
+            </svg>
+            <h3>AI-Augmented Social Media</h3>
+            <ul role="list">
+              <li>Content strategy and calendar development</li>
+              <li>AI-powered content creation — copy, images, video</li>
+              <li>Multi-platform scheduling and management</li>
+              <li>Performance analytics and optimization</li>
+              <li>Community engagement and growth</li>
+            </ul>
+          </div>
+          <div class="service-card reveal">
+            <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 12h36v28H6z" />
+              <path d="M6 12l18 14L42 12"/>
+              <circle cx="36" cy="34" r="6"/>
+              <path d="M34 34h4"/>
+              <path d="M36 32v4"/>
+            </svg>
+            <h3>AI-Augmented CRM &amp; Marketing</h3>
+            <ul role="list">
+              <li>HubSpot / CRM setup and optimization</li>
+              <li>Automated lead capture and qualification</li>
+              <li>AI-driven email sequences and nurture flows</li>
+              <li>Pipeline reporting and analytics</li>
+              <li>Marketing automation workflows</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== THE MATH ===== -->
+    <section class="section section--cream" id="the-math" aria-labelledby="math-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="section__label">The Math</p>
+          <h2 class="section__heading" id="math-heading">Better results. Less overhead.</h2>
+          <p class="section__intro">See how an AI-augmented approach compares to a traditional marketing hire.</p>
+        </div>
+        <div class="math-grid reveal-stagger">
+          <div class="math-card math-card--traditional reveal">
+            <p class="math-card__label">Traditional Hire</p>
+            <p class="math-card__price">~$90K<span style="font-size:0.5em;font-weight:500;opacity:0.6">/year</span></p>
+            <p class="math-card__detail">Salary + benefits + recruiting costs</p>
+            <ul class="math-card__items" role="list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+                90–120 day ramp-up time
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+                Single point of failure
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+                Limited to one person's capacity
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+                Benefits, PTO, management overhead
+              </li>
+            </ul>
+          </div>
+          <div class="math-card math-card--hr reveal">
+            <p class="math-card__label">Humans &amp; Robots</p>
+            <p class="math-card__price">$3K<span style="font-size:0.5em;font-weight:500;opacity:0.8">/month</span></p>
+            <p class="math-card__detail">Starting at $36K/year — less than half</p>
+            <ul class="math-card__items" role="list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>
+                30-day time to impact
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>
+                AI-augmented capacity
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>
+                Proven frameworks, day one
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>
+                Flexible — scale up or down monthly
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="section section--white" aria-labelledby="process-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="section__label">How It Works</p>
+          <h2 class="section__heading" id="process-heading">Three steps to operational AI.</h2>
+        </div>
+        <div class="steps reveal-stagger">
+          <div class="step reveal">
+            <p class="step__number">01</p>
+            <h3>Discovery Call</h3>
+            <p>A 30-minute conversation about your goals, current tools, and where AI can make the biggest impact.</p>
+          </div>
+          <div class="step reveal">
+            <p class="step__number">02</p>
+            <h3>Custom Playbook</h3>
+            <p>We build your AI-augmented marketing and CRM strategy — tailored to your stack, your team, your market.</p>
+          </div>
+          <div class="step reveal">
+            <p class="step__number">03</p>
+            <h3>Execute &amp; Optimize</h3>
+            <p>We run the playbook, measure results, and iterate monthly. You see progress in weeks, not quarters.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section section--cream" id="about" aria-labelledby="about-heading">
+      <div class="container container--narrow">
+        <div class="reveal">
+          <p class="section__label">About</p>
+          <h2 class="section__heading" id="about-heading">Built on 20 years in the trenches.</h2>
+          <div class="about__text">
+            <p>Humans and Robots was founded by a marketing technologist with two decades of experience in social media, community management, and digital strategy. We started this consultancy because we kept seeing the same pattern: <strong>companies know AI is important, but they don't know where to start.</strong></p>
+            <br>
+            <p>We bridge that gap. We're not here to sell you on AI hype — we're here to make it work inside your existing operations, with measurable results and zero disruption to what's already working.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section section--dark cta-section" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="reveal">
+            <h2 class="section__heading" id="contact-heading">Ready to see what AI can do for your&nbsp;team?</h2>
+            <div class="contact-info">
+              <p>Whether you're exploring AI for the first time or looking to optimize what you've already started, we'd love to hear from you.</p>
+              <a href="mailto:benjamin@callformeassistant.com" class="contact-email" target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+                benjamin@callformeassistant.com
+              </a>
+            </div>
+          </div>
+          <form class="contact-form reveal" id="contact-form" aria-label="Contact form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@company.com">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" autocomplete="organization" placeholder="Company name">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us about your goals..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary form-submit">Send Message</button>
+            <div class="form-success" id="form-success" role="alert">
+              Thanks! We'll be in touch within 24 hours.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__brand">
+        <svg width="24" height="24" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <circle cx="12" cy="11" r="5.5" stroke="currentColor" stroke-width="2"/>
+          <path d="M4 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <rect x="19" y="5" width="13" height="11" rx="2.5" stroke="var(--color-accent, #20808D)" stroke-width="2" fill="none"/>
+          <circle cx="23.5" cy="10" r="1.3" fill="var(--color-accent, #20808D)"/>
+          <circle cx="28.5" cy="10" r="1.3" fill="var(--color-accent, #20808D)"/>
+        </svg>
+        <span class="footer__brand-name">Humans &amp; Robots, LLC</span>
+      </div>
+      <div class="footer__meta">
+        <a href="mailto:benjamin@callformeassistant.com" target="_blank" rel="noopener noreferrer">benjamin@callformeassistant.com</a>
+        <small>&copy; 2026 Humans and Robots, LLC. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
