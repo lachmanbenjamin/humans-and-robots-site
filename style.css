@@ -893,6 +893,28 @@
   display: block;
 }
 
+.form-field-error {
+  display: none;
+  font-size: var(--text-xs);
+  color: #e05555;
+  font-weight: 500;
+  margin-top: var(--space-1);
+}
+
+.form-field-error.is-visible {
+  display: block;
+}
+
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+  border-color: #e05555;
+}
+
+.section--dark .form-group input[aria-invalid="true"],
+.section--dark .form-group textarea[aria-invalid="true"] {
+  border-color: #e05555;
+}
+
 /* ===== FOOTER ===== */
 .site-footer {
   padding-block: var(--space-10);

@@ -95,8 +95,46 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   var errorEl = document.getElementById('form-error');
   if (!form) return;
 
+  // --- Inline validation ---
+  function validateField(input) {
+    var errorEl = document.getElementById(input.id + '-error');
+    if (!errorEl) return true;
+    var valid = true;
+    var msg = '';
+
+    if (input.required && !input.value.trim()) {
+      valid = false;
+      var label = input.closest('.form-group').querySelector('label').textContent;
+      msg = 'Please enter your ' + label.toLowerCase();
+    } else if (input.type === 'email' && input.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
+      valid = false;
+      msg = 'Please enter a valid email address';
+    }
+
+    input.setAttribute('aria-invalid', valid ? 'false' : 'true');
+    errorEl.textContent = msg;
+    errorEl.classList.toggle('is-visible', !valid);
+    return valid;
+  }
+
+  // Validate on blur
+  form.querySelectorAll('input[required], textarea[required], input[type="email"]').forEach(function (input) {
+    input.addEventListener('blur', function () { validateField(input); });
+    input.addEventListener('input', function () {
+      if (input.getAttribute('aria-invalid') === 'true') validateField(input);
+    });
+  });
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+
+    // Validate all fields
+    var allValid = true;
+    form.querySelectorAll('input:not([type="hidden"]):not([name="_gotcha"]), textarea').forEach(function (input) {
+      if (!validateField(input)) allValid = false;
+    });
+    if (!allValid) return;
+
     var btn = form.querySelector('.form-submit');
     btn.disabled = true;
     btn.textContent = 'Sending...';
@@ -129,6 +167,36 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         errorEl.classList.add('is-visible');
       }
     });
+  });
+})();
+
+// ===== MOBILE NAV FOCUS TRAP =====
+(function () {
+  var nav = document.getElementById('mobile-nav');
+  var toggle = document.querySelector('[data-mobile-toggle]');
+  if (!nav || !toggle) return;
+
+  document.addEventListener('keydown', function (e) {
+    if (!nav.classList.contains('is-open')) return;
+    if (e.key === 'Escape') {
+      toggle.click();
+      toggle.focus();
+      return;
+    }
+    if (e.key !== 'Tab') return;
+
+    var focusable = [toggle].concat(Array.from(nav.querySelectorAll('a, button')));
+    focusable = focusable.filter(function (el) { return el.offsetParent !== null; });
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 })();
 
