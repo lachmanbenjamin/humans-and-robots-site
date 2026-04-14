@@ -88,23 +88,47 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   reveals.forEach(function (el) { observer.observe(el); });
 })();
 
-// ===== CONTACT FORM =====
+// ===== CONTACT FORM (Formspree) =====
 (function () {
   var form = document.getElementById('contact-form');
   var success = document.getElementById('form-success');
+  var errorEl = document.getElementById('form-error');
   if (!form) return;
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    // In production, this would POST to an endpoint
-    // For now, show success message
-    form.querySelector('.form-submit').style.display = 'none';
-    success.classList.add('is-visible');
+    var btn = form.querySelector('.form-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
 
-    // Reset form
-    setTimeout(function () {
-      form.reset();
-    }, 500);
+    // Hide any previous messages
+    success.classList.remove('is-visible');
+    if (errorEl) errorEl.classList.remove('is-visible');
+
+    var data = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function (response) {
+      if (response.ok) {
+        btn.style.display = 'none';
+        success.classList.add('is-visible');
+        form.reset();
+      } else {
+        return response.json().then(function (json) {
+          throw new Error(json.errors ? json.errors.map(function(e){ return e.message; }).join(', ') : 'Something went wrong.');
+        });
+      }
+    }).catch(function (err) {
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+      if (errorEl) {
+        errorEl.textContent = 'Something went wrong. Please email us directly at ben@humansnrobots.com';
+        errorEl.classList.add('is-visible');
+      }
+    });
   });
 })();
 
