@@ -44,23 +44,15 @@
   <header class="site-header">
     <div class="container">
       <a href="#" class="logo" aria-label="Humans and Robots — Home">
-        <!-- Logo SVG: Human silhouette merging with robot head -->
         <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-          <!-- Human head (circle) -->
           <circle cx="12" cy="11" r="5.5" stroke="currentColor" stroke-width="2"/>
-          <!-- Human body (shoulders) -->
           <path d="M4 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-          <!-- Robot head (rounded rect) -->
           <rect x="19" y="5" width="13" height="11" rx="2.5" stroke="var(--color-accent, #20808D)" stroke-width="2" fill="none"/>
-          <!-- Robot eyes -->
           <circle cx="23.5" cy="10" r="1.3" fill="var(--color-accent, #20808D)"/>
           <circle cx="28.5" cy="10" r="1.3" fill="var(--color-accent, #20808D)"/>
-          <!-- Robot antenna -->
           <line x1="25.5" y1="5" x2="25.5" y2="1.5" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round"/>
           <circle cx="25.5" cy="1" r="1" fill="var(--color-accent, #20808D)"/>
-          <!-- Connection line between human and robot -->
           <path d="M17 18h3c2 0 3.5 1.5 3.5 3.5V28" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2.5" fill="none"/>
-          <!-- Robot legs -->
           <line x1="23" y1="16" x2="23" y2="28" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round"/>
           <line x1="29" y1="16" x2="29" y2="28" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
@@ -68,8 +60,8 @@
       </a>
 
       <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="#what-you-get">What You Get</a>
         <a href="#services">Services</a>
-        <a href="#results">Results</a>
         <a href="#the-math">The Math</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
@@ -92,41 +84,202 @@
 
   <!-- Mobile Nav -->
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="#what-you-get" data-mobile-link>What You Get</a>
     <a href="#services" data-mobile-link>Services</a>
-    <a href="#results" data-mobile-link>Results</a>
     <a href="#the-math" data-mobile-link>The Math</a>
     <a href="#about" data-mobile-link>About</a>
     <a href="#contact" data-mobile-link>Contact</a>
   </nav>
 
   <main id="main">
-    <!-- ===== HERO ===== -->
-    <section class="hero" aria-labelledby="hero-heading">
+    <!-- ===== HERO (compact, with inline proof stats) ===== -->
+    <section class="hero hero--compact" aria-labelledby="hero-heading">
       <div class="container">
         <div class="hero__content">
           <h1 id="hero-heading">Your team knows AI&nbsp;matters. We make it&nbsp;work.</h1>
-          <p class="hero__sub">We help growing businesses implement AI across social media, CRM, and marketing operations — delivering more output with less overhead.</p>
+          <p class="hero__sub">We implement AI across your social media, CRM, and marketing operations — and you see results in 30 days, not 1 year.</p>
+          <div class="hero__proof">
+            <div class="hero__stat">
+              <span class="hero__stat-number">15</span>
+              <span class="hero__stat-label">micro-influencers sourced, vetted, and activated in 1 week — <a href="https://www.adweek.com/sponsored/study-influencer-marketing-11-times-more-effective-banner-ads-170517/" target="_blank" rel="noopener noreferrer" class="hero__stat-link">10x better engagement-per-dollar than paid ads</a></span>
+            </div>
+            <div class="hero__stat">
+              <span class="hero__stat-number">8,000</span>
+              <span class="hero__stat-label">PDFs migrated to CRM in 2 days — automated email campaigns unlocked</span>
+            </div>
+            <div class="hero__stat">
+              <span class="hero__stat-number">900+</span>
+              <span class="hero__stat-label">formula financial model built in one session — board-ready reporting from day one</span>
+            </div>
+            <div class="hero__stat">
+              <span class="hero__stat-number">&lt;2hrs</span>
+              <span class="hero__stat-label">to build a full 7-day content calendar</span>
+            </div>
+          </div>
           <a href="#contact" class="btn btn--hero">Let's Talk</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== THE PROBLEM ===== -->
-    <section class="section section--cream" aria-labelledby="problem-heading">
-      <div class="container container--narrow">
+    <!-- ===== WHAT YOU GET (concrete deliverables) ===== -->
+    <section class="section section--cream" id="what-you-get" aria-labelledby="deliverables-heading">
+      <div class="container">
         <div class="reveal">
-          <p class="section__label" id="problem-heading">The Problem</p>
-          <p class="problem__text">You're about to spend <em>$80K+</em> on a marketing hire. They'll need 90 days to ramp. Your competitors are already using AI to move faster. <em>There's a better way.</em></p>
+          <p class="section__label">What You Get</p>
+          <h2 class="section__heading" id="deliverables-heading">Tangible deliverables. Not slide decks about what AI could do.</h2>
+          <p class="section__intro">Every engagement produces real, measurable output from month one. Here's exactly what lands in your hands.</p>
+        </div>
+        <div class="deliverables-grid reveal-stagger">
+
+          <div class="deliverable-card reveal">
+            <div class="deliverable-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="6" width="36" height="36" rx="4"/>
+                <line x1="6" y1="16" x2="42" y2="16"/>
+                <line x1="16" y1="16" x2="16" y2="42"/>
+                <line x1="28" y1="16" x2="28" y2="42"/>
+              </svg>
+            </div>
+            <h3>A 30-Day Content Calendar — Every Month</h3>
+            <p>Fully built out with post copy, image concepts, video scripts, hashtag strategy, and scheduling — across every platform you use. Delivered fresh each month, not a one-time handoff. Most clients are 3–4 months ahead of schedule within their first quarter.</p>
+          </div>
+
+          <div class="deliverable-card reveal">
+            <div class="deliverable-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="24" cy="20" r="8"/>
+                <path d="M10 38c0-6 6-10 14-10s14 4 14 10"/>
+                <path d="M32 12l4-4m0 0l4 4m-4-4v8"/>
+              </svg>
+            </div>
+            <h3>A Configured CRM Pipeline</h3>
+            <p>HubSpot (or your CRM of choice) set up with custom deal stages, automated lead capture from your website, and email nurture sequences that run on autopilot.</p>
+          </div>
+
+          <div class="deliverable-card reveal">
+            <div class="deliverable-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="8" width="40" height="28" rx="3"/>
+                <path d="M16 22l4 4 8-8"/>
+                <line x1="4" y1="36" x2="20" y2="44"/>
+                <line x1="44" y1="36" x2="28" y2="44"/>
+              </svg>
+            </div>
+            <h3>Publish-Ready Creative Assets</h3>
+            <p>AI-generated images, video reels, ad copy, and social graphics — produced in a single working session and formatted for each platform. Not mockups. Real assets.</p>
+          </div>
+
+          <div class="deliverable-card reveal">
+            <div class="deliverable-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 38V14l18-8 18 8v24"/>
+                <path d="M6 14l18 8 18-8"/>
+                <line x1="24" y1="22" x2="24" y2="42"/>
+                <polyline points="16,30 24,34 32,30"/>
+              </svg>
+            </div>
+            <h3>Marketing Automation Workflows</h3>
+            <p>Lead scoring rules, email sequences triggered by behavior, follow-up reminders, and reporting dashboards — all wired together so your pipeline doesn't leak.</p>
+          </div>
+
+          <div class="deliverable-card reveal">
+            <div class="deliverable-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="4" width="32" height="40" rx="3"/>
+                <line x1="16" y1="14" x2="32" y2="14"/>
+                <line x1="16" y1="22" x2="32" y2="22"/>
+                <line x1="16" y1="30" x2="26" y2="30"/>
+                <circle cx="34" cy="36" r="8" fill="var(--color-hero-bg)" stroke="var(--color-accent)"/>
+                <path d="M31 36l2 2 4-4" stroke="var(--color-accent)"/>
+              </svg>
+            </div>
+            <h3>Digitized Operations (Trades)</h3>
+            <p>Paper invoices, estimates, and filing cabinets converted into a modern digital workflow — with OCR processing, automated scheduling, and a CRM that actually gets used.</p>
+          </div>
+
+          <div class="deliverable-card reveal">
+            <div class="deliverable-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 38l8-12 6 6 8-10 10 16"/>
+                <circle cx="14" cy="16" r="4"/>
+                <line x1="36" y1="8" x2="36" y2="20"/>
+                <line x1="30" y1="14" x2="42" y2="14"/>
+              </svg>
+            </div>
+            <h3>ROI Reports</h3>
+            <p>Clear analytics showing what's working, what's not, and what we're adjusting next. Engagement rates, pipeline velocity, conversion tracking — no vanity metrics.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== THE MATH ===== -->
+    <section class="section section--white" id="the-math" aria-labelledby="math-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="section__label">The Math</p>
+          <h2 class="section__heading" id="math-heading">60% less overhead. Better results.</h2>
+          <p class="section__intro">See how an AI-augmented approach compares to a traditional marketing hire — at a fraction of the cost.</p>
+        </div>
+        <div class="math-grid reveal-stagger">
+          <div class="math-card math-card--traditional reveal">
+            <p class="math-card__label">Traditional Hire</p>
+            <p class="math-card__price">~$90K<span style="font-size:0.5em;font-weight:500;opacity:0.6">/year</span></p>
+            <p class="math-card__detail">Salary + benefits + recruiting costs</p>
+            <ul class="math-card__items" role="list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+                90–120 day ramp-up time
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+                Single point of failure
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+                Limited to one person's capacity
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+                Benefits, PTO, management overhead
+              </li>
+            </ul>
+          </div>
+          <div class="math-card math-card--hr reveal">
+            <p class="math-card__label">Humans &amp; Robots</p>
+            <p class="math-card__price">$3K<span style="font-size:0.5em;font-weight:500;opacity:0.8">/month</span></p>
+            <p class="math-card__detail">Starting at $36K/year — less than half</p>
+            <p class="math-card__caveat">*Based on one client's engagement scope. Your investment will vary depending on services and deliverables.</p>
+            <ul class="math-card__items" role="list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>
+                30-day time to impact
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>
+                AI-augmented capacity
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>
+                Proven frameworks, day one
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>
+                Flexible — scale up or down monthly
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ===== SERVICES ===== -->
-    <section class="section section--white" id="services" aria-labelledby="services-heading">
+    <section class="section section--cream" id="services" aria-labelledby="services-heading">
       <div class="container">
         <div class="reveal">
-          <p class="section__label">What We Do</p>
-          <h2 class="section__heading" id="services-heading">Three ways we make AI work for you.</h2>
+          <p class="section__label">How We Work</p>
+          <h2 class="section__heading" id="services-heading">Three models, one goal: more output, less overhead.</h2>
           <p class="section__intro">We embed AI into your existing workflows — not as a replacement for people, but as a force multiplier.</p>
         </div>
         <div class="services-grid reveal-stagger">
@@ -191,36 +344,12 @@
       </div>
     </section>
 
-    <!-- ===== RESULTS ===== -->
+    <!-- ===== RESULTS (visual proof) ===== -->
     <section class="section section--dark results-section" id="results" aria-labelledby="results-heading">
       <div class="container">
         <div class="reveal">
           <p class="section__label section__label--light">Results</p>
           <h2 class="section__heading section__heading--light" id="results-heading">This isn't theory. It's what we delivered last month.</h2>
-        </div>
-
-        <!-- KPI Cards -->
-        <div class="kpi-grid reveal-stagger">
-          <div class="kpi-card reveal">
-            <p class="kpi-card__number">9</p>
-            <p class="kpi-card__label">Content assets produced in one session</p>
-            <p class="kpi-card__detail">Images, video reels, and copy — ready to publish</p>
-          </div>
-          <div class="kpi-card reveal">
-            <p class="kpi-card__number">&lt;2hrs</p>
-            <p class="kpi-card__label">Full content calendar — 7 days</p>
-            <p class="kpi-card__detail">What used to take 3 weeks now takes an afternoon</p>
-          </div>
-          <div class="kpi-card reveal">
-            <p class="kpi-card__number">60%</p>
-            <p class="kpi-card__label">Cost savings vs. traditional hire</p>
-            <p class="kpi-card__detail">$36K/year vs. $90K — same output, third of the price</p>
-          </div>
-          <div class="kpi-card reveal">
-            <p class="kpi-card__number">30</p>
-            <p class="kpi-card__label">Days to full operational impact</p>
-            <p class="kpi-card__detail">Not 90. Not 120. Thirty.</p>
-          </div>
         </div>
 
         <!-- Visual proof -->
@@ -248,71 +377,12 @@
       </div>
     </section>
 
-    <!-- ===== THE MATH ===== -->
-    <section class="section section--cream" id="the-math" aria-labelledby="math-heading">
-      <div class="container">
-        <div class="reveal">
-          <p class="section__label">The Math</p>
-          <h2 class="section__heading" id="math-heading">Better results. Less overhead.</h2>
-          <p class="section__intro">See how an AI-augmented approach compares to a traditional marketing hire.</p>
-        </div>
-        <div class="math-grid reveal-stagger">
-          <div class="math-card math-card--traditional reveal">
-            <p class="math-card__label">Traditional Hire</p>
-            <p class="math-card__price">~$90K<span style="font-size:0.5em;font-weight:500;opacity:0.6">/year</span></p>
-            <p class="math-card__detail">Salary + benefits + recruiting costs</p>
-            <ul class="math-card__items" role="list">
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
-                90–120 day ramp-up time
-              </li>
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
-                Single point of failure
-              </li>
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
-                Limited to one person's capacity
-              </li>
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
-                Benefits, PTO, management overhead
-              </li>
-            </ul>
-          </div>
-          <div class="math-card math-card--hr reveal">
-            <p class="math-card__label">Humans &amp; Robots</p>
-            <p class="math-card__price">$3K<span style="font-size:0.5em;font-weight:500;opacity:0.8">/month</span></p>
-            <p class="math-card__detail">Starting at $36K/year — less than half</p>
-            <ul class="math-card__items" role="list">
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>
-                30-day time to impact
-              </li>
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>
-                AI-augmented capacity
-              </li>
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>
-                Proven frameworks, day one
-              </li>
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>
-                Flexible — scale up or down monthly
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ===== HOW IT WORKS ===== -->
     <section class="section section--white" aria-labelledby="process-heading">
       <div class="container">
         <div class="reveal">
           <p class="section__label">How It Works</p>
-          <h2 class="section__heading" id="process-heading">Three steps to operational AI.</h2>
+          <h2 class="section__heading" id="process-heading">We don't hand off a plan and disappear.</h2>
         </div>
         <div class="steps reveal-stagger">
           <div class="step reveal">
@@ -323,15 +393,43 @@
           <div class="step reveal">
             <p class="step__number">02</p>
             <h3>Custom Playbook</h3>
-            <p>We build your AI-augmented marketing and CRM strategy — tailored to your stack, your team, your market.</p>
+            <p>We build your AI-augmented marketing and CRM strategy — tailored to your stack, your team, your market. Then we start executing it.</p>
           </div>
           <div class="step reveal">
             <p class="step__number">03</p>
-            <h3>Execute &amp; Optimize</h3>
-            <p>We run the playbook, measure results, and iterate monthly. You see progress in weeks, not quarters.</p>
+            <h3>Manage, Measure, Improve</h3>
+            <p>This is where we live. Month over month, we run your campaigns, manage your pipeline, track what's working, and adjust what isn't. No re-onboarding. No re-explaining your business.</p>
           </div>
           <div class="steps-cta reveal">
             <a href="#contact" class="btn btn--primary">Book Your Discovery Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHO THIS IS FOR ===== -->
+    <section class="section section--cream" aria-labelledby="fit-heading">
+      <div class="container container--narrow">
+        <div class="reveal">
+          <p class="section__label">Who This Is For</p>
+          <h2 class="section__heading" id="fit-heading">We're the right fit if you're ready to commit — not just experiment.</h2>
+          <div class="fit-list">
+            <div class="fit-item fit-item--yes">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>
+              <p>Growing businesses that need ongoing marketing, CRM, and content execution — not a one-time audit</p>
+            </div>
+            <div class="fit-item fit-item--yes">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>
+              <p>Teams that want AI integrated into their operations — managed for them, month after month</p>
+            </div>
+            <div class="fit-item fit-item--yes">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>
+              <p>Trades and service businesses ready to modernize paper-based workflows into automated systems</p>
+            </div>
+            <div class="fit-item fit-item--no">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-faint)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+              <p>Companies looking for a one-time project or a slide deck about AI strategy</p>
+            </div>
           </div>
         </div>
       </div>

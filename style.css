@@ -282,12 +282,17 @@
 .hero {
   background: var(--color-hero-bg);
   color: var(--color-hero-text);
-  padding-top: calc(4rem + clamp(var(--space-16), 8vw, var(--space-32)));
-  padding-bottom: clamp(var(--space-16), 8vw, var(--space-32));
+  padding-top: calc(4rem + clamp(var(--space-10), 5vw, var(--space-16)));
+  padding-bottom: clamp(var(--space-10), 5vw, var(--space-16));
+}
+
+.hero--compact {
+  padding-top: calc(4rem + clamp(var(--space-8), 4vw, var(--space-12)));
+  padding-bottom: clamp(var(--space-8), 4vw, var(--space-12));
 }
 
 .hero__content {
-  max-width: 800px;
+  max-width: 100%;
 }
 
 .hero h1 {
@@ -295,16 +300,74 @@
   font-size: var(--text-2xl);
   font-weight: 800;
   letter-spacing: -0.025em;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
   line-height: 1.1;
+  max-width: 18ch;
 }
 
 .hero__sub {
   font-size: var(--text-lg);
   line-height: 1.5;
   opacity: 0.85;
-  max-width: 60ch;
+  max-width: 52ch;
   margin-bottom: var(--space-8);
+}
+
+/* Hero proof stats row */
+.hero__proof {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  padding: var(--space-6) 0;
+  border-top: 1px solid rgba(245, 230, 211, 0.15);
+  border-bottom: 1px solid rgba(245, 230, 211, 0.15);
+}
+
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.hero__stat-number {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--color-hero-text);
+  line-height: 1;
+}
+
+.hero__stat-label {
+  font-size: var(--text-xs);
+  color: rgba(245, 230, 211, 0.6);
+  line-height: 1.4;
+}
+
+.hero__stat-link {
+  color: rgba(245, 230, 211, 0.8);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(245, 230, 211, 0.3);
+}
+
+.hero__stat-link:hover {
+  color: rgba(245, 230, 211, 1);
+  text-decoration-color: rgba(245, 230, 211, 0.6);
+}
+
+@media (max-width: 768px) {
+  .hero__proof {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 400px) {
+  .hero__proof {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
 }
 
 .btn {
@@ -583,6 +646,14 @@
 
 .math-card--traditional .math-card__items li {
   color: var(--color-text-muted);
+}
+
+.math-card__caveat {
+  font-size: var(--text-xs);
+  opacity: 0.6;
+  font-style: italic;
+  margin-bottom: var(--space-4);
+  line-height: 1.5;
 }
 
 /* ===== HOW IT WORKS ===== */
@@ -1031,4 +1102,94 @@
   .services-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ===== DELIVERABLES GRID ===== */
+.deliverables-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.deliverable-card {
+  padding: var(--space-6) var(--space-6) var(--space-8);
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid oklch(from var(--color-border) l c h / 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+[data-theme='dark'] .deliverable-card {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+.deliverable-card__icon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.deliverable-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.deliverable-card h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.deliverable-card p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .deliverables-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .deliverables-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== WHO THIS IS FOR ===== */
+.fit-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-top: var(--space-8);
+}
+
+.fit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.fit-item svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.fit-item p {
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.fit-item--no p {
+  color: var(--color-text-muted);
 }
