@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Studies — Humans and Robots</title>
+  <meta name="description" content="Real projects. Real results. See how Humans and Robots uses AI-augmented workflows to deliver faster output and better ROI.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Case Studies — Humans and Robots">
+  <meta property="og:description" content="Real projects. Real results. AI-augmented social media, CRM, operations, and document production.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://humansnrobots.com/case-studies">
+  <meta property="og:site_name" content="Humans and Robots, LLC">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Case Studies — Humans and Robots">
+  <meta name="twitter:description" content="Real projects. Real results.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='11' cy='12' r='6' fill='none' stroke='%231B474D' stroke-width='2.5'/%3E%3Crect x='15' y='6' width='12' height='12' rx='2' fill='none' stroke='%2320808D' stroke-width='2.5'/%3E%3Ccircle cx='19' cy='10' r='1.2' fill='%2320808D'/%3E%3Ccircle cx='23' cy='10' r='1.2' fill='%2320808D'/%3E%3Cline x1='18' y1='14' x2='24' y2='14' stroke='%2320808D' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='8' y1='22' x2='8' y2='28' stroke='%231B474D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='14' y1='22' x2='14' y2='28' stroke='%231B474D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='19' y1='20' x2='19' y2='28' stroke='%2320808D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='25' y1='20' x2='25' y2='28' stroke='%2320808D' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <!-- Theme initialization -->
+  <script>
+    (function(){
+      var d = window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', d);
+    })();
+  </script>
+
+  <style>
+    /* === CASE STUDIES PAGE STYLES === */
+    .cs-hero {
+      background: var(--color-hero-bg);
+      color: var(--color-hero-text);
+      padding-top: calc(4rem + clamp(var(--space-10), 5vw, var(--space-16)));
+      padding-bottom: clamp(var(--space-10), 5vw, var(--space-16));
+    }
+    .cs-hero h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: var(--space-4);
+    }
+    .cs-hero p {
+      font-size: var(--text-lg);
+      opacity: 0.85;
+      max-width: 52ch;
+      line-height: 1.5;
+    }
+
+    /* Case study cards grid */
+    .cs-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+    }
+
+    /* Individual case study card */
+    .cs-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-10);
+      padding: var(--space-10);
+      background: var(--color-bg);
+      border-radius: var(--radius-xl);
+      border: 1px solid oklch(from var(--color-border) l c h / 0.4);
+      align-items: start;
+    }
+    [data-theme='dark'] .cs-card {
+      background: var(--color-surface);
+      border-color: var(--color-border);
+    }
+
+    .cs-card__meta {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    .cs-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+    .cs-card__tag {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      background: oklch(from var(--color-accent) l c h / 0.12);
+      color: var(--color-accent);
+    }
+
+    .cs-card h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--color-text);
+    }
+    .cs-card__challenge {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ROI / results side */
+    .cs-card__results {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    .cs-card__result-label {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-bottom: var(--space-2);
+    }
+
+    .cs-kpi-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+
+    .cs-kpi {
+      padding: var(--space-4) var(--space-5);
+      background: var(--color-surface-2, var(--color-surface));
+      border-radius: var(--radius-md);
+      border: 1px solid oklch(from var(--color-border) l c h / 0.3);
+    }
+    [data-theme='dark'] .cs-kpi {
+      background: var(--color-surface-offset);
+      border-color: var(--color-border);
+    }
+    .cs-kpi__number {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 800;
+      color: var(--color-text);
+      line-height: 1;
+      margin-bottom: var(--space-1);
+    }
+    .cs-kpi__label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      line-height: 1.4;
+    }
+
+    .cs-card__deliverables {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .cs-card__deliverables li {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      padding-left: var(--space-5);
+      position: relative;
+      line-height: 1.5;
+    }
+    .cs-card__deliverables li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      border-radius: var(--radius-full);
+      background: var(--color-accent);
+      opacity: 0.6;
+    }
+
+    /* Back link */
+    .cs-back {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-hero-text);
+      text-decoration: none;
+      opacity: 0.7;
+      margin-bottom: var(--space-6);
+    }
+    .cs-back:hover { opacity: 1; }
+
+    /* CTA section */
+    .cs-cta {
+      text-align: center;
+      padding-block: clamp(var(--space-16), 6vw, var(--space-24));
+      background: var(--color-hero-bg);
+      color: var(--color-hero-text);
+    }
+    .cs-cta h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 800;
+      margin-bottom: var(--space-4);
+    }
+    .cs-cta p {
+      font-size: var(--text-base);
+      opacity: 0.8;
+      max-width: 48ch;
+      margin: 0 auto var(--space-8);
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .cs-card {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        padding: var(--space-6);
+      }
+      .cs-kpi-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 480px) {
+      .cs-kpi-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container">
+      <a href="./" class="logo" aria-label="Humans and Robots — Home">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <circle cx="12" cy="11" r="5.5" stroke="currentColor" stroke-width="2"/>
+          <path d="M4 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <rect x="19" y="5" width="13" height="11" rx="2.5" stroke="var(--color-accent, #20808D)" stroke-width="2" fill="none"/>
+          <circle cx="23.5" cy="10" r="1.3" fill="var(--color-accent, #20808D)"/>
+          <circle cx="28.5" cy="10" r="1.3" fill="var(--color-accent, #20808D)"/>
+          <line x1="25.5" y1="5" x2="25.5" y2="1.5" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="25.5" cy="1" r="1" fill="var(--color-accent, #20808D)"/>
+          <path d="M17 18h3c2 0 3.5 1.5 3.5 3.5V28" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2.5" fill="none"/>
+          <line x1="23" y1="16" x2="23" y2="28" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="29" y1="16" x2="29" y2="28" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-text">Humans &amp; Robots</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="./#what-you-get">What You Get</a>
+        <a href="./#services">Services</a>
+        <a href="./#the-math">The Math</a>
+        <a href="./case-studies">Case Studies</a>
+        <a href="./#about">About</a>
+        <a href="./#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" data-mobile-toggle>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="./#what-you-get" data-mobile-link>What You Get</a>
+    <a href="./#services" data-mobile-link>Services</a>
+    <a href="./#the-math" data-mobile-link>The Math</a>
+    <a href="./case-studies" data-mobile-link>Case Studies</a>
+    <a href="./#about" data-mobile-link>About</a>
+    <a href="./#contact" data-mobile-link>Contact</a>
+  </nav>
+
+  <main id="main">
+    <!-- ===== HERO ===== -->
+    <section class="cs-hero">
+      <div class="container">
+        <a href="./" class="cs-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Home
+        </a>
+        <h1>Real projects. Real&nbsp;results.</h1>
+        <p>Every engagement below was delivered using AI-augmented workflows. Brief, honest, ROI-first.</p>
+      </div>
+    </section>
+
+    <!-- ===== CASE STUDIES ===== -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="cs-grid">
+
+          <!-- 1. CallForMe -->
+          <article class="cs-card reveal">
+            <div class="cs-card__meta">
+              <div class="cs-card__tags">
+                <span class="cs-card__tag">App Development</span>
+                <span class="cs-card__tag">Voice AI</span>
+                <span class="cs-card__tag">Venture Build</span>
+              </div>
+              <h2>CallForMe: AI Phone Assistant for Deaf &amp; Hard-of-Hearing Users</h2>
+              <p class="cs-card__challenge">Built a voice AI app from concept to TestFlight in weeks — not months. CallForMe lets DHH users make phone calls through an AI agent that speaks on their behalf and transcribes responses in real time. The app addresses a 50M+ TAM across DHH, aging adults, and phone-averse demographics.</p>
+            </div>
+            <div class="cs-card__results">
+              <div>
+                <p class="cs-card__result-label">Results</p>
+                <div class="cs-kpi-row">
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">Build 7</p>
+                    <p class="cs-kpi__label">Live in TestFlight</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">11</p>
+                    <p class="cs-kpi__label">Beta testers active</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">50M+</p>
+                    <p class="cs-kpi__label">Total addressable market</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">4</p>
+                    <p class="cs-kpi__label">AI provider contingencies built</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p class="cs-card__result-label">Stack</p>
+                <ul class="cs-card__deliverables">
+                  <li>React Native / Expo (iOS)</li>
+                  <li>Express.js backend on Railway</li>
+                  <li>Retell AI voice engine</li>
+                  <li>Credit pack monetization ($10 / 10 calls)</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Landmark CRM -->
+          <article class="cs-card reveal">
+            <div class="cs-card__meta">
+              <div class="cs-card__tags">
+                <span class="cs-card__tag">CRM Migration</span>
+                <span class="cs-card__tag">Operations</span>
+                <span class="cs-card__tag">Trades</span>
+              </div>
+              <h2>Legacy Operations to Live CRM in 48 Hours</h2>
+              <p class="cs-card__challenge">A signage company with decades of business locked in Adobe Illustrator PDFs — estimates, invoices, client records — all sitting in filing cabinets. No CRM, no automated follow-up, no visibility into pipeline. We migrated everything into HubSpot and unlocked automated email campaigns from data that was previously inaccessible.</p>
+            </div>
+            <div class="cs-card__results">
+              <div>
+                <p class="cs-card__result-label">Results</p>
+                <div class="cs-kpi-row">
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">8,000</p>
+                    <p class="cs-kpi__label">PDFs migrated to CRM</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">48 hrs</p>
+                    <p class="cs-kpi__label">From filing cabinets to live CRM</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">0 → 1</p>
+                    <p class="cs-kpi__label">Automated email campaigns activated</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">20+ yrs</p>
+                    <p class="cs-kpi__label">Of client history now searchable</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p class="cs-card__result-label">What We Delivered</p>
+                <ul class="cs-card__deliverables">
+                  <li>OCR extraction pipeline for legacy PDFs</li>
+                  <li>Data normalization and deduplication</li>
+                  <li>HubSpot CRM with custom properties</li>
+                  <li>Automated nurture sequences from imported contacts</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Jewish Federation META Ads -->
+          <article class="cs-card reveal">
+            <div class="cs-card__meta">
+              <div class="cs-card__tags">
+                <span class="cs-card__tag">Paid Social</span>
+                <span class="cs-card__tag">Nonprofit</span>
+                <span class="cs-card__tag">Analytics</span>
+              </div>
+              <h2>META Ad Campaigns for a Major Nonprofit</h2>
+              <p class="cs-card__challenge">A major metropolitan nonprofit needed end-to-end paid social for event-driven campaigns — from community memorials to awards galas to video series. They needed full-funnel tracking tied to event registrations, creative analytics to optimize spend, and campaigns launched and iterated within tight event timelines.</p>
+            </div>
+            <div class="cs-card__results">
+              <div>
+                <p class="cs-card__result-label">Results</p>
+                <div class="cs-kpi-row">
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">3+</p>
+                    <p class="cs-kpi__label">Event campaigns managed</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">Full</p>
+                    <p class="cs-kpi__label">UTM + CAPI + Pixel tracking stack</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">Motion</p>
+                    <p class="cs-kpi__label">Creative analytics integrated</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">jlive.app</p>
+                    <p class="cs-kpi__label">Event registration attribution</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p class="cs-card__result-label">What We Delivered</p>
+                <ul class="cs-card__deliverables">
+                  <li>Facebook + Instagram campaign management</li>
+                  <li>UTM-tagged registration funnels</li>
+                  <li>Conversions API (CAPI) server-side tracking</li>
+                  <li>Motion creative performance dashboards</li>
+                  <li>Campaign optimization across event cycles</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Jewmanity Social & Video -->
+          <article class="cs-card reveal">
+            <div class="cs-card__meta">
+              <div class="cs-card__tags">
+                <span class="cs-card__tag">Social Media</span>
+                <span class="cs-card__tag">Video</span>
+                <span class="cs-card__tag">Nonprofit</span>
+              </div>
+              <h2>Ongoing Social Media &amp; Video for a Peace-Building Nonprofit</h2>
+              <p class="cs-card__challenge">A nonprofit bridging peace through shared humanity — running healing retreats for combat veterans with PTSD using breathwork, surf therapy, and equine therapy. They needed consistent social media presence and video content, but had zero budget for a production crew or agency. We built a lean, AI-augmented content engine that delivers authenticity at scale.</p>
+            </div>
+            <div class="cs-card__results">
+              <div>
+                <p class="cs-card__result-label">Results</p>
+                <div class="cs-kpi-row">
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">Ongoing</p>
+                    <p class="cs-kpi__label">Monthly content management</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">3-4 shots</p>
+                    <p class="cs-kpi__label">Lean production model per video</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">&lt;500</p>
+                    <p class="cs-kpi__label">AI credits per post produced</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">Multi</p>
+                    <p class="cs-kpi__label">Platforms managed (IG, FB, more)</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p class="cs-card__result-label">What We Delivered</p>
+                <ul class="cs-card__deliverables">
+                  <li>Instagram carousels and campaign support</li>
+                  <li>Video scripts, shot lists, and production direction</li>
+                  <li>Lean solo production workflow</li>
+                  <li>Event-specific content (retreat campaigns)</li>
+                  <li>Talking-head and real-people content over stock</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. dALF Document Rebuild -->
+          <article class="cs-card reveal">
+            <div class="cs-card__meta">
+              <div class="cs-card__tags">
+                <span class="cs-card__tag">Document Production</span>
+                <span class="cs-card__tag">Fundraising</span>
+                <span class="cs-card__tag">Nonprofit</span>
+              </div>
+              <h2>$1M Campaign Offering — Full Document Rebuild</h2>
+              <p class="cs-card__challenge">A disability innovation nonprofit was preparing to send their $1M fundraising document to 25 warm-prospect family offices. Problem: prospects didn't understand where their money would go. The original was text-heavy, structurally unclear, and had no visual hierarchy. We rebuilt the entire offering based on fundraising best practices and proactively created an ROI leave-behind that wasn't requested.</p>
+            </div>
+            <div class="cs-card__results">
+              <div>
+                <p class="cs-card__result-label">Results</p>
+                <div class="cs-kpi-row">
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">~70 min</p>
+                    <p class="cs-kpi__label">From review to final delivery</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">2</p>
+                    <p class="cs-kpi__label">Documents delivered (4-page + 1-page)</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">+1</p>
+                    <p class="cs-kpi__label">Unsolicited ROI leave-behind created</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">25</p>
+                    <p class="cs-kpi__label">Family offices in the distribution list</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p class="cs-card__result-label">What We Delivered</p>
+                <ul class="cs-card__deliverables">
+                  <li>Complete 4-page campaign offering rebuild</li>
+                  <li>KPI-first hero, branded design, flow diagrams</li>
+                  <li>Concrete dollar allocations ($500K/$400K/$100K)</li>
+                  <li>1-page Family Office ROI Summary (unsolicited)</li>
+                  <li>Multiple live revision cycles in one session</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Storage Units Lead Gen -->
+          <article class="cs-card reveal">
+            <div class="cs-card__meta">
+              <div class="cs-card__tags">
+                <span class="cs-card__tag">Lead Generation</span>
+                <span class="cs-card__tag">AI Prospecting</span>
+                <span class="cs-card__tag">Real Estate</span>
+              </div>
+              <h2>AI-Powered Acquisition Prospecting for Storage Facilities</h2>
+              <p class="cs-card__challenge">A buyer looking to acquire self-storage facilities needed a targeted lead list — but not just any properties. Specific criteria: same owner 10+ years, no management company, no website, low online presence, and within defined geographic zones in Illinois and Florida. Traditional brokers couldn't filter this tightly. We built an AI-powered prospecting pipeline that surfaced exactly the right targets.</p>
+            </div>
+            <div class="cs-card__results">
+              <div>
+                <p class="cs-card__result-label">Results</p>
+                <div class="cs-kpi-row">
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">2</p>
+                    <p class="cs-kpi__label">Target markets researched (IL + FL)</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">5+</p>
+                    <p class="cs-kpi__label">Filtering criteria applied per lead</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">Precise</p>
+                    <p class="cs-kpi__label">Geographic radius targeting</p>
+                  </div>
+                  <div class="cs-kpi">
+                    <p class="cs-kpi__number">AI</p>
+                    <p class="cs-kpi__label">Powered research and scoring</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p class="cs-card__result-label">What We Delivered</p>
+                <ul class="cs-card__deliverables">
+                  <li>Qualified lead list with owner tenure + digital presence signals</li>
+                  <li>Geographic filtering (3hrs of Northbrook IL, 10mi of The Villages FL)</li>
+                  <li>Ownership stability scoring (10+ years same owner)</li>
+                  <li>Acquisition-ready prospect profiles</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cs-cta">
+      <div class="container">
+        <h2>Your project could be next.</h2>
+        <p>Whether it's social media, CRM, document production, or something we haven't built yet — we move fast and we show our work.</p>
+        <a href="./#contact" class="btn btn--hero">Start a Conversation</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__brand">
+        <svg width="24" height="24" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <circle cx="12" cy="11" r="5.5" stroke="currentColor" stroke-width="2"/>
+          <path d="M4 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <rect x="19" y="5" width="13" height="11" rx="2.5" stroke="var(--color-accent, #20808D)" stroke-width="2" fill="none"/>
+          <circle cx="23.5" cy="10" r="1.3" fill="var(--color-accent, #20808D)"/>
+          <circle cx="28.5" cy="10" r="1.3" fill="var(--color-accent, #20808D)"/>
+        </svg>
+        <span class="footer__brand-name">Humans &amp; Robots, LLC</span>
+      </div>
+      <div class="footer__meta">
+        <a href="mailto:ben@humansnrobots.com">ben@humansnrobots.com</a>
+        <small>&copy; 2026 Humans and Robots, LLC. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
