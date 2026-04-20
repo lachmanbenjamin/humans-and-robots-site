@@ -23,8 +23,8 @@
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,600,700&f[]=jetbrains-mono@400,500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="./base.css?v=20260420-1736">
-  <link rel="stylesheet" href="./style.css?v=20260420-1736">
+  <link rel="stylesheet" href="./base.css?v=20260420-1815">
+  <link rel="stylesheet" href="./style.css?v=20260420-1815">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='11' cy='12' r='6' fill='none' stroke='%231B474D' stroke-width='2.5'/%3E%3Crect x='15' y='6' width='12' height='12' rx='2' fill='none' stroke='%2320808D' stroke-width='2.5'/%3E%3Ccircle cx='19' cy='10' r='1.2' fill='%2320808D'/%3E%3Ccircle cx='23' cy='10' r='1.2' fill='%2320808D'/%3E%3Cline x1='18' y1='14' x2='24' y2='14' stroke='%2320808D' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='8' y1='22' x2='8' y2='28' stroke='%231B474D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='14' y1='22' x2='14' y2='28' stroke='%231B474D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='19' y1='20' x2='19' y2='28' stroke='%2320808D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='25' y1='20' x2='25' y2='28' stroke='%2320808D' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
@@ -109,13 +109,17 @@ document.head.appendChild(o)}initApollo();</script>
             </p>
           </div>
 
-          <aside class="hero__card" aria-label="Quick stats">
+          <aside class="hero__card hero__card--compact" aria-label="Quick stats">
             <p class="hero__card-label">Last quarter, for real clients</p>
             <ul class="hero__card-list" role="list">
               <li><span class="stat-num">15</span><span class="stat-lbl">micro-influencers sourced, vetted, activated — in 1 week</span></li>
               <li><span class="stat-num">8,000</span><span class="stat-lbl">PDFs migrated to a live CRM in 48 hours</span></li>
+              <li><span class="stat-num">$1M</span><span class="stat-lbl">fundraising offering rebuilt in 70 minutes — board-ready for 25 family offices</span></li>
               <li><span class="stat-num">900<span class="stat-num-plus">+</span></span><span class="stat-lbl">formulas in a board-ready financial model, built in one session</span></li>
               <li><span class="stat-num">&lt;2hr</span><span class="stat-lbl">to build a full 7-day content calendar</span></li>
+              <li><span class="stat-num">30<span class="stat-num-unit">-day</span></span><span class="stat-lbl">content calendar shipped, with board-ready reporting wired in</span></li>
+              <li><span class="stat-num">Meta</span><span class="stat-lbl">nonprofit paid social launched end-to-end with full UTM + CAPI attribution</span></li>
+              <li><span class="stat-num">mins</span><span class="stat-lbl">to draft client-ready proposals from a branded content library</span></li>
             </ul>
           </aside>
         </div>
@@ -350,7 +354,7 @@ document.head.appendChild(o)}initApollo();</script>
           <div class="math-card math-card--hr reveal">
             <p class="math-card__label">H&amp;R engagement</p>
             <p class="math-card__price">from ~$3K<span class="math-card__unit">/month</span></p>
-            <p class="math-card__caveat">Scoped to outcomes and deliverables. Scale up or down monthly.</p>
+            <p class="math-card__caveat">Scoped to outcomes and deliverables. Scale up or down monthly. Can't find what works best for you? <a href="./contact" class="math-card__bespoke">Reach out for a bespoke proposal.</a></p>
             <ul class="math-card__items" role="list">
               <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>30-day time to impact</li>
               <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 11l3 3 5-5"/></svg>Robot-leverage capacity</li>
@@ -494,6 +498,38 @@ document.head.appendChild(o)}initApollo();</script>
       </div>
     </section>
 
+    <!-- ===== NEWSLETTER / SIGNAL LIST ===== -->
+    <section class="section section--white signal-section" id="signal" aria-labelledby="signal-heading">
+      <div class="container container--narrow">
+        <div class="signal-card reveal">
+          <div class="signal-card__intro">
+            <p class="section__label">The H&amp;R signal list</p>
+            <h2 class="section__heading" id="signal-heading">Continuous content flow. No noise.</h2>
+            <p class="signal-card__lede">Short, specific notes on what's actually working in AI for growing businesses — the workflows we ship, the numbers we measure, the playbooks we'd want if we were on your side of the desk. Usually twice a month. Never a drip.</p>
+          </div>
+          <form class="signal-form" id="signal-form" aria-label="Newsletter signup" action="https://formspree.io/f/ben@humansnrobots.com" method="POST">
+            <input type="hidden" name="_subject" value="New H&R signal list subscriber">
+            <input type="hidden" name="signup_source" value="homepage-signal-list">
+            <div class="signal-form__row">
+              <div class="signal-form__field">
+                <label for="signal-name" class="sr-only">Name</label>
+                <input type="text" id="signal-name" name="name" autocomplete="name" placeholder="Your name" required>
+              </div>
+              <div class="signal-form__field">
+                <label for="signal-email" class="sr-only">Email</label>
+                <input type="email" id="signal-email" name="email" autocomplete="email" placeholder="you@company.com" required>
+              </div>
+            </div>
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+            <button type="submit" class="btn btn--primary signal-form__submit">Join the list</button>
+            <p class="signal-form__fineprint">We use your email for the signal list only — no sharing, unsubscribe anytime. Prefer email? <a href="mailto:ben@humansnrobots.com?subject=Add%20me%20to%20the%20H%26R%20signal%20list">Write to ben@humansnrobots.com</a>.</p>
+            <p class="signal-form__success" id="signal-success" role="alert">You're on the list. Welcome.</p>
+            <p class="signal-form__error" id="signal-error" role="alert"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== FINAL CTA / CONTACT TEASER ===== -->
     <section class="section section--dark cta-section" aria-labelledby="cta-heading">
       <div class="container">
@@ -542,6 +578,6 @@ document.head.appendChild(o)}initApollo();</script>
     </div>
   </footer>
 
-  <script src="./app.js?v=20260420-1736" defer></script>
+  <script src="./app.js?v=20260420-1815" defer></script>
 </body>
 </html>

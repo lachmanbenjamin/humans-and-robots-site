@@ -170,6 +170,58 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   });
 })();
 
+// ===== SIGNAL LIST / NEWSLETTER FORM (Formspree) =====
+(function () {
+  var form = document.getElementById('signal-form');
+  if (!form) return;
+  var success = document.getElementById('signal-success');
+  var errorEl = document.getElementById('signal-error');
+  var btn = form.querySelector('.signal-form__submit');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (success) success.classList.remove('is-visible');
+    if (errorEl) errorEl.classList.remove('is-visible');
+
+    var email = form.querySelector('input[type="email"]');
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+      if (errorEl) {
+        errorEl.textContent = 'Please enter a valid email address.';
+        errorEl.classList.add('is-visible');
+      }
+      email.focus();
+      return;
+    }
+
+    var originalLabel = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Joining…';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (response) {
+      if (response.ok) {
+        form.reset();
+        btn.style.display = 'none';
+        if (success) success.classList.add('is-visible');
+      } else {
+        return response.json().then(function (json) {
+          throw new Error(json && json.errors ? json.errors.map(function(e){return e.message;}).join(', ') : 'Something went wrong.');
+        });
+      }
+    }).catch(function () {
+      btn.disabled = false;
+      btn.textContent = originalLabel;
+      if (errorEl) {
+        errorEl.textContent = 'Something went wrong. Please email ben@humansnrobots.com to subscribe.';
+        errorEl.classList.add('is-visible');
+      }
+    });
+  });
+})();
+
 // ===== MOBILE NAV FOCUS TRAP =====
 (function () {
   var nav = document.getElementById('mobile-nav');
