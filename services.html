@@ -3,33 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services — Humans and Robots</title>
-  <meta name="description" content="AI-augmented social media, CRM & marketing, and workflow implementation. Three engagement models designed to deliver output from day one.">
+  <title>Services — Humans &amp; Robots</title>
+  <meta name="description" content="Seven sharp offerings from H&R: social, CRM, workflow coaching, proposal writing, industry training, competitor intelligence, workflow auditing. Every engagement tied to a measurable outcome.">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Services — Humans and Robots">
-  <meta property="og:description" content="AI-augmented social media, CRM & marketing, and workflow implementation. Three engagement models designed to deliver output from day one.">
+  <meta property="og:title" content="Services — Humans &amp; Robots">
+  <meta property="og:description" content="Seven sharp, outcome-led offerings from Humans &amp; Robots.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://humansnrobots.com/services">
   <meta property="og:site_name" content="Humans and Robots, LLC">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Services — Humans and Robots">
-  <meta name="twitter:description" content="AI-augmented social media, CRM & marketing, and workflow implementation.">
+  <meta name="twitter:title" content="Services — Humans &amp; Robots">
+  <meta name="twitter:description" content="Seven outcome-led offerings from H&amp;R.">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,600,700&f[]=jetbrains-mono@400,500&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="./base.css">
   <link rel="stylesheet" href="./style.css">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='11' cy='12' r='6' fill='none' stroke='%231B474D' stroke-width='2.5'/%3E%3Crect x='15' y='6' width='12' height='12' rx='2' fill='none' stroke='%2320808D' stroke-width='2.5'/%3E%3Ccircle cx='19' cy='10' r='1.2' fill='%2320808D'/%3E%3Ccircle cx='23' cy='10' r='1.2' fill='%2320808D'/%3E%3Cline x1='18' y1='14' x2='24' y2='14' stroke='%2320808D' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='8' y1='22' x2='8' y2='28' stroke='%231B474D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='14' y1='22' x2='14' y2='28' stroke='%231B474D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='19' y1='20' x2='19' y2='28' stroke='%2320808D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='25' y1='20' x2='25' y2='28' stroke='%2320808D' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='11' cy='12' r='6' fill='none' stroke='%231B474D' stroke-width='2.5'/%3E%3Crect x='15' y='6' width='12' height='12' rx='2' fill='none' stroke='%2320808D' stroke-width='2.5'/%3E%3Ccircle cx='19' cy='10' r='1.2' fill='%2320808D'/%3E%3Ccircle cx='23' cy='10' r='1.2' fill='%2320808D'/%3E%3C/svg%3E">
 
-  <!-- Theme initialization -->
   <script>
     (function(){
       var d = window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
@@ -38,25 +32,37 @@
   </script>
 
   <style>
-    /* === SERVICES PAGE STYLES === */
     .cs-hero {
       background: var(--color-hero-bg);
       color: var(--color-hero-text);
       padding-top: calc(4rem + clamp(var(--space-10), 5vw, var(--space-16)));
       padding-bottom: clamp(var(--space-10), 5vw, var(--space-16));
+      position: relative;
+      overflow: hidden;
     }
+    .cs-hero::before {
+      content: '';
+      position: absolute;
+      top: -20%; right: -10%;
+      width: 45vw; height: 45vw;
+      max-width: 620px; max-height: 620px;
+      background: radial-gradient(circle, rgba(0,209,178,0.15), transparent 65%);
+      filter: blur(20px);
+      pointer-events: none;
+    }
+    .cs-hero .container { position: relative; z-index: 1; }
     .cs-hero h1 {
       font-family: var(--font-display);
-      font-size: var(--text-2xl);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.1;
+      font-size: var(--text-3xl);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
       margin-bottom: var(--space-4);
     }
-    .cs-hero p {
+    .cs-hero .lede {
       font-size: var(--text-lg);
-      opacity: 0.85;
-      max-width: 58ch;
+      opacity: 0.9;
+      max-width: 60ch;
       line-height: 1.5;
     }
     .cs-back {
@@ -64,82 +70,109 @@
       align-items: center;
       gap: var(--space-2);
       font-size: var(--text-sm);
-      font-weight: 500;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--color-hero-text);
       text-decoration: none;
       opacity: 0.7;
       margin-bottom: var(--space-6);
     }
-    .cs-back:hover { opacity: 1; }
+    .cs-back:hover { opacity: 1; color: var(--color-accent); }
 
-    /* Service detail card */
+    /* Service jump nav */
+    .svc-jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-10);
+    }
+    .svc-jump a {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 0.5rem 0.85rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(245, 230, 211, 0.15);
+      color: rgba(245, 230, 211, 0.75);
+      text-decoration: none;
+    }
+    .svc-jump a:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    /* Service detail */
     .svc-detail {
       display: grid;
       grid-template-columns: 1fr 1.4fr;
       gap: var(--space-10);
       padding: var(--space-10);
-      background: var(--color-bg);
+      background: var(--color-surface);
       border-radius: var(--radius-xl);
-      border: 1px solid oklch(from var(--color-border) l c h / 0.4);
+      border: 1px solid rgba(15, 26, 28, 0.08);
       align-items: start;
-      margin-bottom: var(--space-10);
+      margin-bottom: var(--space-8);
+      scroll-margin-top: 5rem;
     }
     [data-theme='dark'] .svc-detail {
       background: var(--color-surface);
       border-color: var(--color-border);
     }
-    .svc-detail__side {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-5);
-    }
-    .svc-detail__icon {
-      width: 56px;
-      height: 56px;
-      color: var(--color-accent);
-    }
-    .svc-detail__tag {
-      display: inline-block;
-      font-size: var(--text-xs);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: var(--space-1) var(--space-3);
-      border-radius: var(--radius-full);
-      background: oklch(from var(--color-accent) l c h / 0.12);
-      color: var(--color-accent);
-      align-self: flex-start;
+    .svc-detail__side { display: flex; flex-direction: column; gap: var(--space-5); }
+    .svc-detail__num {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: 0.2em;
+      color: var(--color-accent-coral);
+      font-weight: 500;
     }
     .svc-detail h2 {
       font-family: var(--font-display);
       font-size: var(--text-xl);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
       color: var(--color-text);
-      margin-bottom: var(--space-3);
     }
     .svc-detail__lede {
       font-size: var(--text-base);
       color: var(--color-text-muted);
       line-height: 1.6;
     }
-    .svc-detail__body {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-6);
+    .svc-detail__outcome {
+      padding: var(--space-4) var(--space-5);
+      border-left: 3px solid var(--color-accent-warm);
+      background: rgba(232, 184, 74, 0.08);
+      border-radius: var(--radius-sm);
     }
-    .svc-detail__block {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-    }
-    .svc-detail__label {
+    .svc-detail__outcome-label {
+      font-family: var(--font-mono);
       font-size: var(--text-xs);
-      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--color-accent);
+      letter-spacing: 0.18em;
+      color: var(--color-accent-coral);
+      margin-bottom: var(--space-2);
+    }
+    .svc-detail__outcome p {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.45;
+    }
+    .svc-detail__body { display: flex; flex-direction: column; gap: var(--space-6); }
+    .svc-detail__block { display: flex; flex-direction: column; gap: var(--space-3); }
+    .svc-detail__label {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--color-accent-ink);
     }
     .svc-detail__block p {
       font-size: var(--text-base);
@@ -157,36 +190,46 @@
       color: var(--color-text);
       padding-left: var(--space-5);
       position: relative;
-      line-height: 1.5;
+      line-height: 1.55;
     }
     .svc-detail__list li::before {
       content: '';
       position: absolute;
-      left: 0;
-      top: 0.55em;
-      width: 6px;
-      height: 6px;
-      border-radius: var(--radius-full);
+      left: 0; top: 0.55em;
+      width: 6px; height: 6px;
+      border-radius: 999px;
       background: var(--color-accent);
-      opacity: 0.7;
+      opacity: 0.8;
     }
-    .svc-detail__list li strong {
-      color: var(--color-text);
-      font-weight: 600;
+    .svc-detail__list li strong { color: var(--color-text); font-weight: 700; }
+    .svc-detail__roi {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
     }
+    .svc-detail__roi-tag {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.65rem;
+      border-radius: var(--radius-sm);
+      background: rgba(0, 209, 178, 0.1);
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+    [data-theme='dark'] .svc-detail__roi-tag { color: var(--color-accent); }
     .svc-detail__note {
       font-size: var(--text-sm);
       color: var(--color-text-muted);
       font-style: italic;
       padding: var(--space-4);
-      background: var(--color-surface);
-      border-left: 3px solid var(--color-accent);
+      background: var(--color-bg);
+      border-left: 3px solid var(--color-accent-coral);
       border-radius: var(--radius-sm);
-      line-height: 1.5;
+      line-height: 1.55;
     }
-    [data-theme='dark'] .svc-detail__note {
-      background: var(--color-surface-offset);
-    }
+    [data-theme='dark'] .svc-detail__note { background: var(--color-surface-offset); }
 
     /* Engagement section */
     .svc-engagement {
@@ -197,9 +240,9 @@
     }
     .svc-engagement__card {
       padding: var(--space-6);
-      background: var(--color-bg);
+      background: var(--color-surface);
       border-radius: var(--radius-lg);
-      border: 1px solid oklch(from var(--color-border) l c h / 0.4);
+      border: 1px solid rgba(15, 26, 28, 0.08);
       display: flex;
       flex-direction: column;
       gap: var(--space-3);
@@ -211,21 +254,22 @@
     .svc-engagement__card h3 {
       font-family: var(--font-display);
       font-size: var(--text-lg);
-      font-weight: 700;
+      font-weight: 800;
       color: var(--color-text);
-      letter-spacing: -0.01em;
+      letter-spacing: -0.015em;
     }
     .svc-engagement__card p {
       font-size: var(--text-sm);
       color: var(--color-text-muted);
-      line-height: 1.55;
+      line-height: 1.6;
     }
     .svc-engagement__step {
+      font-family: var(--font-mono);
       font-size: var(--text-xs);
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      font-weight: 500;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--color-accent);
+      color: var(--color-accent-coral);
     }
 
     /* CTA */
@@ -237,31 +281,29 @@
     }
     .cs-cta h2 {
       font-family: var(--font-display);
-      font-size: var(--text-xl);
-      font-weight: 800;
+      font-size: var(--text-2xl);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
       margin-bottom: var(--space-4);
     }
     .cs-cta p {
       font-size: var(--text-base);
-      opacity: 0.8;
+      opacity: 0.85;
       max-width: 52ch;
       margin: 0 auto var(--space-8);
       line-height: 1.6;
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
       .svc-detail {
         grid-template-columns: 1fr;
         gap: var(--space-8);
         padding: var(--space-6);
       }
-      .svc-engagement {
-        grid-template-columns: 1fr;
-      }
+      .svc-engagement { grid-template-columns: 1fr; }
     }
   </style>
-  <!-- Apollo website tracker -->
   <script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
 o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
 o.onload=function(){window.trackingFunctions.onLoad({appId:"69c19c1e285e790021f4390f"})},
@@ -270,233 +312,350 @@ document.head.appendChild(o)}initApollo();</script>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- ===== HEADER ===== -->
   <header class="site-header">
     <div class="container">
       <a href="./" class="logo" aria-label="Humans and Robots — Home">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-          <circle cx="12" cy="11" r="5.5" stroke="currentColor" stroke-width="2"/>
-          <path d="M4 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-          <rect x="19" y="5" width="13" height="11" rx="2.5" stroke="var(--color-accent, #20808D)" stroke-width="2" fill="none"/>
-          <circle cx="23.5" cy="10" r="1.3" fill="var(--color-accent, #20808D)"/>
-          <circle cx="28.5" cy="10" r="1.3" fill="var(--color-accent, #20808D)"/>
-          <line x1="25.5" y1="5" x2="25.5" y2="1.5" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="25.5" cy="1" r="1" fill="var(--color-accent, #20808D)"/>
-          <path d="M17 18h3c2 0 3.5 1.5 3.5 3.5V28" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2.5" fill="none"/>
-          <line x1="23" y1="16" x2="23" y2="28" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="29" y1="16" x2="29" y2="28" stroke="var(--color-accent, #20808D)" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
+        <span class="logo-mark" aria-hidden="true">H&amp;R</span>
         <span class="logo-text">Humans &amp; Robots</span>
       </a>
-
       <nav class="nav-desktop" aria-label="Main navigation">
-        <a href="./#what-you-get">What You Get</a>
         <a href="./services" aria-current="page">Services</a>
-        <a href="./#the-math">The Math</a>
-        <a href="./case-studies">Case Studies</a>
-        <a href="./#about">About</a>
-        <a href="./contact">Contact</a>
+        <a href="./#roi">ROI</a>
+        <a href="./case-studies">Work</a>
+        <a href="./about">About</a>
+        <a href="./contact" class="nav-cta">Let's Talk</a>
       </nav>
-
       <div class="nav-actions">
         <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
         <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" data-mobile-toggle>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <line x1="3" y1="12" x2="21" y2="12"/>
-            <line x1="3" y1="18" x2="21" y2="18"/>
-          </svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Nav -->
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-    <a href="./#what-you-get" data-mobile-link>What You Get</a>
     <a href="./services" data-mobile-link>Services</a>
-    <a href="./#the-math" data-mobile-link>The Math</a>
-    <a href="./case-studies" data-mobile-link>Case Studies</a>
-    <a href="./#about" data-mobile-link>About</a>
-    <a href="./contact" data-mobile-link>Contact</a>
+    <a href="./#roi" data-mobile-link>ROI</a>
+    <a href="./case-studies" data-mobile-link>Work</a>
+    <a href="./about" data-mobile-link>About</a>
+    <a href="./contact" data-mobile-link>Let's Talk</a>
   </nav>
 
   <main id="main">
-    <!-- ===== HERO ===== -->
     <section class="cs-hero">
       <div class="container">
         <a href="./" class="cs-back">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           Home
         </a>
-        <h1>Services built around output,<br>not overhead.</h1>
-        <p>Three models, one goal: more output with less overhead. We embed AI into your existing workflows as a force multiplier for the people already doing the work — not a replacement for them.</p>
+        <h1>Seven offerings. Each one built around an <em class="em--spaced">outcome</em> we can measure.</h1>
+        <p class="lede">Everything H&amp;R ships is scoped against the six ROI metrics: time saved, workflows automated, content output, leads generated, cost reduced, revenue influenced. Pick the offerings that fit — or let us map a stack from scratch.</p>
+        <nav class="svc-jump" aria-label="Services jump links">
+          <a href="#social-media">01 · Social</a>
+          <a href="#crm-marketing">02 · CRM</a>
+          <a href="#workflow-coaching">03 · Coaching</a>
+          <a href="#proposals">04 · Proposals</a>
+          <a href="#training">05 · Training</a>
+          <a href="#competitor-intel">06 · Competitor Intel</a>
+          <a href="#audit">07 · Audit</a>
+        </nav>
       </div>
     </section>
 
-    <!-- ===== SERVICES DETAIL ===== -->
     <section class="section section--cream">
       <div class="container">
 
-        <!-- 1. AI-Augmented Social Media -->
+        <!-- 01 Social Media -->
         <article class="svc-detail reveal" id="social-media">
           <div class="svc-detail__side">
-            <svg class="svc-detail__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="6" y="6" width="36" height="36" rx="4"/>
-              <circle cx="18" cy="20" r="4"/>
-              <circle cx="30" cy="20" r="4"/>
-              <path d="M14 32h20"/>
-              <path d="M18 28v4"/>
-              <path d="M30 28v4"/>
-            </svg>
-            <span class="svc-detail__tag">Service 01</span>
-            <h2>Social Media</h2>
-            <p class="svc-detail__lede">A content engine that produces real posts, reels, and stories every week — not just a strategy deck. We handle the strategy, creation, scheduling, and reporting end-to-end, with AI doing the heavy lifting and a human owning the voice.</p>
+            <p class="svc-detail__num">Service 01</p>
+            <h2>Social Media Management</h2>
+            <p class="svc-detail__lede">A content engine that produces real posts, reels, and stories every week — not a strategy deck. We run the calendar end-to-end: strategy, creation, scheduling, reporting. Robots do the heavy lifting; a human owns the voice.</p>
+            <div class="svc-detail__outcome">
+              <p class="svc-detail__outcome-label">Outcome we promise</p>
+              <p>3–5× the content volume of a part-time social hire, at roughly the same cost.</p>
+            </div>
           </div>
           <div class="svc-detail__body">
             <div class="svc-detail__block">
-              <p class="svc-detail__label">What's Included</p>
+              <p class="svc-detail__label">What's included</p>
               <ul class="svc-detail__list">
-                <li><strong>Content strategy &amp; calendar.</strong> Monthly themes, campaign arcs, and a week-by-week posting calendar tied to your goals.</li>
-                <li><strong>AI-powered creation.</strong> Copy, images, short-form video, and carousels — drafted with AI, edited by a human, approved by you.</li>
-                <li><strong>Multi-platform scheduling.</strong> Instagram, Facebook, LinkedIn, TikTok, and YouTube Shorts — scheduled and cross-posted natively.</li>
-                <li><strong>Performance analytics.</strong> Monthly reporting on what's working, what isn't, and where to shift spend or effort.</li>
-                <li><strong>Community engagement.</strong> Comment monitoring, DM triage protocols, and response templates your team can use.</li>
+                <li><strong>Strategy &amp; calendar.</strong> Monthly themes, campaign arcs, week-by-week posting.</li>
+                <li><strong>Creation.</strong> Copy, carousels, short-form video, graphics — AI-drafted, human-edited.</li>
+                <li><strong>Multi-platform scheduling.</strong> IG, FB, LinkedIn, TikTok, YouTube Shorts.</li>
+                <li><strong>Performance reporting.</strong> Monthly readout on what's working, what isn't, what shifts next.</li>
+                <li><strong>Community engagement.</strong> Comment monitoring and DM triage protocols your team can run.</li>
               </ul>
             </div>
             <div class="svc-detail__block">
-              <p class="svc-detail__label">Best Fit</p>
-              <p>Growing brands and nonprofits that need a consistent social presence but can't justify a full content team. Clients typically get 3–5x the output of a part-time social manager at roughly the same cost.</p>
+              <p class="svc-detail__label">ROI metrics we baseline</p>
+              <div class="svc-detail__roi">
+                <span class="svc-detail__roi-tag">Content output</span>
+                <span class="svc-detail__roi-tag">Time saved</span>
+                <span class="svc-detail__roi-tag">Leads generated</span>
+              </div>
             </div>
-            <p class="svc-detail__note">Recent example: ongoing content management for a peace-building nonprofit — carousel posts, video scripts, and shot lists — delivered in under 500 AI credits per post across multiple platforms.</p>
+            <p class="svc-detail__note">Recent: ongoing content for a peace-building nonprofit — carousels, video scripts, shot lists — produced in under 500 AI credits per post, across multiple platforms.</p>
           </div>
         </article>
 
-        <!-- 2. AI-Augmented CRM & Marketing -->
+        <!-- 02 CRM & Marketing Automation -->
         <article class="svc-detail reveal" id="crm-marketing">
           <div class="svc-detail__side">
-            <svg class="svc-detail__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M6 12h36v28H6z" />
-              <path d="M6 12l18 14L42 12"/>
-              <circle cx="36" cy="34" r="6"/>
-              <path d="M34 34h4"/>
-              <path d="M36 32v4"/>
-            </svg>
-            <span class="svc-detail__tag">Service 02</span>
-            <h2>CRM &amp; Marketing</h2>
-            <p class="svc-detail__lede">A working CRM, real lead capture, and automated nurture sequences — set up, cleaned up, and running. We stand up HubSpot (or optimize what you already have) so every lead is tracked, every conversation is logged, and every pipeline stage has a next step.</p>
+            <p class="svc-detail__num">Service 02</p>
+            <h2>CRM &amp; Marketing Automation</h2>
+            <p class="svc-detail__lede">A working CRM, real lead capture, automated nurture — stood up, cleaned up, and running. We set up HubSpot (or optimize what you have) so every lead is tracked, every conversation logged, and every pipeline stage has a next step.</p>
+            <div class="svc-detail__outcome">
+              <p class="svc-detail__outcome-label">Outcome we promise</p>
+              <p>A pipeline you trust. Lead-to-close attribution, fewer dropped balls, faster follow-up.</p>
+            </div>
           </div>
           <div class="svc-detail__body">
             <div class="svc-detail__block">
-              <p class="svc-detail__label">What's Included</p>
+              <p class="svc-detail__label">What's included</p>
               <ul class="svc-detail__list">
-                <li><strong>CRM setup &amp; cleanup.</strong> HubSpot (or your preferred stack) configured with custom properties, pipelines, deal stages, and hygiene rules.</li>
-                <li><strong>Lead capture &amp; qualification.</strong> Forms, routing rules, and AI-assisted scoring so the right leads reach the right person fast.</li>
-                <li><strong>Email sequences &amp; nurture flows.</strong> Drafted with AI, tuned for your voice, and A/B tested — from cold outreach to post-sale follow-up.</li>
-                <li><strong>Pipeline reporting.</strong> Dashboards your team will actually use — forecast, conversion, velocity, and win/loss.</li>
-                <li><strong>Marketing automation.</strong> Workflows that connect your CRM, email, ads, and analytics into one closed loop.</li>
+                <li><strong>CRM setup / cleanup.</strong> HubSpot or your stack, configured with properties, pipelines, stages, hygiene.</li>
+                <li><strong>Lead capture &amp; scoring.</strong> Forms, routing, AI-assisted qualification so the right leads reach the right person fast.</li>
+                <li><strong>Nurture &amp; lifecycle email.</strong> Sequences drafted with AI, tuned to your voice, A/B tested.</li>
+                <li><strong>Pipeline reporting.</strong> Forecast, conversion, velocity, win/loss dashboards your team actually uses.</li>
+                <li><strong>Closed-loop automation.</strong> Ads, email, CRM, analytics — wired into one feedback loop.</li>
               </ul>
             </div>
             <div class="svc-detail__block">
-              <p class="svc-detail__label">Best Fit</p>
-              <p>Sales-led or marketing-led teams that have outgrown spreadsheets, inboxes, or a CRM that no one actually uses. Ideal for companies spending more than $5K/month on marketing with no clear attribution.</p>
+              <p class="svc-detail__label">ROI metrics we baseline</p>
+              <div class="svc-detail__roi">
+                <span class="svc-detail__roi-tag">Leads generated</span>
+                <span class="svc-detail__roi-tag">Revenue influenced</span>
+                <span class="svc-detail__roi-tag">Cost reduced</span>
+              </div>
             </div>
-            <p class="svc-detail__note">Recent example: a signage company with 8,000 PDFs and zero CRM went from filing cabinets to a live, segmented HubSpot database with automated nurture sequences in 48 hours.</p>
+            <p class="svc-detail__note">Recent: a signage company went from 8,000 PDFs in filing cabinets to a segmented, live HubSpot with automated nurture — in 48 hours.</p>
           </div>
         </article>
 
-        <!-- 3. AI Workflow Implementation -->
-        <article class="svc-detail reveal" id="workflow-implementation">
+        <!-- 03 AI Workflow Coaching -->
+        <article class="svc-detail reveal" id="workflow-coaching">
           <div class="svc-detail__side">
-            <svg class="svc-detail__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="8" y="4" width="24" height="32" rx="2"/>
-              <path d="M14 12h12"/>
-              <path d="M14 18h12"/>
-              <path d="M14 24h8"/>
-              <path d="M36 20l-4 4 4 4"/>
-              <path d="M32 24h10"/>
-              <circle cx="38" cy="38" r="6"/>
-              <path d="M36 38h4"/>
-              <path d="M38 36v4"/>
-            </svg>
-            <span class="svc-detail__tag">Service 03</span>
-            <h2>Workflow Implementation</h2>
-            <p class="svc-detail__lede">Operations modernization for businesses still running on paper, PDFs, and tribal knowledge. We take the workflow that already works — estimates, invoices, dispatch, follow-up — and rebuild it as an automated system your team will actually adopt.</p>
+            <p class="svc-detail__num">Service 03</p>
+            <h2>AI Workflow Coaching</h2>
+            <p class="svc-detail__lede">Your team stops fearing AI and starts compounding output with it. We embed with your people, work on their real tasks, and leave behind a library of workflows and prompts they own forever.</p>
+            <div class="svc-detail__outcome">
+              <p class="svc-detail__outcome-label">Outcome we promise</p>
+              <p>Your team ships faster within 30 days. Not "AI curious" — AI fluent.</p>
+            </div>
           </div>
           <div class="svc-detail__body">
             <div class="svc-detail__block">
-              <p class="svc-detail__label">What's Included</p>
+              <p class="svc-detail__label">What's included</p>
               <ul class="svc-detail__list">
-                <li><strong>Legacy document migration.</strong> Illustrator PDFs, scanned invoices, QuickBooks exports — extracted, structured, and imported into modern tools.</li>
-                <li><strong>Document processing &amp; data organization.</strong> OCR pipelines, normalization, deduplication, and a clean source of truth.</li>
-                <li><strong>CRM for trades &amp; service businesses.</strong> Built around how your crew actually works — not a generic SaaS template.</li>
-                <li><strong>Automated scheduling, dispatch, and follow-up.</strong> Fewer dropped balls, fewer "who was supposed to call them?" moments.</li>
-                <li><strong>Financial workflow automation.</strong> QuickBooks, Stripe, and accounting workflows that used to take hours now run in minutes.</li>
+                <li><strong>1:1 and small-group coaching</strong> on your team's real-world tasks and tools.</li>
+                <li><strong>Custom prompt library &amp; SOPs</strong> built around your actual workflows — not generic templates.</li>
+                <li><strong>Weekly accountability.</strong> Async check-ins, quick wins, measurable progress.</li>
+                <li><strong>Tool selection.</strong> We tell you which AI tool fits — and which ones to ignore.</li>
+                <li><strong>Team-wide rollout playbook</strong> when early wins warrant it.</li>
               </ul>
             </div>
             <div class="svc-detail__block">
-              <p class="svc-detail__label">Best Fit</p>
-              <p>Contractors, trades, distributors, and service businesses where the operations are solid but the systems are stuck in 2005. If your office manager is the single point of failure, we can help.</p>
+              <p class="svc-detail__label">ROI metrics we baseline</p>
+              <div class="svc-detail__roi">
+                <span class="svc-detail__roi-tag">Time saved</span>
+                <span class="svc-detail__roi-tag">Workflows automated</span>
+                <span class="svc-detail__roi-tag">Cost reduced</span>
+              </div>
             </div>
-            <p class="svc-detail__note">Recent example: a food distribution client's monthly QuickBooks reconciliation went from a 4-hour manual process to a 2-minute automated workflow — without changing the underlying accounting system.</p>
+            <p class="svc-detail__note">Typical engagement: 8 weeks, 2 coaching sessions per week, 10–20 hours saved per teammate per week by week six.</p>
           </div>
         </article>
 
-        <!-- Engagement path -->
+        <!-- 04 AI-Powered Proposal Writing -->
+        <article class="svc-detail reveal" id="proposals">
+          <div class="svc-detail__side">
+            <p class="svc-detail__num">Service 04</p>
+            <h2>AI-Powered Proposal Writing</h2>
+            <p class="svc-detail__lede">Proposals in minutes, not days. We build your content library, your templates, and your drafting workflow — then your team writes a client-ready document between meetings.</p>
+            <div class="svc-detail__outcome">
+              <p class="svc-detail__outcome-label">Outcome we promise</p>
+              <p>Proposal turnaround drops from days to under an hour. Win rate gets a look, too.</p>
+            </div>
+          </div>
+          <div class="svc-detail__body">
+            <div class="svc-detail__block">
+              <p class="svc-detail__label">What's included</p>
+              <ul class="svc-detail__list">
+                <li><strong>Living content library.</strong> Case studies, bios, pricing, differentiators — indexed for AI drafting.</li>
+                <li><strong>Branded proposal templates.</strong> In the tool you already use (Google Docs, Notion, PandaDoc, HubSpot).</li>
+                <li><strong>AI drafting workflow.</strong> From intake brief to client-ready draft in minutes.</li>
+                <li><strong>Review &amp; revision loops.</strong> Fast iterations that keep humans in the loop on voice and scope.</li>
+                <li><strong>Tracking through signed.</strong> Attribution on send, open, and close.</li>
+              </ul>
+            </div>
+            <div class="svc-detail__block">
+              <p class="svc-detail__label">ROI metrics we baseline</p>
+              <div class="svc-detail__roi">
+                <span class="svc-detail__roi-tag">Time saved</span>
+                <span class="svc-detail__roi-tag">Content output</span>
+                <span class="svc-detail__roi-tag">Revenue influenced</span>
+              </div>
+            </div>
+            <p class="svc-detail__note">Recent: rebuilt a $1M campaign offering for a disability-innovation nonprofit — 4-page pitch + unsolicited 1-page ROI leave-behind for 25 family offices — inside ~70 minutes.</p>
+          </div>
+        </article>
+
+        <!-- 05 Industry-Specific Training -->
+        <article class="svc-detail reveal" id="training">
+          <div class="svc-detail__side">
+            <p class="svc-detail__num">Service 05</p>
+            <h2>Industry-Specific AI Training Packages</h2>
+            <p class="svc-detail__lede">Training built around your industry's actual workflow — not a generic ChatGPT 101 deck. We've built curriculum for trades, nonprofits, sales orgs, ops teams, and in-house legal.</p>
+            <div class="svc-detail__outcome">
+              <p class="svc-detail__outcome-label">Outcome we promise</p>
+              <p>Day-one fluency in the AI workflows specific to your people and your work.</p>
+            </div>
+          </div>
+          <div class="svc-detail__body">
+            <div class="svc-detail__block">
+              <p class="svc-detail__label">What's included</p>
+              <ul class="svc-detail__list">
+                <li><strong>Discovery &amp; role mapping.</strong> Which jobs, which tasks, which tools.</li>
+                <li><strong>Customized curriculum.</strong> Live sessions + async modules, all built around your real artifacts.</li>
+                <li><strong>Take-home playbooks.</strong> Prompt packs, SOPs, and workflow diagrams your team keeps.</li>
+                <li><strong>Tool licensing guidance.</strong> What to buy, what to skip, and how to budget.</li>
+                <li><strong>Post-training office hours.</strong> So the muscle doesn't atrophy after week one.</li>
+              </ul>
+            </div>
+            <div class="svc-detail__block">
+              <p class="svc-detail__label">ROI metrics we baseline</p>
+              <div class="svc-detail__roi">
+                <span class="svc-detail__roi-tag">Time saved</span>
+                <span class="svc-detail__roi-tag">Workflows automated</span>
+                <span class="svc-detail__roi-tag">Content output</span>
+              </div>
+            </div>
+            <p class="svc-detail__note">Great fit for: contracting &amp; trades, mission-driven nonprofits, sales orgs, operations teams modernizing legacy paper-based processes.</p>
+          </div>
+        </article>
+
+        <!-- 06 AI-Powered Competitor Intelligence -->
+        <article class="svc-detail reveal" id="competitor-intel">
+          <div class="svc-detail__side">
+            <p class="svc-detail__num">Service 06</p>
+            <h2>AI-Powered Competitor Intelligence</h2>
+            <p class="svc-detail__lede">Know what your competitors are shipping, ranking for, and spending on — before they announce it. We build a continuous intel loop so strategy calls stop guessing.</p>
+            <div class="svc-detail__outcome">
+              <p class="svc-detail__outcome-label">Outcome we promise</p>
+              <p>A monthly brief that changes at least one decision. Positioning, pricing, or product.</p>
+            </div>
+          </div>
+          <div class="svc-detail__body">
+            <div class="svc-detail__block">
+              <p class="svc-detail__label">What's included</p>
+              <ul class="svc-detail__list">
+                <li><strong>Competitor set definition.</strong> Direct, adjacent, and emerging threats — mapped deliberately.</li>
+                <li><strong>Continuous monitoring.</strong> Site changes, content cadence, hiring signals, ad spend, SEO position.</li>
+                <li><strong>Positioning &amp; pricing analysis.</strong> Where you win, where you're exposed, where to move.</li>
+                <li><strong>Monthly intel brief.</strong> 1 page. Decisions, not observations.</li>
+                <li><strong>Alerts on big moves.</strong> Launches, pivots, acquisitions, leadership changes.</li>
+              </ul>
+            </div>
+            <div class="svc-detail__block">
+              <p class="svc-detail__label">ROI metrics we baseline</p>
+              <div class="svc-detail__roi">
+                <span class="svc-detail__roi-tag">Revenue influenced</span>
+                <span class="svc-detail__roi-tag">Time saved</span>
+              </div>
+            </div>
+            <p class="svc-detail__note">Recent: AI-powered acquisition prospecting for a storage facility buyer — filtered by owner tenure, digital presence, and geographic radius in IL + FL.</p>
+          </div>
+        </article>
+
+        <!-- 07 AI Workflow Auditing -->
+        <article class="svc-detail reveal" id="audit">
+          <div class="svc-detail__side">
+            <p class="svc-detail__num">Service 07</p>
+            <h2>AI Workflow Auditing</h2>
+            <p class="svc-detail__lede">A clear-eyed look at your stack — where AI pays off, where it's a distraction, and where it could blow something up if you're not careful. Starts as a fixed-scope audit. Turns into execution if you want.</p>
+            <div class="svc-detail__outcome">
+              <p class="svc-detail__outcome-label">Outcome we promise</p>
+              <p>A ranked, ROI-scored opportunity list. No vague "exploration phases."</p>
+            </div>
+          </div>
+          <div class="svc-detail__body">
+            <div class="svc-detail__block">
+              <p class="svc-detail__label">What's included</p>
+              <ul class="svc-detail__list">
+                <li><strong>Process mapping.</strong> Every repetitive workflow across your ops, marketing, sales, and service.</li>
+                <li><strong>ROI scoring.</strong> Each opportunity ranked on time saved, cost reduced, and revenue influenced.</li>
+                <li><strong>Risk flags.</strong> Data, compliance, security, and human-in-the-loop requirements made explicit.</li>
+                <li><strong>Implementation roadmap.</strong> Sequenced, scoped, priced — we can execute or hand off clean.</li>
+                <li><strong>Board-ready summary.</strong> One page your CFO will actually read.</li>
+              </ul>
+            </div>
+            <div class="svc-detail__block">
+              <p class="svc-detail__label">ROI metrics we baseline</p>
+              <div class="svc-detail__roi">
+                <span class="svc-detail__roi-tag">Cost reduced</span>
+                <span class="svc-detail__roi-tag">Time saved</span>
+                <span class="svc-detail__roi-tag">Workflows automated</span>
+              </div>
+            </div>
+            <p class="svc-detail__note">Starts at a fixed-scope audit (typically 2–3 weeks). Often becomes a multi-quarter execution engagement — at your pace.</p>
+          </div>
+        </article>
+
+        <!-- Engagement -->
         <div class="reveal" style="margin-top: var(--space-16)">
-          <p class="section__label">How We Engage</p>
-          <h2 class="section__heading">Three steps. No long onboarding.</h2>
+          <p class="section__label">How we engage</p>
+          <h2 class="section__heading">Three steps. No long onboarding. No pitch deck.</h2>
           <p class="section__intro">We don't hand off a plan and disappear. We stay, we execute, and we measure.</p>
         </div>
         <div class="svc-engagement reveal-stagger">
           <div class="svc-engagement__card reveal">
             <p class="svc-engagement__step">Step 01</p>
-            <h3>Discovery Call</h3>
-            <p>A 30-minute conversation about your goals, current tools, and where AI can make the biggest impact. No pitch deck — just a real conversation about what's actually broken.</p>
+            <h3>Discovery call</h3>
+            <p>30 minutes. Goals, tools, where AI pays off fastest. No pitch deck — just a real conversation about what's actually broken.</p>
           </div>
           <div class="svc-engagement__card reveal">
             <p class="svc-engagement__step">Step 02</p>
-            <h3>Custom Playbook</h3>
-            <p>We build your AI-augmented strategy — tailored to your stack, your team, your market. Then we start executing it. Output in 30 days, not a fiscal year.</p>
+            <h3>Custom playbook</h3>
+            <p>Scoped to outcomes, tied to the six ROI metrics, ready to ship. Output in 30 days, not a fiscal year.</p>
           </div>
           <div class="svc-engagement__card reveal">
             <p class="svc-engagement__step">Step 03</p>
-            <h3>Manage, Measure, Improve</h3>
-            <p>This is where we live. Month over month, we run your campaigns, manage your pipeline, track what's working, and adjust what isn't. No re-onboarding, no re-explaining your business.</p>
+            <h3>Manage, measure, compound</h3>
+            <p>We live in the work. Month over month we run it, track it, and adjust. No re-onboarding. No re-explaining your business.</p>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- ===== CTA ===== -->
     <section class="cs-cta">
       <div class="container">
-        <h2>Not sure which service fits?</h2>
-        <p>Tell us what's on your plate. We'll tell you honestly whether we can help, and if we can't, we'll usually know who can.</p>
-        <a href="./contact" class="btn btn--hero">Start a Conversation</a>
+        <h2>Not sure which fits?</h2>
+        <p>Tell us what's on your plate. We'll tell you honestly whether H&amp;R can help — and if we can't, we usually know who can.</p>
+        <a href="./contact" class="btn btn--hero">Start a conversation</a>
       </div>
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer__brand">
-        <svg width="24" height="24" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-          <circle cx="12" cy="11" r="5.5" stroke="currentColor" stroke-width="2"/>
-          <path d="M4 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-          <rect x="19" y="5" width="13" height="11" rx="2.5" stroke="var(--color-accent, #20808D)" stroke-width="2" fill="none"/>
-          <circle cx="23.5" cy="10" r="1.3" fill="var(--color-accent, #20808D)"/>
-          <circle cx="28.5" cy="10" r="1.3" fill="var(--color-accent, #20808D)"/>
-        </svg>
+        <span class="logo-mark" aria-hidden="true">H&amp;R</span>
         <span class="footer__brand-name">Humans &amp; Robots, LLC</span>
       </div>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <a href="./services">Services</a>
+        <a href="./case-studies">Work</a>
+        <a href="./about">About</a>
+        <a href="./contact">Contact</a>
+      </nav>
       <div class="footer__meta">
         <a href="mailto:ben@humansnrobots.com">ben@humansnrobots.com</a>
-        <small>&copy; 2026 Humans and Robots, LLC. All rights reserved.</small>
+        <small>&copy; 2026 Humans &amp; Robots, LLC. Human strategy. Robot leverage.</small>
       </div>
     </div>
   </footer>
