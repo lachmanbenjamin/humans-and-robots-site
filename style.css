@@ -758,7 +758,7 @@ body {
   border-top: 1px solid rgba(245, 230, 211, 0.1);
   border-bottom: 1px solid rgba(245, 230, 211, 0.1);
 }
-[data-theme='dark'] .marquee { background: #071012; }
+[data-theme='dark'] .marquee { background: #071012; color: #F5E6D3; }
 
 .marquee__track {
   display: inline-flex;
