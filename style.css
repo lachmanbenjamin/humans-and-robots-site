@@ -2278,3 +2278,166 @@ body {
   color: #b93a28;
   border: 1px solid rgba(242, 109, 91, 0.3);
 }
+
+/* ===== JOBSITE-TO-OFFICE REALITY ===== */
+.reality-section { position: relative; }
+.reality-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(var(--space-8), 5vw, var(--space-16));
+  align-items: start;
+  margin-bottom: clamp(var(--space-8), 5vw, var(--space-12));
+}
+@media (min-width: 920px) {
+  .reality-grid { grid-template-columns: minmax(0, 0.95fr) minmax(440px, 1.05fr); }
+}
+.reality__lede {
+  margin-top: var(--space-4);
+  font-size: var(--text-lg);
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  max-width: 52ch;
+}
+.reality-mess {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+@media (min-width: 640px) {
+  .reality-mess { grid-template-columns: repeat(2, 1fr); }
+}
+.reality-mess li {
+  padding: clamp(var(--space-4), 2vw, var(--space-6));
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  border: 1px solid rgba(15, 26, 28, 0.09);
+  display: grid;
+  gap: var(--space-2);
+}
+[data-theme='dark'] .reality-mess li {
+  background: var(--color-surface-2);
+  border-color: var(--color-border);
+}
+.reality-mess strong {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  line-height: 1.1;
+}
+.reality-mess span {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+.reality__punch {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 0.9rem + 1.6vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-text);
+  padding: clamp(var(--space-5), 2.5vw, var(--space-7)) clamp(var(--space-5), 2.5vw, var(--space-8));
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(0, 209, 178, 0.3);
+  background:
+    linear-gradient(135deg, rgba(0, 209, 178, 0.12), transparent 60%),
+    var(--color-bg);
+  max-width: 64ch;
+}
+[data-theme='dark'] .reality__punch {
+  background:
+    linear-gradient(135deg, rgba(0, 209, 178, 0.1), transparent 60%),
+    var(--color-surface-2);
+  border-color: rgba(0, 209, 178, 0.32);
+  color: var(--color-text);
+}
+
+/* ===== JARVIS USE LIST ===== */
+.jarvis-uses {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-8) 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+}
+@media (min-width: 600px) {
+  .jarvis-uses { grid-template-columns: repeat(2, 1fr); }
+}
+.jarvis-uses li {
+  padding: var(--space-4);
+  border-radius: var(--radius-md, 0.75rem);
+  background: rgba(245, 230, 211, 0.05);
+  border: 1px solid rgba(245, 230, 211, 0.12);
+  display: grid;
+  gap: 0.25rem;
+}
+.jarvis-uses strong {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--color-accent);
+}
+.jarvis-uses span {
+  color: rgba(245, 230, 211, 0.78);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+}
+
+/* ===== OUTCOMES ===== */
+.outcomes-section { position: relative; }
+.outcomes-head { max-width: 60ch; margin-bottom: clamp(var(--space-8), 4vw, var(--space-12)); }
+.outcomes-head .section__heading { max-width: 18ch; }
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+@media (min-width: 640px) {
+  .outcomes-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 980px) {
+  .outcomes-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.outcome-card {
+  padding: clamp(var(--space-5), 2.4vw, var(--space-7));
+  border-radius: var(--radius-xl);
+  background: var(--color-bg);
+  border: 1px solid rgba(15, 26, 28, 0.09);
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  gap: var(--space-2);
+}
+[data-theme='dark'] .outcome-card {
+  background: var(--color-surface-2);
+  border-color: var(--color-border);
+}
+.outcome-card__num {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-coral);
+  margin: 0;
+}
+.outcome-card h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+  margin: 0;
+}
+.outcome-card p {
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  margin: 0;
+}
