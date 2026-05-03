@@ -66,15 +66,32 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 });
 
 // ===== SCROLL REVEAL =====
+// Content is visible by default. We only hide `.reveal` when the
+// `js-reveal` class is on <html>, and we set that class here as
+// progressive enhancement. If IO is unsupported, prefers-reduced-motion
+// is on, or anything else goes wrong, we never hide the content.
 (function () {
   var reveals = document.querySelectorAll('.reveal');
   if (!reveals.length) return;
 
-  // Check for reduced motion preference
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var supportsIO = typeof IntersectionObserver !== 'undefined';
+
+  if (reduceMotion || !supportsIO) {
     reveals.forEach(function (el) { el.classList.add('is-visible'); });
     return;
   }
+
+  // Mark anything already in the viewport as visible BEFORE we opt in
+  // to the hidden-by-default state, so we never flash hidden content.
+  var vh = window.innerHeight || document.documentElement.clientHeight;
+  reveals.forEach(function (el) {
+    var r = el.getBoundingClientRect();
+    if (r.top < vh && r.bottom > 0) el.classList.add('is-visible');
+  });
+
+  // Opt in to the fade-in only after we know we'll drive it.
+  document.documentElement.classList.add('js-reveal');
 
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -83,9 +100,21 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' });
 
   reveals.forEach(function (el) { observer.observe(el); });
+
+  // Safety net: anything still hidden after 1.2s gets revealed. This
+  // covers headless screenshot tools (which resize the viewport for
+  // full-page capture without triggering scroll-driven IO promptly),
+  // any IO regression, and unusual layout cases. Real users on a
+  // normal scroll path will have hit each section via the IO long
+  // before this fires.
+  setTimeout(function () {
+    document.querySelectorAll('.reveal:not(.is-visible)').forEach(function (el) {
+      el.classList.add('is-visible');
+    });
+  }, 1200);
 })();
 
 // ===== CONTACT FORM (Formspree) =====

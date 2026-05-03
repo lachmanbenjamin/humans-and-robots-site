@@ -1892,17 +1892,22 @@ body {
   letter-spacing: 0.05em;
 }
 
-/* ===== SCROLL REVEAL ===== */
-.reveal {
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-.reveal.is-visible { opacity: 1; }
+/* ===== SCROLL REVEAL =====
+   Content is visible by default — this is a static marketing site, so
+   no-JS, failed-IO, headless screenshots, and reduced-motion users all
+   see the content. The fade-in is layered on as progressive enhancement
+   only when the `js-reveal` class is set on <html> and only for
+   elements that haven't yet been marked `is-visible`. */
+.reveal { opacity: 1; transition: opacity 0.6s ease; }
+html.js-reveal .reveal:not(.is-visible) { opacity: 0; }
 .reveal-stagger > .reveal:nth-child(2) { transition-delay: 0.08s; }
 .reveal-stagger > .reveal:nth-child(3) { transition-delay: 0.16s; }
 .reveal-stagger > .reveal:nth-child(4) { transition-delay: 0.24s; }
 .reveal-stagger > .reveal:nth-child(5) { transition-delay: 0.30s; }
 .reveal-stagger > .reveal:nth-child(6) { transition-delay: 0.36s; }
+@media (prefers-reduced-motion: reduce) {
+  html.js-reveal .reveal:not(.is-visible) { opacity: 1; }
+}
 
 /* ===== SKIP LINK ===== */
 .skip-link {

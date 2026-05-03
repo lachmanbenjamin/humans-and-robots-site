@@ -19,8 +19,8 @@
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,600,700&f[]=jetbrains-mono@400,500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./base.css?v=20260503-2204">
-  <link rel="stylesheet" href="./style.css?v=20260503-2204">
+  <link rel="stylesheet" href="./base.css?v=20260503-2330">
+  <link rel="stylesheet" href="./style.css?v=20260503-2330">
 
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='11' cy='12' r='6' fill='none' stroke='%231B474D' stroke-width='2.5'/%3E%3Crect x='15' y='6' width='12' height='12' rx='2' fill='none' stroke='%2320808D' stroke-width='2.5'/%3E%3C/svg%3E">
 
@@ -84,10 +84,11 @@
 
     .contact-page {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
       gap: var(--space-12);
       align-items: start;
     }
+    .contact-page > * { min-width: 0; }
     .contact-intro h2 {
       font-family: var(--font-display);
       font-size: var(--text-xl);
@@ -142,7 +143,8 @@
     }
 
     .expect-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-5); margin-top: var(--space-2); }
-    .expect-item { display: grid; grid-template-columns: auto 1fr; gap: var(--space-4); align-items: start; }
+    .expect-item { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-4); align-items: start; }
+    .expect-item > div { min-width: 0; }
     .expect-item__num {
       font-family: var(--font-display);
       font-size: var(--text-lg);
@@ -195,7 +197,7 @@
     }
 
     @media (max-width: 900px) {
-      .contact-page { grid-template-columns: 1fr; gap: var(--space-10); }
+      .contact-page { grid-template-columns: minmax(0, 1fr); gap: var(--space-10); }
     }
   </style>
   <script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
@@ -374,6 +376,6 @@ document.head.appendChild(o)}initApollo();</script>
     </div>
   </footer>
 
-  <script src="./app.js?v=20260503-2204" defer></script>
+  <script src="./app.js?v=20260503-2330" defer></script>
 </body>
 </html>
