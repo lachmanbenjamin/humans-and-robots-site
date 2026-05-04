@@ -117,14 +117,17 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   }, 1200);
 })();
 
-// ===== CONTACT FORM (Formspree) =====
+// ===== CONTACT FORM (mailto handoff) =====
+// We hand the composed message to the visitor's mail client so submissions
+// always reach a real inbox without depending on a third-party form service.
 (function () {
   var form = document.getElementById('contact-form');
   var success = document.getElementById('form-success');
   var errorEl = document.getElementById('form-error');
   if (!form) return;
 
-  // --- Inline validation ---
+  var INBOX = 'ben@humansnrobots.com';
+
   function validateField(input) {
     var errorEl = document.getElementById(input.id + '-error');
     if (!errorEl) return true;
@@ -146,7 +149,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     return valid;
   }
 
-  // Validate on blur
   form.querySelectorAll('input[required], textarea[required], input[type="email"]').forEach(function (input) {
     input.addEventListener('blur', function () { validateField(input); });
     input.addEventListener('input', function () {
@@ -154,58 +156,79 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     });
   });
 
+  function fieldVal(name) {
+    var el = form.querySelector('[name="' + name + '"]');
+    return el ? (el.value || '').trim() : '';
+  }
+
+  function interestLabel(value) {
+    var sel = form.querySelector('#interest');
+    if (!sel) return value;
+    var opt = sel.querySelector('option[value="' + value + '"]');
+    return opt ? opt.textContent.trim() : value;
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    // Validate all fields
     var allValid = true;
     form.querySelectorAll('input:not([type="hidden"]):not([name="_gotcha"]), textarea').forEach(function (input) {
       if (!validateField(input)) allValid = false;
     });
     if (!allValid) return;
 
-    var btn = form.querySelector('.form-submit');
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
+    if (fieldVal('_gotcha')) return;
 
-    // Hide any previous messages
+    var name = fieldVal('name');
+    var email = fieldVal('email');
+    var company = fieldVal('company');
+    var referral = fieldVal('referral');
+    var interest = fieldVal('interest');
+    var message = fieldVal('message');
+
+    var subject = 'New checkup request from ' + name;
+    var bodyLines = [
+      'Name: ' + name,
+      'Email: ' + email
+    ];
+    if (company) bodyLines.push('Company: ' + company);
+    if (referral) bodyLines.push('Referred by: ' + referral);
+    if (interest) bodyLines.push("What's on their plate: " + interestLabel(interest));
+    bodyLines.push('');
+    bodyLines.push('Message:');
+    bodyLines.push(message);
+
+    var mailto = 'mailto:' + INBOX +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
     success.classList.remove('is-visible');
     if (errorEl) errorEl.classList.remove('is-visible');
 
-    var data = new FormData(form);
+    var btn = form.querySelector('.form-submit');
+    btn.disabled = true;
+    btn.textContent = 'Opening your email…';
 
-    fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    }).then(function (response) {
-      if (response.ok) {
-        btn.style.display = 'none';
-        success.classList.add('is-visible');
-        form.reset();
-      } else {
-        return response.json().then(function (json) {
-          throw new Error(json.errors ? json.errors.map(function(e){ return e.message; }).join(', ') : 'Something went wrong.');
-        });
-      }
-    }).catch(function (err) {
+    window.location.href = mailto;
+
+    setTimeout(function () {
       btn.disabled = false;
       btn.textContent = 'Send Message';
-      if (errorEl) {
-        errorEl.textContent = 'Something went wrong. Please email us directly at ben@humansnrobots.com';
-        errorEl.classList.add('is-visible');
-      }
-    });
+      success.textContent = "Your email app should be open with the message ready. Hit send to reach Ben at " + INBOX + ". If nothing opened, email " + INBOX + " directly.";
+      success.classList.add('is-visible');
+    }, 400);
   });
 })();
 
-// ===== SIGNAL LIST / NEWSLETTER FORM (Formspree) =====
+// ===== SIGNAL LIST / NEWSLETTER FORM (mailto handoff) =====
 (function () {
   var form = document.getElementById('signal-form');
   if (!form) return;
   var success = document.getElementById('signal-success');
   var errorEl = document.getElementById('signal-error');
   var btn = form.querySelector('.signal-form__submit');
+
+  var INBOX = 'ben@humansnrobots.com';
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -222,32 +245,33 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
       return;
     }
 
+    var nameEl = form.querySelector('input[name="name"]');
+    var name = nameEl ? (nameEl.value || '').trim() : '';
+    var emailValue = email ? (email.value || '').trim() : '';
+
+    var subject = 'Add me to the H&R signal list';
+    var body = 'Please add me to the Humans & Robots signal list.\n\n' +
+      'Name: ' + name + '\n' +
+      'Email: ' + emailValue;
+
+    var mailto = 'mailto:' + INBOX +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(body);
+
     var originalLabel = btn.textContent;
     btn.disabled = true;
-    btn.textContent = 'Joining…';
+    btn.textContent = 'Opening your email…';
 
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    }).then(function (response) {
-      if (response.ok) {
-        form.reset();
-        btn.style.display = 'none';
-        if (success) success.classList.add('is-visible');
-      } else {
-        return response.json().then(function (json) {
-          throw new Error(json && json.errors ? json.errors.map(function(e){return e.message;}).join(', ') : 'Something went wrong.');
-        });
-      }
-    }).catch(function () {
+    window.location.href = mailto;
+
+    setTimeout(function () {
       btn.disabled = false;
       btn.textContent = originalLabel;
-      if (errorEl) {
-        errorEl.textContent = 'Something went wrong. Please email ben@humansnrobots.com to subscribe.';
-        errorEl.classList.add('is-visible');
+      if (success) {
+        success.textContent = "Your email app should be open with a subscribe message. Hit send and you're on the list.";
+        success.classList.add('is-visible');
       }
-    });
+    }, 400);
   });
 })();
 
