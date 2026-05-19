@@ -104,17 +104,20 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 
   reveals.forEach(function (el) { observer.observe(el); });
 
-  // Safety net: anything still hidden after 1.2s gets revealed. This
+  // Safety net: anything still hidden after 400ms gets revealed. This
   // covers headless screenshot tools (which resize the viewport for
   // full-page capture without triggering scroll-driven IO promptly),
   // any IO regression, and unusual layout cases. Real users on a
   // normal scroll path will have hit each section via the IO long
   // before this fires.
-  setTimeout(function () {
+  function revealAll() {
     document.querySelectorAll('.reveal:not(.is-visible)').forEach(function (el) {
       el.classList.add('is-visible');
     });
-  }, 1200);
+  }
+  setTimeout(revealAll, 400);
+  // Extra belt-and-suspenders for screenshot tools that capture on load.
+  window.addEventListener('load', revealAll);
 })();
 
 // ===== CONTACT FORM (mailto handoff) =====
