@@ -120,20 +120,19 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   window.addEventListener('load', revealAll);
 })();
 
-// ===== CONTACT FORM (mailto handoff) =====
-// We hand the composed message to the visitor's mail client so submissions
-// always reach a real inbox without depending on a third-party form service.
+// ===== CONTACT FORM =====
+// Posts to FormSubmit's AJAX endpoint so submissions are emailed to the inbox
+// without opening the visitor's mail client. The endpoint URL lives on the
+// <form action>, which already targets ben@humansnrobots.com.
 (function () {
   var form = document.getElementById('contact-form');
   var success = document.getElementById('form-success');
   var errorEl = document.getElementById('form-error');
   if (!form) return;
 
-  var INBOX = 'ben@humansnrobots.com';
-
   function validateField(input) {
-    var errorEl = document.getElementById(input.id + '-error');
-    if (!errorEl) return true;
+    var fieldErr = document.getElementById(input.id + '-error');
+    if (!fieldErr) return true;
     var valid = true;
     var msg = '';
 
@@ -147,8 +146,8 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     }
 
     input.setAttribute('aria-invalid', valid ? 'false' : 'true');
-    errorEl.textContent = msg;
-    errorEl.classList.toggle('is-visible', !valid);
+    fieldErr.textContent = msg;
+    fieldErr.classList.toggle('is-visible', !valid);
     return valid;
   }
 
@@ -189,37 +188,46 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     var interest = fieldVal('interest');
     var message = fieldVal('message');
 
-    var subject = 'New checkup request from ' + name;
-    var bodyLines = [
-      'Name: ' + name,
-      'Email: ' + email
-    ];
-    if (company) bodyLines.push('Company: ' + company);
-    if (referral) bodyLines.push('Referred by: ' + referral);
-    if (interest) bodyLines.push("What's on their plate: " + interestLabel(interest));
-    bodyLines.push('');
-    bodyLines.push('Message:');
-    bodyLines.push(message);
-
-    var mailto = 'mailto:' + INBOX +
-      '?subject=' + encodeURIComponent(subject) +
-      '&body=' + encodeURIComponent(bodyLines.join('\n'));
+    var payload = {
+      _subject: 'New checkup request from ' + (name || 'humansnrobots.com'),
+      _replyto: email,
+      _template: 'table',
+      _captcha: 'false',
+      name: name,
+      email: email,
+      company: company,
+      referral: referral,
+      interest: interest ? interestLabel(interest) : '',
+      message: message
+    };
 
     success.classList.remove('is-visible');
     if (errorEl) errorEl.classList.remove('is-visible');
 
     var btn = form.querySelector('.form-submit');
     btn.disabled = true;
-    btn.textContent = 'Opening your email…';
+    btn.textContent = 'Sending…';
 
-    window.location.href = mailto;
-
-    setTimeout(function () {
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      if (!res.ok) throw new Error('Request failed: ' + res.status);
+      return res.json().catch(function () { return {}; });
+    }).then(function () {
+      form.reset();
+      btn.textContent = 'Sent';
+      success.textContent = "Thanks — your message is in. We'll be in touch within 24 hours.";
+      success.classList.add('is-visible');
+    }).catch(function () {
       btn.disabled = false;
       btn.textContent = 'Send Message';
-      success.textContent = "Your email app should be open with the message ready. Hit send to reach Ben at " + INBOX + ". If nothing opened, email " + INBOX + " directly.";
-      success.classList.add('is-visible');
-    }, 400);
+      if (errorEl) {
+        errorEl.textContent = "Something went wrong sending the message. Please email ben@humansnrobots.com directly and we'll pick it up from there.";
+        errorEl.classList.add('is-visible');
+      }
+    });
   });
 })();
 
