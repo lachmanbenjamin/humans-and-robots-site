@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#16877A" />
+    <meta name="description" content="Little Traveler Care Guide — a phone-first emergency PWA that helps parents traveling with babies know what to do, where to go, and what to avoid when their child gets sick abroad." />
+
+    <!-- PWA manifest -->
+    <link rel="manifest" href="./manifest.webmanifest" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="./icons/icon.svg" />
+    <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Little Traveler" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Little Traveler Care Guide" />
+    <meta property="og:description" content="Phone-first emergency guide for parents traveling with babies." />
+    <meta property="og:type" content="website" />
+
+    <!-- Structured data: SoftwareApplication / WebApplication -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Little Traveler Care Guide",
+        "alternateName": "Little Traveler",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "browserRequirements": "Requires JavaScript and a modern browser",
+        "description": "A phone-first emergency PWA that helps parents traveling with babies know what to do, where to go, and what to avoid when their child gets sick abroad.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Parents traveling internationally with infants"
+        }
+      }
+    </script>
+
+    <!-- Friendly rounded sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <title>Little Traveler Care Guide</title>
+    <script type="module" crossorigin src="./assets/index-DjsKFMiq.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CFr0P7nG.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Register service worker (PWA offline cache). Use relative path so it
+      // works under any deploy subpath.
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker
+            .register('./sw.js')
+            .catch(function (err) {
+              console.warn('SW registration failed', err);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>

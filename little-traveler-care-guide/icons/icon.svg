@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Little Traveler Care Guide">
+  <!-- Rounded teal square background -->
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="#16877A"/>
+  <!-- Compass dial -->
+  <circle cx="256" cy="256" r="168" fill="#FFFBF3"/>
+  <circle cx="256" cy="256" r="168" fill="none" stroke="#0E6A5F" stroke-width="10" stroke-dasharray="6 14" stroke-linecap="round" opacity="0.55"/>
+  <!-- Compass needle as a soft heart/north arrow combo -->
+  <g transform="translate(256 256)">
+    <!-- North half: warm red, heart-leaning chevron -->
+    <path d="M0 -112 L36 28 L0 8 L-36 28 Z" fill="#D14343"/>
+    <!-- South half: teal -->
+    <path d="M0 112 L36 -28 L0 -8 L-36 -28 Z" fill="#16877A"/>
+    <!-- Small heart dot at center -->
+    <path d="M0 8 c-12 -16 -34 -12 -34 8 c0 16 20 28 34 42 c14 -14 34 -26 34 -42 c0 -20 -22 -24 -34 -8 z" fill="#FFFBF3" stroke="#1B2330" stroke-width="6" stroke-linejoin="round"/>
+  </g>
+  <!-- Cardinal tick marks -->
+  <g fill="#1B2330" font-family="Nunito, system-ui, sans-serif" font-weight="800" font-size="28" text-anchor="middle">
+    <text x="256" y="116">N</text>
+    <text x="256" y="412">S</text>
+    <text x="116" y="266">W</text>
+    <text x="396" y="266">E</text>
+  </g>
+</svg>
