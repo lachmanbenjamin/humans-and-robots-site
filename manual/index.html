@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Operating Manual — Humans &amp; Robots</title>
+  <meta name="description" content="Private operating manual for Humans and Robots, LLC — how we actually run." />
+
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=satoshi@400,500,600,700&f[]=jetbrains-mono@400,500&display=swap" rel="stylesheet" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='11' cy='12' r='6' fill='none' stroke='%231B474D' stroke-width='2.5'/%3E%3Crect x='15' y='6' width='12' height='12' rx='2' fill='none' stroke='%2320808D' stroke-width='2.5'/%3E%3Ccircle cx='19' cy='10' r='1.2' fill='%2320808D'/%3E%3Ccircle cx='23' cy='10' r='1.2' fill='%2320808D'/%3E%3Cline x1='18' y1='14' x2='24' y2='14' stroke='%2320808D' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='8' y1='22' x2='8' y2='28' stroke='%231B474D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='14' y1='22' x2='14' y2='28' stroke='%231B474D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='19' y1='20' x2='19' y2='28' stroke='%2320808D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='25' y1='20' x2='25' y2='28' stroke='%2320808D' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <style>
+    :root {
+      --font-display: 'Cabinet Grotesk', 'Helvetica Neue', sans-serif;
+      --font-body: 'Satoshi', 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+      --color-bg: #F5E6D3;
+      --color-bg-soft: #EFDDC7;
+      --color-surface: #FFFFFF;
+      --color-surface-2: #FAF0E6;
+      --color-border: #D4C4B0;
+      --color-divider: #E0D0BE;
+
+      --color-text: #0F1A1C;
+      --color-text-muted: #4A5959;
+      --color-text-faint: #8A918F;
+      --color-text-inverse: #F5E6D3;
+
+      --color-primary: #1B474D;
+      --color-primary-hover: #163B40;
+      --color-accent: #00D1B2;
+      --color-accent-ink: #20808D;
+      --color-accent-warm: #E8B84A;
+      --color-accent-coral: #F26D5B;
+
+      --radius-sm: 8px;
+      --radius: 14px;
+      --radius-lg: 22px;
+      --shadow-sm: 0 1px 2px rgba(15,26,28,.04), 0 2px 4px rgba(15,26,28,.04);
+      --shadow: 0 8px 24px rgba(15,26,28,.08);
+      --shadow-lg: 0 24px 48px rgba(15,26,28,.12);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #0E1B1E;
+      --color-bg-soft: #14272B;
+      --color-surface: #16282C;
+      --color-surface-2: #1A2F33;
+      --color-border: #2A3F43;
+      --color-divider: #243538;
+
+      --color-text: #F5E6D3;
+      --color-text-muted: #A8B5B3;
+      --color-text-faint: #6F7E7C;
+      --color-text-inverse: #0E1B1E;
+
+      --color-primary: #5FE3C9;
+      --color-primary-hover: #4FD8BE;
+      --color-accent: #00D1B2;
+      --color-accent-ink: #5FE3C9;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      -webkit-font-smoothing: antialiased;
+      transition: background-color .25s ease, color .25s ease;
+    }
+
+    a { color: var(--color-accent-ink); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 30;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--color-text); font-family: var(--font-display); font-weight: 800;
+      font-size: 1.05rem; letter-spacing: -.01em;
+    }
+    .brand svg { color: var(--color-primary); }
+    .brand .sep { color: var(--color-text-faint); font-weight: 500; }
+    .brand .crumb { color: var(--color-text-muted); font-weight: 600; }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .icon-btn {
+      background: transparent; border: 1px solid var(--color-border);
+      color: var(--color-text); cursor: pointer;
+      width: 36px; height: 36px; border-radius: 10px;
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: background-color .15s ease, border-color .15s ease;
+    }
+    .icon-btn:hover { background: var(--color-surface-2); border-color: var(--color-primary); }
+
+    /* ---------- Gate ---------- */
+    .gate-shell {
+      min-height: calc(100vh - 70px);
+      display: grid; place-items: center;
+      padding: 40px 24px;
+    }
+    .gate-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      max-width: 460px; width: 100%;
+      padding: 36px 32px;
+      text-align: center;
+    }
+    .gate-lock {
+      width: 56px; height: 56px; margin: 0 auto 14px;
+      border-radius: 14px;
+      background: var(--color-bg-soft); color: var(--color-primary);
+      display: grid; place-items: center;
+    }
+    .gate-card h1 {
+      font-family: var(--font-display); font-weight: 800;
+      margin: 0 0 8px; font-size: 1.55rem; letter-spacing: -.015em;
+    }
+    .gate-card p { color: var(--color-text-muted); margin: 0 0 22px; font-size: .95rem; line-height: 1.55; }
+    .gate-form { display: flex; flex-direction: column; gap: 12px; }
+    .gate-input {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--color-border);
+      font-family: var(--font-mono); font-size: .95rem;
+      background: var(--color-surface-2); color: var(--color-text);
+      transition: border-color .15s ease, background-color .15s ease;
+    }
+    .gate-input:focus { outline: none; border-color: var(--color-primary); background: var(--color-surface); }
+    .gate-btn {
+      padding: 13px 16px; border-radius: 12px;
+      background: var(--color-primary); color: var(--color-text-inverse);
+      font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+      border: none; cursor: pointer;
+      transition: background-color .15s ease, transform .05s ease;
+    }
+    .gate-btn:hover { background: var(--color-primary-hover); }
+    .gate-btn:active { transform: translateY(1px); }
+    .gate-btn:disabled { opacity: .55; cursor: progress; }
+    .gate-error {
+      color: var(--color-accent-coral); font-size: .85rem; margin-top: 4px;
+      min-height: 1.1em;
+    }
+    .gate-foot {
+      margin-top: 18px; padding-top: 18px; border-top: 1px dashed var(--color-divider);
+      font-size: .8rem; color: var(--color-text-faint); line-height: 1.5;
+    }
+
+    /* ---------- Library ---------- */
+    .library { display: none; }
+    .library.is-open { display: block; }
+    .lib-inner {
+      max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px;
+    }
+    .hero-row {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 28px; align-items: end;
+      margin-bottom: 36px;
+    }
+    .eyebrow {
+      font-family: var(--font-mono); font-size: .75rem;
+      text-transform: uppercase; letter-spacing: .12em;
+      color: var(--color-accent-ink); margin-bottom: 10px;
+    }
+    .page-title {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(1.85rem, 3.5vw, 2.7rem);
+      letter-spacing: -.02em; line-height: 1.08;
+      margin: 0 0 12px;
+    }
+    .page-sub {
+      color: var(--color-text-muted);
+      font-size: 1.05rem; line-height: 1.55; max-width: 64ch;
+      margin: 0;
+    }
+    .meta-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      display: flex; gap: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+    .meta-stat { text-align: center; }
+    .meta-stat .n {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 1.6rem; color: var(--color-primary); line-height: 1;
+    }
+    .meta-stat .l {
+      font-family: var(--font-mono); font-size: .7rem;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--color-text-faint); margin-top: 6px;
+    }
+
+    /* Toolbar */
+    .toolbar {
+      display: flex; gap: 12px; align-items: center;
+      margin-bottom: 22px;
+      position: sticky; top: 70px; z-index: 20;
+      padding: 14px 0;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .search-wrap {
+      flex: 1;
+      position: relative; display: flex; align-items: center;
+    }
+    .search-wrap svg {
+      position: absolute; left: 14px; color: var(--color-text-faint);
+      pointer-events: none;
+    }
+    .search-input {
+      flex: 1; width: 100%;
+      padding: 12px 16px 12px 42px;
+      border-radius: 12px;
+      border: 1.5px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-family: var(--font-body); font-size: .95rem;
+      transition: border-color .15s ease;
+    }
+    .search-input:focus { outline: none; border-color: var(--color-primary); }
+    .kbd-hint {
+      position: absolute; right: 14px;
+      font-family: var(--font-mono); font-size: .72rem;
+      color: var(--color-text-faint);
+      border: 1px solid var(--color-divider);
+      background: var(--color-surface-2);
+      padding: 2px 6px; border-radius: 4px;
+    }
+    .view-toggle {
+      display: flex; gap: 4px;
+      background: var(--color-surface-2);
+      border-radius: 12px; padding: 4px;
+      border: 1px solid var(--color-border);
+    }
+    .view-toggle button {
+      background: transparent; border: none; padding: 8px 14px;
+      font-family: var(--font-display); font-weight: 700; font-size: .88rem;
+      color: var(--color-text-muted); cursor: pointer; border-radius: 8px;
+      transition: background-color .15s ease, color .15s ease;
+    }
+    .view-toggle button.is-active {
+      background: var(--color-primary); color: var(--color-text-inverse);
+    }
+
+    /* Filter chips */
+    .filters {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 24px;
+    }
+    .chip {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-family: var(--font-mono); font-size: .78rem;
+      padding: 6px 12px; border-radius: 20px;
+      cursor: pointer;
+      transition: background-color .12s ease, color .12s ease, border-color .12s ease;
+    }
+    .chip:hover { border-color: var(--color-primary); }
+    .chip.is-active {
+      background: var(--color-primary); color: var(--color-text-inverse);
+      border-color: var(--color-primary);
+    }
+    .chip .c {
+      margin-left: 6px; opacity: .65; font-size: .72rem;
+    }
+
+    .results-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: var(--font-mono); font-size: .8rem;
+      color: var(--color-text-faint);
+      margin-bottom: 16px;
+    }
+
+    /* Grid */
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 20px 22px 18px;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      display: flex; flex-direction: column; gap: 12px;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-2px); box-shadow: var(--shadow);
+      border-color: var(--color-primary);
+    }
+    .card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+    .card-title {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 1.05rem; line-height: 1.25; letter-spacing: -.01em;
+      color: var(--color-text); margin: 0;
+    }
+    .card-summary {
+      color: var(--color-text-muted); font-size: .9rem; line-height: 1.5;
+      margin: 0;
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .card-foot {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px dashed var(--color-divider);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px;
+      font-family: var(--font-mono); font-size: .72rem;
+      color: var(--color-text-faint);
+      text-transform: uppercase; letter-spacing: .08em;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 3px 9px; border-radius: 6px;
+      font-family: var(--font-mono); font-size: .68rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .08em;
+    }
+    .badge-kind-framework      { background: rgba(0,209,178,.15); color: var(--color-accent-ink); }
+    .badge-kind-operating-model{ background: rgba(232,184,74,.18); color: #8A6A1E; }
+    .badge-kind-convention     { background: rgba(27,71,77,.12); color: var(--color-primary); }
+    .badge-kind-procedure      { background: rgba(242,109,91,.15); color: #B14735; }
+    .badge-kind-operating-rule { background: rgba(242,109,91,.15); color: #B14735; }
+    .badge-kind-infra          { background: rgba(27,71,77,.12); color: var(--color-primary); }
+    .badge-kind-asset          { background: rgba(0,209,178,.15); color: var(--color-accent-ink); }
+    .badge-cat-thesis          { background: rgba(232,184,74,.2); color: #8A6A1E; }
+    .badge-cat-onboarding      { background: rgba(0,209,178,.15); color: var(--color-accent-ink); }
+    .badge-cat-applied-patterns{ background: rgba(0,209,178,.15); color: var(--color-accent-ink); }
+    .badge-cat-prompting       { background: rgba(27,71,77,.12); color: var(--color-primary); }
+    .badge-cat-memory          { background: rgba(27,71,77,.12); color: var(--color-primary); }
+    .badge-cat-skills          { background: rgba(0,209,178,.15); color: var(--color-accent-ink); }
+    .badge-cat-integrations    { background: rgba(232,184,74,.18); color: #8A6A1E; }
+    .badge-cat-automation      { background: rgba(242,109,91,.15); color: #B14735; }
+    .badge-cat-deep-dive       { background: rgba(27,71,77,.12); color: var(--color-primary); }
+    .badge-cat-curation        { background: rgba(232,184,74,.18); color: #8A6A1E; }
+    .badge-cat-training        { background: rgba(0,209,178,.15); color: var(--color-accent-ink); }
+    .badge-cat-reference       { background: rgba(27,71,77,.12); color: var(--color-primary); }
+    .badge-cat-agent-design    { background: rgba(232,184,74,.18); color: #8A6A1E; }
+    [data-theme="dark"] .badge-kind-operating-model,
+    [data-theme="dark"] .badge-cat-thesis,
+    [data-theme="dark"] .badge-cat-integrations,
+    [data-theme="dark"] .badge-cat-curation,
+    [data-theme="dark"] .badge-cat-agent-design { color: var(--color-accent-warm); background: rgba(232,184,74,.15); }
+    [data-theme="dark"] .badge-kind-procedure,
+    [data-theme="dark"] .badge-kind-operating-rule,
+    [data-theme="dark"] .badge-cat-automation { color: #F28C7B; background: rgba(242,109,91,.18); }
+    [data-theme="dark"] .badge-kind-convention,
+    [data-theme="dark"] .badge-kind-infra,
+    [data-theme="dark"] .badge-cat-memory,
+    [data-theme="dark"] .badge-cat-prompting,
+    [data-theme="dark"] .badge-cat-deep-dive,
+    [data-theme="dark"] .badge-cat-reference { color: var(--color-primary); background: rgba(95,227,201,.12); }
+
+    .empty {
+      grid-column: 1 / -1;
+      text-align: center; padding: 60px 20px;
+      color: var(--color-text-muted); font-size: .95rem;
+    }
+    .empty .big {
+      font-family: var(--font-display); font-weight: 800; font-size: 1.3rem;
+      color: var(--color-text); margin-bottom: 6px;
+    }
+
+    /* Modal */
+    .modal-shell {
+      display: none;
+      position: fixed; inset: 0; z-index: 50;
+      background: rgba(15,26,28,.55);
+      padding: 24px; overflow-y: auto;
+    }
+    .modal-shell.is-open { display: flex; align-items: flex-start; justify-content: center; }
+    .modal {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      max-width: 760px; width: 100%;
+      padding: 32px 36px 28px;
+      margin: 40px auto;
+      box-shadow: var(--shadow-lg);
+    }
+    .modal-head {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 16px; margin-bottom: 14px;
+    }
+    .modal-title {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 1.5rem; letter-spacing: -.015em; line-height: 1.2;
+      margin: 0 0 8px;
+    }
+    .modal-meta {
+      display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+      font-family: var(--font-mono); font-size: .75rem;
+      color: var(--color-text-faint); text-transform: uppercase; letter-spacing: .08em;
+    }
+    .modal-close {
+      background: transparent; border: 1px solid var(--color-border);
+      width: 36px; height: 36px; border-radius: 10px; cursor: pointer;
+      color: var(--color-text);
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .modal-close:hover { background: var(--color-surface-2); }
+    .modal-summary {
+      color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.55;
+      margin: 16px 0 22px;
+    }
+    .modal-body {
+      color: var(--color-text); font-size: .98rem; line-height: 1.65;
+    }
+    .modal-body h2 {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 1.15rem; margin: 24px 0 10px;
+    }
+    .modal-body h3 {
+      font-family: var(--font-mono); font-size: .8rem;
+      text-transform: uppercase; letter-spacing: .12em;
+      color: var(--color-accent-ink);
+      margin: 22px 0 8px;
+    }
+    .modal-body p { margin: 0 0 14px; }
+    .modal-body ul, .modal-body ol { margin: 0 0 14px; padding-left: 22px; }
+    .modal-body ul li, .modal-body ol li { margin-bottom: 6px; }
+    .modal-body strong { color: var(--color-text); font-weight: 700; }
+    .modal-body em { font-style: italic; }
+    .modal-body code {
+      font-family: var(--font-mono); font-size: .88em;
+      background: var(--color-surface-2); padding: 1px 6px; border-radius: 4px;
+      border: 1px solid var(--color-divider);
+    }
+    .modal-body pre {
+      font-family: var(--font-mono); font-size: .82rem;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-divider); border-radius: 10px;
+      padding: 14px 16px; overflow-x: auto;
+      margin: 0 0 16px;
+    }
+    .modal-body pre code { background: transparent; padding: 0; border: 0; }
+    .modal-body table {
+      width: 100%; border-collapse: collapse; margin: 0 0 16px;
+      font-size: .92rem;
+    }
+    .modal-body table th, .modal-body table td {
+      text-align: left; padding: 8px 10px;
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .modal-body table th {
+      font-family: var(--font-display); font-weight: 700;
+      color: var(--color-primary); font-size: .9rem;
+    }
+    .modal-body a { color: var(--color-accent-ink); }
+    .modal-body blockquote {
+      border-left: 3px solid var(--color-accent); padding-left: 14px;
+      margin: 0 0 16px;
+      color: var(--color-text-muted); font-style: italic;
+    }
+
+    .modal-actions {
+      margin-top: 26px; padding-top: 20px; border-top: 1px dashed var(--color-divider);
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .btn-action {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 16px; border-radius: 10px;
+      background: var(--color-primary); color: var(--color-text-inverse);
+      font-family: var(--font-display); font-weight: 700; font-size: .9rem;
+      text-decoration: none;
+      border: 1px solid var(--color-primary);
+    }
+    .btn-action.secondary {
+      background: transparent; color: var(--color-primary);
+    }
+    .btn-action:hover { text-decoration: none; opacity: .92; }
+
+    .key-points {
+      background: var(--color-surface-2);
+      border-radius: 12px; padding: 14px 18px;
+      margin: 0 0 18px;
+    }
+    .key-points h3 { margin-top: 0; }
+    .takeaway {
+      background: linear-gradient(135deg, rgba(0,209,178,.08), rgba(232,184,74,.08));
+      border-left: 4px solid var(--color-accent);
+      border-radius: 0 12px 12px 0;
+      padding: 14px 18px;
+      margin: 18px 0 0;
+    }
+    [data-theme="dark"] .takeaway {
+      background: linear-gradient(135deg, rgba(95,227,201,.08), rgba(232,184,74,.06));
+    }
+    .takeaway-label {
+      font-family: var(--font-mono); font-size: .72rem;
+      text-transform: uppercase; letter-spacing: .12em;
+      color: var(--color-accent-ink);
+      margin-bottom: 6px;
+    }
+
+    .footer {
+      max-width: 1200px; margin: 0 auto; padding: 24px;
+      font-family: var(--font-mono); font-size: .75rem;
+      color: var(--color-text-faint);
+      border-top: 1px solid var(--color-divider);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    }
+
+    mark.hl {
+      background: rgba(232,184,74,.45); color: inherit; padding: 0 2px; border-radius: 2px;
+    }
+
+    /* Section divider */
+    .section-divider {
+      display: flex; align-items: center; gap: 14px;
+      margin: 36px 0 18px;
+    }
+    .section-divider h2 {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 1.35rem; letter-spacing: -.01em;
+      color: var(--color-text); margin: 0;
+    }
+    .section-divider .rule {
+      flex: 1; height: 1px; background: var(--color-divider);
+    }
+    .section-divider .count {
+      font-family: var(--font-mono); font-size: .75rem;
+      color: var(--color-text-faint);
+      text-transform: uppercase; letter-spacing: .12em;
+    }
+
+    @media (max-width: 720px) {
+      .hero-row { grid-template-columns: 1fr; }
+      .meta-card { justify-content: space-around; }
+      .toolbar { flex-direction: column; align-items: stretch; }
+      .modal { padding: 24px 22px; }
+      .kbd-hint { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Humans &amp; Robots home">
+        <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+          <circle cx="11" cy="12" r="6" stroke="currentColor" stroke-width="2.5"/>
+          <rect x="15" y="6" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        </svg>
+        <span>Humans &amp; Robots</span>
+        <span class="sep">·</span>
+        <span class="crumb">Operating Manual</span>
+      </a>
+      <div class="header-actions">
+        <button class="icon-btn" id="theme-btn" aria-label="Toggle theme" title="Toggle theme">
+          <svg id="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button class="icon-btn" id="lock-btn" aria-label="Re-gate library" title="Lock library" style="display: none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="gate-shell" id="gate-shell">
+    <div class="gate-card">
+      <div class="gate-lock" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <h1>Operating Manual</h1>
+      <p>How Humans &amp; Robots actually runs. Enter the team passphrase to unlock.</p>
+      <form class="gate-form" id="gate-form" autocomplete="off">
+        <input
+          class="gate-input"
+          id="gate-input"
+          type="password"
+          placeholder="passphrase"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+        />
+        <button class="gate-btn" type="submit">Unlock manual →</button>
+        <div class="gate-error" id="gate-error" role="alert" aria-live="polite"></div>
+      </form>
+      <div class="gate-foot">
+        AES-GCM encrypted client-side. The passphrase derives the decryption key via PBKDF2 (250k iterations). Nothing reaches a server.
+      </div>
+    </div>
+  </div>
+
+  <main class="library" id="library" aria-hidden="true">
+    <div class="lib-inner">
+      <div class="hero-row">
+        <div>
+          <div class="eyebrow">Operating manual · Updated 2026-06-07</div>
+          <h1 class="page-title">How we actually run.</h1>
+          <p class="page-sub">The applied stack — personas, memory, skills, connectors, routines, gates, budget discipline — plus a synthesized canon of the source material that shaped it. <a href="https://x.com/0xwhrrari/status/2063244577482440978" target="_blank" rel="noopener">The thesis</a>: skills, memory, and routines make judgment reusable.</p>
+        </div>
+        <div class="meta-card" aria-label="Manual stats">
+          <div class="meta-stat"><div class="n" id="stat-applied">—</div><div class="l">How we operate</div></div>
+          <div class="meta-stat"><div class="n" id="stat-canon">—</div><div class="l">Canon</div></div>
+          <div class="meta-stat"><div class="n" id="stat-read">—</div><div class="l">Read min</div></div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input class="search-input" id="search" type="search" placeholder="Search the manual…" />
+          <span class="kbd-hint">/</span>
+        </div>
+        <div class="view-toggle" role="tablist" aria-label="View">
+          <button id="view-all" class="is-active" role="tab" aria-selected="true">All</button>
+          <button id="view-applied" role="tab" aria-selected="false">How we operate</button>
+          <button id="view-canon" role="tab" aria-selected="false">The canon</button>
+        </div>
+      </div>
+
+      <div class="filters" id="filters"></div>
+      <div class="results-bar">
+        <span id="results-count">—</span>
+        <a href="../skills/" style="font-family: var(--font-mono); font-size: .8rem;">→ Open the skill library</a>
+      </div>
+
+      <div id="sections"></div>
+    </div>
+
+    <footer class="footer">
+      <span>Humans &amp; Robots, LLC · Operating Manual · Internal</span>
+      <span>AES-GCM · PBKDF2-SHA256 · 250k iter</span>
+    </footer>
+  </main>
+
+  <div class="modal-shell" id="modal-shell" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <div class="modal-head">
+        <div>
+          <h2 class="modal-title" id="modal-title"></h2>
+          <div class="modal-meta" id="modal-meta"></div>
+        </div>
+        <button class="modal-close" id="modal-close" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <p class="modal-summary" id="modal-summary"></p>
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-actions" id="modal-actions"></div>
+    </div>
+  </div>
+
+  <script>
+  /* ============================================================
+     Operating Manual — gate, decrypt, render, search, filter, modal
+     ============================================================ */
+  (function () {
+    'use strict';
+
+    const PAYLOAD_URL = './payload.json';
+    const STORAGE_KEY = 'hnr-manual-unlocked';
+    const KEY_CACHE = 'hnr-manual-key';
+    const THEME_KEY = 'hnr-theme';
+
+    // -------- Theme --------
+    const themeBtn = document.getElementById('theme-btn');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem(THEME_KEY, t);
+    }
+    (function initTheme() {
+      const saved = localStorage.getItem(THEME_KEY);
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      applyTheme(saved || (prefersDark ? 'dark' : 'light'));
+    })();
+    themeBtn.addEventListener('click', function () {
+      const cur = document.documentElement.getAttribute('data-theme') || 'light';
+      applyTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+
+    // -------- Crypto helpers --------
+    function b64ToBytes(b64) {
+      const bin = atob(b64);
+      const out = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+      return out;
+    }
+    function bytesToB64(bytes) {
+      let s = '';
+      for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+      return btoa(s);
+    }
+    async function deriveKey(passphrase, saltBytes, iterations) {
+      const enc = new TextEncoder();
+      const baseKey = await crypto.subtle.importKey(
+        'raw', enc.encode(passphrase), { name: 'PBKDF2' }, false, ['deriveKey']
+      );
+      return crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: saltBytes, iterations: iterations, hash: 'SHA-256' },
+        baseKey,
+        { name: 'AES-GCM', length: 256 },
+        true,
+        ['decrypt']
+      );
+    }
+
+    let PAYLOAD = null;
+    let MANUAL = null;        // decrypted inventory object
+
+    async function fetchPayload() {
+      if (PAYLOAD) return PAYLOAD;
+      const res = await fetch(PAYLOAD_URL, { cache: 'no-store' });
+      if (!res.ok) throw new Error('Payload fetch failed: ' + res.status);
+      PAYLOAD = await res.json();
+      return PAYLOAD;
+    }
+    async function decryptWithKey(cryptoKey) {
+      const p = await fetchPayload();
+      const iv = b64ToBytes(p.iv);
+      const ct = b64ToBytes(p.ct);
+      const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, cryptoKey, ct);
+      const text = new TextDecoder().decode(plain);
+      return JSON.parse(text);
+    }
+    async function tryPassphrase(passphrase) {
+      const p = await fetchPayload();
+      const salt = b64ToBytes(p.salt);
+      const key = await deriveKey(passphrase, salt, p.iter);
+      const data = await decryptWithKey(key);
+      try {
+        const raw = await crypto.subtle.exportKey('raw', key);
+        sessionStorage.setItem(KEY_CACHE, bytesToB64(new Uint8Array(raw)));
+        sessionStorage.setItem(STORAGE_KEY, '1');
+      } catch (e) {}
+      return data;
+    }
+    async function tryCachedKey() {
+      const b64 = sessionStorage.getItem(KEY_CACHE);
+      if (!b64) return null;
+      try {
+        const raw = b64ToBytes(b64);
+        const key = await crypto.subtle.importKey('raw', raw, { name: 'AES-GCM' }, false, ['decrypt']);
+        return await decryptWithKey(key);
+      } catch (e) {
+        sessionStorage.removeItem(KEY_CACHE);
+        sessionStorage.removeItem(STORAGE_KEY);
+        return null;
+      }
+    }
+
+    // -------- UI refs --------
+    const gateShell = document.getElementById('gate-shell');
+    const gateForm = document.getElementById('gate-form');
+    const gateInput = document.getElementById('gate-input');
+    const gateError = document.getElementById('gate-error');
+    const library = document.getElementById('library');
+    const lockBtn = document.getElementById('lock-btn');
+    const sectionsEl = document.getElementById('sections');
+    const filtersEl = document.getElementById('filters');
+    const searchEl = document.getElementById('search');
+    const resultsCount = document.getElementById('results-count');
+    const modalShell = document.getElementById('modal-shell');
+    const modalClose = document.getElementById('modal-close');
+    const viewAll = document.getElementById('view-all');
+    const viewApplied = document.getElementById('view-applied');
+    const viewCanon = document.getElementById('view-canon');
+
+    let activeView = 'all'; // 'all' | 'applied' | 'canon'
+    let activeFilter = 'all';
+    let activeQuery = '';
+
+    // -------- Boot --------
+    (async function boot() {
+      try {
+        const cached = await tryCachedKey();
+        if (cached) { MANUAL = cached; unlockUI(); }
+      } catch (e) {}
+    })();
+
+    gateForm.addEventListener('submit', async function (ev) {
+      ev.preventDefault();
+      gateError.textContent = '';
+      let pass = gateInput.value;
+      // Be forgiving: trim whitespace, normalize unicode dashes that mobile keyboards substitute
+      pass = pass
+        .trim()
+        .replace(/[\u2010\u2011\u2012\u2013\u2014\u2015]/g, '-')
+        .replace(/[\u2018\u2019\u201A\u201B]/g, "'")
+        .replace(/[\u201C\u201D\u201E\u201F]/g, '"');
+      if (!pass) { gateError.textContent = 'Enter the team passphrase.'; return; }
+      const btn = gateForm.querySelector('button[type="submit"]');
+      btn.disabled = true; btn.textContent = 'Deriving key…';
+      try {
+        MANUAL = await tryPassphrase(pass);
+        unlockUI();
+      } catch (e) {
+        console.error(e);
+        gateError.textContent = 'That passphrase didn\u2019t unlock the manual.';
+        btn.disabled = false; btn.textContent = 'Unlock manual →';
+      }
+    });
+
+    function unlockUI() {
+      gateShell.style.display = 'none';
+      library.classList.add('is-open');
+      library.setAttribute('aria-hidden', 'false');
+      lockBtn.style.display = 'inline-flex';
+      renderAll();
+    }
+
+    lockBtn.addEventListener('click', function () {
+      sessionStorage.removeItem(KEY_CACHE);
+      sessionStorage.removeItem(STORAGE_KEY);
+      MANUAL = null;
+      library.classList.remove('is-open');
+      library.setAttribute('aria-hidden', 'true');
+      gateShell.style.display = 'grid';
+      lockBtn.style.display = 'none';
+      gateInput.value = '';
+      setTimeout(function () { gateInput.focus(); }, 30);
+    });
+
+    // -------- Tiny markdown renderer (safe-enough for our trusted, encrypted source) --------
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, function (c) {
+        return ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' })[c];
+      });
+    }
+    function renderInline(text) {
+      let s = escapeHtml(text);
+      // links [text](url)
+      s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function (_, t, u) {
+        return '<a href="' + u + '" target="_blank" rel="noopener">' + t + '</a>';
+      });
+      // bold **text**
+      s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+      // italic *text* (avoid eating ** which are already replaced)
+      s = s.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
+      // inline code `code`
+      s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+      return s;
+    }
+    function renderMarkdown(md) {
+      if (!md) return '';
+      const lines = md.split('\n');
+      const out = [];
+      let i = 0;
+      while (i < lines.length) {
+        const line = lines[i];
+        // table block: line of pipes + separator line
+        if (/^\|.*\|$/.test(line) && i + 1 < lines.length && /^\|[\s\-:|]+\|$/.test(lines[i+1])) {
+          const headers = line.slice(1, -1).split('|').map(function(s){return s.trim();});
+          i += 2;
+          const rows = [];
+          while (i < lines.length && /^\|.*\|$/.test(lines[i])) {
+            const row = lines[i].slice(1, -1).split('|').map(function(s){return s.trim();});
+            rows.push(row);
+            i++;
+          }
+          out.push('<table><thead><tr>' + headers.map(function(h){return '<th>'+renderInline(h)+'</th>';}).join('') + '</tr></thead><tbody>' +
+            rows.map(function(r){return '<tr>' + r.map(function(c){return '<td>'+renderInline(c)+'</td>';}).join('') + '</tr>';}).join('') +
+            '</tbody></table>');
+          continue;
+        }
+        // code fence
+        if (/^```/.test(line)) {
+          const buf = [];
+          i++;
+          while (i < lines.length && !/^```/.test(lines[i])) { buf.push(lines[i]); i++; }
+          if (i < lines.length) i++; // skip closing fence
+          out.push('<pre><code>' + escapeHtml(buf.join('\n')) + '</code></pre>');
+          continue;
+        }
+        // headers
+        const h = line.match(/^(#{1,6})\s+(.*)$/);
+        if (h) {
+          const lvl = Math.min(h[1].length + 1, 4); // h1 in source -> h2 in modal
+          out.push('<h' + lvl + '>' + renderInline(h[2]) + '</h' + lvl + '>');
+          i++; continue;
+        }
+        // unordered list
+        if (/^[-*]\s+/.test(line)) {
+          const items = [];
+          while (i < lines.length && /^[-*]\s+/.test(lines[i])) {
+            items.push(lines[i].replace(/^[-*]\s+/, ''));
+            i++;
+          }
+          out.push('<ul>' + items.map(function(it){return '<li>'+renderInline(it)+'</li>';}).join('') + '</ul>');
+          continue;
+        }
+        // ordered list
+        if (/^\d+\.\s+/.test(line)) {
+          const items = [];
+          while (i < lines.length && /^\d+\.\s+/.test(lines[i])) {
+            items.push(lines[i].replace(/^\d+\.\s+/, ''));
+            i++;
+          }
+          out.push('<ol>' + items.map(function(it){return '<li>'+renderInline(it)+'</li>';}).join('') + '</ol>');
+          continue;
+        }
+        // blockquote
+        if (/^>\s?/.test(line)) {
+          const buf = [];
+          while (i < lines.length && /^>\s?/.test(lines[i])) {
+            buf.push(lines[i].replace(/^>\s?/, ''));
+            i++;
+          }
+          out.push('<blockquote>' + renderInline(buf.join(' ')) + '</blockquote>');
+          continue;
+        }
+        // blank
+        if (!line.trim()) { i++; continue; }
+        // paragraph (collect adjacent non-special lines)
+        const buf = [line];
+        i++;
+        while (i < lines.length && lines[i].trim() && !/^(\||#{1,6}\s|[-*]\s|\d+\.\s|>\s?|```)/.test(lines[i])) {
+          buf.push(lines[i]); i++;
+        }
+        out.push('<p>' + renderInline(buf.join(' ')) + '</p>');
+      }
+      return out.join('\n');
+    }
+
+    // -------- Filter chips --------
+    const APPLIED_KIND_LABELS = {
+      'framework': 'Framework',
+      'operating-model': 'Operating model',
+      'convention': 'Convention',
+      'procedure': 'Procedure',
+      'operating-rule': 'Operating rule',
+      'infra': 'Infra',
+      'asset': 'Asset'
+    };
+    const CANON_CAT_LABELS = {
+      'thesis': 'Thesis',
+      'onboarding': 'Onboarding',
+      'applied-patterns': 'Applied patterns',
+      'prompting': 'Prompting',
+      'memory': 'Memory',
+      'skills': 'Skills',
+      'integrations': 'Integrations',
+      'automation': 'Automation',
+      'deep-dive': 'Deep dive',
+      'curation': 'Curation',
+      'training': 'Training',
+      'reference': 'Reference',
+      'agent-design': 'Agent design'
+    };
+
+    function getActiveDataset() {
+      if (!MANUAL) return [];
+      if (activeView === 'applied') {
+        return MANUAL.applied_sections.map(function(s){return Object.assign({_type:'applied'}, s);});
+      }
+      if (activeView === 'canon') {
+        return MANUAL.canon_entries.map(function(s){return Object.assign({_type:'canon'}, s);});
+      }
+      return MANUAL.applied_sections.map(function(s){return Object.assign({_type:'applied'}, s);})
+        .concat(MANUAL.canon_entries.map(function(s){return Object.assign({_type:'canon'}, s);}));
+    }
+    function entryFilterKey(e) {
+      return e._type === 'applied' ? (e.kind || 'misc') : (e.category || 'misc');
+    }
+    function entryFilterLabel(k, type) {
+      return (type === 'applied' ? APPLIED_KIND_LABELS[k] : CANON_CAT_LABELS[k]) || k;
+    }
+
+    function renderFilters() {
+      const ds = getActiveDataset();
+      const counts = {};
+      ds.forEach(function (e) {
+        const k = entryFilterKey(e);
+        counts[k] = (counts[k] || 0) + 1;
+      });
+      const cats = ['all'].concat(Object.keys(counts).sort(function (a, b) {
+        return counts[b] - counts[a] || a.localeCompare(b);
+      }));
+      filtersEl.innerHTML = '';
+      cats.forEach(function (c) {
+        const chip = document.createElement('button');
+        chip.className = 'chip' + (c === activeFilter ? ' is-active' : '');
+        chip.dataset.cat = c;
+        const label = c === 'all' ? 'All' : (activeView === 'applied' ? APPLIED_KIND_LABELS[c] : (activeView === 'canon' ? CANON_CAT_LABELS[c] : (APPLIED_KIND_LABELS[c] || CANON_CAT_LABELS[c]))) || c;
+        const count = c === 'all' ? ds.length : counts[c];
+        chip.innerHTML = label + '<span class="c">' + count + '</span>';
+        chip.addEventListener('click', function () {
+          activeFilter = c;
+          renderEntries();
+          updateChipState();
+        });
+        filtersEl.appendChild(chip);
+      });
+    }
+    function updateChipState() {
+      filtersEl.querySelectorAll('.chip').forEach(function (chip) {
+        chip.classList.toggle('is-active', chip.dataset.cat === activeFilter);
+      });
+    }
+
+    // -------- Fuzzy search --------
+    function fuzzyScore(e, q) {
+      if (!q) return 1;
+      const toks = q.toLowerCase().split(/\s+/).filter(Boolean);
+      const fields = [
+        { v: e.title || '', w: 5 },
+        { v: e.summary || '', w: 2 },
+        { v: (e.body_md || ''), w: 1.2 },
+        { v: e.kind || e.category || '', w: 3 },
+        { v: (e.key_points || []).join(' '), w: 2.5 },
+        { v: e.our_takeaway || '', w: 2.5 },
+        { v: e.source || '', w: 1.5 }
+      ];
+      let score = 0;
+      for (const t of toks) {
+        let any = false;
+        for (const f of fields) {
+          if (f.v.toLowerCase().includes(t)) { score += f.w; any = true; }
+        }
+        if (!any) return 0;
+      }
+      return score;
+    }
+
+    // -------- Highlight --------
+    function escapeReg(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+    function highlight(text, q) {
+      if (!q || !text) return escapeHtml(text || '');
+      const toks = q.split(/\s+/).filter(Boolean).map(escapeReg);
+      if (!toks.length) return escapeHtml(text);
+      const re = new RegExp('(' + toks.join('|') + ')', 'gi');
+      return escapeHtml(text).replace(re, '<mark class="hl">$1</mark>');
+    }
+
+    // -------- Render entries grid --------
+    function renderEntries() {
+      const ds = getActiveDataset();
+      let list = ds.slice();
+
+      if (activeFilter !== 'all') {
+        list = list.filter(function (e) { return entryFilterKey(e) === activeFilter; });
+      }
+      if (activeQuery) {
+        list = list
+          .map(function (e) { return { e: e, s: fuzzyScore(e, activeQuery) }; })
+          .filter(function (x) { return x.s > 0; })
+          .sort(function (a, b) { return b.s - a.s; })
+          .map(function (x) { return x.e; });
+      }
+
+      resultsCount.textContent = list.length + ' ' + (list.length === 1 ? 'entry' : 'entries')
+        + (activeQuery ? ' · matches "' + activeQuery + '"' : '');
+
+      // Group by section when view='all'
+      sectionsEl.innerHTML = '';
+      if (activeView === 'all' && !activeQuery && activeFilter === 'all') {
+        const applied = list.filter(function(e){return e._type==='applied';});
+        const canon = list.filter(function(e){return e._type==='canon';});
+        renderSectionBlock('How we operate', 'The applied stack — personas, memory, skills, connectors, routines.', applied);
+        renderSectionBlock('The canon', 'Synthesized notes on the source material that shaped our stack.', canon);
+      } else {
+        renderGrid(list, sectionsEl);
+      }
+
+      if (!list.length) {
+        sectionsEl.innerHTML = '<div class="empty"><div class="big">No matches.</div><div>Try a different search or clear the filters.</div></div>';
+      }
+    }
+
+    function renderSectionBlock(title, sub, items) {
+      const wrap = document.createElement('div');
+      const divider = document.createElement('div');
+      divider.className = 'section-divider';
+      divider.innerHTML = '<h2>' + escapeHtml(title) + '</h2><div class="rule"></div><span class="count">' + items.length + '</span>';
+      wrap.appendChild(divider);
+      if (sub) {
+        const p = document.createElement('p');
+        p.style.cssText = 'color: var(--color-text-muted); font-size: .92rem; margin: 0 0 14px;';
+        p.textContent = sub;
+        wrap.appendChild(p);
+      }
+      const grid = document.createElement('div');
+      grid.className = 'grid';
+      renderGrid(items, grid, true);
+      wrap.appendChild(grid);
+      sectionsEl.appendChild(wrap);
+    }
+
+    function renderGrid(items, target, alreadyGrid) {
+      if (!alreadyGrid) {
+        target.innerHTML = '';
+        const grid = document.createElement('div');
+        grid.className = 'grid';
+        items.forEach(function(e){ grid.appendChild(buildCard(e)); });
+        target.appendChild(grid);
+      } else {
+        items.forEach(function(e){ target.appendChild(buildCard(e)); });
+      }
+    }
+
+    function buildCard(e) {
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.tabIndex = 0;
+      card.setAttribute('role', 'button');
+
+      const isApplied = e._type === 'applied';
+      const badgeKey = isApplied ? ('kind-' + (e.kind || 'misc')) : ('cat-' + (e.category || 'misc'));
+      const badgeLabel = isApplied ? (APPLIED_KIND_LABELS[e.kind] || e.kind) : (CANON_CAT_LABELS[e.category] || e.category);
+
+      const tags = [];
+      tags.push('<span class="badge badge-' + badgeKey + '">' + escapeHtml(badgeLabel) + '</span>');
+      if (!isApplied && e.source) tags.push(escapeHtml(e.source));
+      if (isApplied) tags.push('Internal');
+
+      card.innerHTML =
+        '<div class="card-head">' +
+          '<div style="flex:1; min-width:0;">' +
+            '<h3 class="card-title">' + highlight(e.title, activeQuery) + '</h3>' +
+          '</div>' +
+        '</div>' +
+        '<p class="card-summary">' + highlight(e.summary || (e.our_takeaway || ''), activeQuery) + '</p>' +
+        '<div class="card-foot">' +
+          '<span>' + tags.join('<span style="opacity:.5;"> · </span>') + '</span>' +
+          (e.read_time_min ? '<span>' + e.read_time_min + ' min</span>' : '') +
+        '</div>';
+
+      card.addEventListener('click', function () { openModal(e); });
+      card.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openModal(e); }
+      });
+      return card;
+    }
+
+    // -------- Modal --------
+    function openModal(e) {
+      document.getElementById('modal-title').textContent = e.title;
+      const isApplied = e._type === 'applied';
+      const meta = [];
+      if (isApplied) {
+        meta.push(APPLIED_KIND_LABELS[e.kind] || e.kind);
+        meta.push('Internal');
+      } else {
+        meta.push(CANON_CAT_LABELS[e.category] || e.category);
+        if (e.source) meta.push(e.source);
+        if (e.read_time_min) meta.push(e.read_time_min + ' min read');
+      }
+      document.getElementById('modal-meta').innerHTML = meta.map(function(m){return escapeHtml(m);}).join('<span style="opacity:.5; padding:0 4px;"> · </span>');
+      document.getElementById('modal-summary').textContent = e.summary || '';
+
+      let bodyHtml = '';
+      if (isApplied) {
+        bodyHtml = renderMarkdown(e.body_md || '');
+        if (e.anchors_to_canon && e.anchors_to_canon.length) {
+          // We don't deep-link inside the page; just list which canon entries relate.
+          const canonMap = {};
+          MANUAL.canon_entries.forEach(function(c){ canonMap[c.id] = c; });
+          const relevant = e.anchors_to_canon.map(function(id){
+            // anchors_to_canon use logical names not canon ids; try fuzzy match
+            return MANUAL.canon_entries.find(function(c){
+              return c.id.indexOf(id) >= 0 || (c.title || '').toLowerCase().indexOf(id.replace(/-/g,' ')) >= 0;
+            });
+          }).filter(Boolean);
+          if (relevant.length) {
+            bodyHtml += '<h3>Related in the canon</h3><ul>' +
+              relevant.map(function(c){
+                return '<li><a href="' + c.source_url + '" target="_blank" rel="noopener">' + escapeHtml(c.title) + '</a> — ' + escapeHtml(c.source) + '</li>';
+              }).join('') + '</ul>';
+          }
+        }
+      } else {
+        if (e.key_points && e.key_points.length) {
+          bodyHtml += '<div class="key-points"><h3>Key points</h3><ul>' +
+            e.key_points.map(function(p){return '<li>' + renderInline(p) + '</li>';}).join('') +
+            '</ul></div>';
+        }
+        if (e.our_takeaway) {
+          bodyHtml += '<div class="takeaway"><div class="takeaway-label">Why this matters for H&amp;R</div>' +
+            '<div>' + renderInline(e.our_takeaway) + '</div></div>';
+        }
+      }
+      document.getElementById('modal-body').innerHTML = bodyHtml;
+
+      const actions = document.getElementById('modal-actions');
+      actions.innerHTML = '';
+      if (!isApplied && e.source_url) {
+        const a = document.createElement('a');
+        a.className = 'btn-action';
+        a.href = e.source_url;
+        a.target = '_blank'; a.rel = 'noopener';
+        a.innerHTML = 'Open source ↗';
+        actions.appendChild(a);
+      }
+      const improve = document.createElement('a');
+      improve.className = 'btn-action secondary';
+      improve.href = 'mailto:ben@humansnrobots.com?subject=Manual entry%3A ' + encodeURIComponent(e.title);
+      improve.textContent = 'Improve this entry';
+      actions.appendChild(improve);
+
+      modalShell.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      modalShell.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    modalClose.addEventListener('click', closeModal);
+    modalShell.addEventListener('click', function (ev) { if (ev.target === modalShell) closeModal(); });
+
+    // -------- View toggle --------
+    function setView(v) {
+      activeView = v;
+      activeFilter = 'all';
+      [viewAll, viewApplied, viewCanon].forEach(function(b){
+        b.classList.remove('is-active');
+        b.setAttribute('aria-selected','false');
+      });
+      const map = { all: viewAll, applied: viewApplied, canon: viewCanon };
+      map[v].classList.add('is-active');
+      map[v].setAttribute('aria-selected','true');
+      renderFilters();
+      renderEntries();
+    }
+    viewAll.addEventListener('click', function(){ setView('all'); });
+    viewApplied.addEventListener('click', function(){ setView('applied'); });
+    viewCanon.addEventListener('click', function(){ setView('canon'); });
+
+    // -------- Search --------
+    let searchTimer = null;
+    searchEl.addEventListener('input', function () {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(function () {
+        activeQuery = searchEl.value.trim();
+        renderEntries();
+      }, 80);
+    });
+
+    // -------- Stats --------
+    function renderStats() {
+      document.getElementById('stat-applied').textContent = MANUAL.applied_sections.length;
+      document.getElementById('stat-canon').textContent = MANUAL.canon_entries.length;
+      document.getElementById('stat-read').textContent = MANUAL.canon_entries.reduce(function(a,b){return a+(b.read_time_min||0);}, 0);
+    }
+
+    function renderAll() {
+      renderStats();
+      renderFilters();
+      renderEntries();
+    }
+
+    // -------- Keyboard --------
+    document.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape') {
+        if (modalShell.classList.contains('is-open')) { closeModal(); return; }
+        if (activeQuery || activeFilter !== 'all') {
+          searchEl.value = ''; activeQuery = ''; activeFilter = 'all';
+          renderEntries(); updateChipState();
+        }
+      }
+      if (ev.key === '/' && document.activeElement !== searchEl && document.activeElement !== gateInput) {
+        if (library.classList.contains('is-open')) { ev.preventDefault(); searchEl.focus(); }
+      }
+    });
+
+    // Autofocus passphrase on first paint
+    setTimeout(function () {
+      if (!library.classList.contains('is-open')) gateInput.focus();
+    }, 80);
+  })();
+  </script>
+</body>
+</html>
