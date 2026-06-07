@@ -260,6 +260,21 @@
       transition: transform .12s ease, box-shadow .15s ease, border-color .15s ease;
       cursor: pointer; position: relative;
     }
+    /* Unbuilt skills get a highlighter-yellow border so they read as "not yet shipped" at a glance. */
+    .card[data-status="placeholder"],
+    .card[data-status="draft"] {
+      border-color: #f5e642;
+      box-shadow: inset 0 0 0 1px #f5e642;
+    }
+    .card[data-status="placeholder"]:hover,
+    .card[data-status="draft"]:hover {
+      border-color: #e8d426;
+    }
+    [data-theme="dark"] .card[data-status="placeholder"],
+    [data-theme="dark"] .card[data-status="draft"] {
+      border-color: #f5e642;
+      box-shadow: inset 0 0 0 1px rgba(245,230,66,.85);
+    }
     .card:hover {
       transform: translateY(-2px); box-shadow: var(--shadow);
       border-color: var(--color-primary);
@@ -802,12 +817,15 @@
         const sc = fuzzyScore(s, q);
         if (sc !== null) scored.push({ s: s, score: sc });
       }
-      // Sort: status (live > draft > placeholder) → query relevance → title.
-      // When there's no query, status drives the order so live skills surface first.
+      // Sort: priority (lower wins) → status (live > draft > placeholder) → query relevance → title.
+      // When there's no query, priority + status drive the order so pinned + live skills surface first.
       const statusRank = { live: 0, draft: 1, placeholder: 2 };
       const hasQuery = !!q;
       scored.sort(function (a, b) {
         if (hasQuery && a.score !== b.score) return b.score - a.score;
+        const ap = (typeof a.s.priority === 'number') ? a.s.priority : 100;
+        const bp = (typeof b.s.priority === 'number') ? b.s.priority : 100;
+        if (ap !== bp) return ap - bp;
         const ar = (a.s.status in statusRank) ? statusRank[a.s.status] : 9;
         const br = (b.s.status in statusRank) ? statusRank[b.s.status] : 9;
         const sr = ar - br;
@@ -833,6 +851,7 @@
         card.setAttribute('tabindex', '0');
         card.setAttribute('role', 'button');
         card.setAttribute('aria-label', 'Open skill: ' + s.title);
+        card.setAttribute('data-status', s.status || 'live');
 
         const statusBadge =
           '<span class="badge badge-' + s.status + '">' + s.status + '</span>';
