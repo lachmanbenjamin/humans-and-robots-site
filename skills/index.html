@@ -394,6 +394,113 @@
       background: rgba(232,184,74,.4); color: inherit;
       padding: 0 2px; border-radius: 3px;
     }
+
+    /* ============ Featured Concept Section ============ */
+    .featured-section {
+      margin: 0 0 32px;
+    }
+    .featured-section h2.section-label {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--color-accent-ink);
+      margin: 0 0 12px; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .featured-section h2.section-label::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--color-accent-warm);
+    }
+    .featured-card {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-accent-warm);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .featured-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--color-accent-warm), var(--color-accent));
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .featured-head {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 16px; flex-wrap: wrap; margin-bottom: 12px;
+    }
+    .featured-title {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 26px; line-height: 1.15; letter-spacing: -0.02em;
+      color: var(--color-text); margin: 0;
+    }
+    .featured-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+    .featured-summary {
+      color: var(--color-text-muted); font-size: 15.5px; line-height: 1.6;
+      margin: 0 0 18px;
+    }
+    details.featured-doc {
+      border-top: 1px dashed var(--color-divider);
+      padding-top: 16px; margin-top: 8px;
+    }
+    details.featured-doc summary {
+      cursor: pointer; user-select: none;
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 14px; color: var(--color-primary);
+      padding: 6px 0;
+      list-style: none;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    details.featured-doc summary::-webkit-details-marker { display: none; }
+    details.featured-doc summary::before {
+      content: '▶'; font-size: 10px; transition: transform .15s ease;
+      color: var(--color-accent-ink);
+    }
+    details.featured-doc[open] summary::before { transform: rotate(90deg); }
+    details.featured-doc summary:hover { color: var(--color-primary-hover); }
+    .featured-body {
+      margin-top: 18px; padding-top: 18px;
+      border-top: 1px solid var(--color-divider);
+      font-size: 15px; line-height: 1.65; color: var(--color-text);
+    }
+    .featured-body h1, .featured-body h2, .featured-body h3 {
+      font-family: var(--font-display); letter-spacing: -0.01em;
+      color: var(--color-text); margin: 24px 0 10px;
+    }
+    .featured-body h1 { font-size: 22px; font-weight: 800; }
+    .featured-body h2 { font-size: 18px; font-weight: 700; }
+    .featured-body h3 { font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-ink); }
+    .featured-body p { color: var(--color-text-muted); margin: 0 0 12px; }
+    .featured-body strong { color: var(--color-text); font-weight: 700; }
+    .featured-body em { color: var(--color-text); }
+    .featured-body ul, .featured-body ol { color: var(--color-text-muted); margin: 0 0 12px; padding-left: 22px; }
+    .featured-body li { margin-bottom: 4px; }
+    .featured-body hr {
+      border: none; border-top: 1px dashed var(--color-divider);
+      margin: 20px 0;
+    }
+    .featured-body code {
+      font-family: var(--font-mono); font-size: 13px;
+      background: var(--color-surface-2); color: var(--color-text);
+      padding: 1px 6px; border-radius: 4px;
+      border: 1px solid var(--color-divider);
+    }
+    .featured-body pre {
+      background: var(--color-surface-2); border: 1px solid var(--color-divider);
+      border-radius: 10px; padding: 14px 16px;
+      overflow-x: auto; font-family: var(--font-mono); font-size: 12.5px;
+      line-height: 1.55; color: var(--color-text);
+      margin: 0 0 14px;
+    }
+    .featured-body pre code { background: transparent; border: none; padding: 0; }
+    .featured-body blockquote {
+      border-left: 3px solid var(--color-accent-warm);
+      padding: 4px 14px; margin: 0 0 14px; color: var(--color-text-muted);
+      background: color-mix(in oklab, var(--color-accent-warm) 6%, transparent);
+      border-radius: 0 8px 8px 0;
+    }
+    .featured-body a { color: var(--color-primary); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    @media (max-width: 720px) {
+      .featured-card { padding: 22px 20px; }
+      .featured-title { font-size: 22px; }
+    }
   </style>
 </head>
 <body>
@@ -487,6 +594,12 @@
         </div>
         <div class="filters" id="filters" role="toolbar" aria-label="Category filters"></div>
       </div>
+
+      <!-- ============ Featured Concept (rendered from any entry with featured:true) ============ -->
+      <section class="featured-section" id="featured-section" style="display:none" aria-label="Featured concept">
+        <h2 class="section-label">Featured concept</h2>
+        <article class="featured-card" id="featured-card"></article>
+      </section>
 
       <div class="results-meta">
         <span id="results-count">—</span>
@@ -731,6 +844,9 @@
       document.getElementById('stat-draft').textContent = draft;
       document.getElementById('stat-placeholder').textContent = placeholder;
 
+      // Featured concept (renders any entry with featured:true; first one wins if multiple)
+      renderFeatured();
+
       // Category counts
       const counts = {};
       for (const s of SKILLS) counts[s.category] = (counts[s.category] || 0) + 1;
@@ -875,6 +991,152 @@
         frag.appendChild(card);
       }
       grid.appendChild(frag);
+    }
+
+    // ------- Featured Concept Renderer -------
+    // Minimal Markdown→HTML renderer. Intentionally tiny: no external deps,
+    // no paid tools. Covers: headings, paragraphs, bold/italic, inline code,
+    // fenced code, lists, blockquotes, links, hr.
+    function renderMarkdown(md) {
+      if (!md) return '';
+      // Normalize
+      let src = String(md).replace(/\r\n/g, '\n');
+      const lines = src.split('\n');
+      const out = [];
+      let i = 0;
+      function esc(s) {
+        return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+      function inline(s) {
+        // escape first
+        let t = esc(s);
+        // inline code
+        t = t.replace(/`([^`]+)`/g, function (_, c) { return '<code>' + c + '</code>'; });
+        // bold + italic
+        t = t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        t = t.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
+        // links [text](url)
+        t = t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function (_, txt, url) {
+          var safeUrl = url.replace(/"/g, '&quot;');
+          return '<a href="' + safeUrl + '" target="_blank" rel="noopener">' + txt + '</a>';
+        });
+        return t;
+      }
+      while (i < lines.length) {
+        const line = lines[i];
+
+        // fenced code block
+        if (/^```/.test(line)) {
+          const lang = line.replace(/^```/, '').trim();
+          i++;
+          const buf = [];
+          while (i < lines.length && !/^```/.test(lines[i])) { buf.push(lines[i]); i++; }
+          i++; // skip closing fence
+          out.push('<pre><code' + (lang ? ' class="lang-' + esc(lang) + '"' : '') + '>' + esc(buf.join('\n')) + '</code></pre>');
+          continue;
+        }
+
+        // horizontal rule
+        if (/^---\s*$/.test(line)) {
+          out.push('<hr/>');
+          i++; continue;
+        }
+
+        // heading
+        const hm = /^(#{1,6})\s+(.*)$/.exec(line);
+        if (hm) {
+          const lvl = hm[1].length;
+          out.push('<h' + lvl + '>' + inline(hm[2]) + '</h' + lvl + '>');
+          i++; continue;
+        }
+
+        // blockquote (collapse consecutive)
+        if (/^>\s?/.test(line)) {
+          const buf = [];
+          while (i < lines.length && /^>\s?/.test(lines[i])) {
+            buf.push(lines[i].replace(/^>\s?/, ''));
+            i++;
+          }
+          out.push('<blockquote>' + inline(buf.join(' ').trim()) + '</blockquote>');
+          continue;
+        }
+
+        // unordered list
+        if (/^[-*]\s+/.test(line)) {
+          const items = [];
+          while (i < lines.length && /^[-*]\s+/.test(lines[i])) {
+            items.push('<li>' + inline(lines[i].replace(/^[-*]\s+/, '')) + '</li>');
+            i++;
+          }
+          out.push('<ul>' + items.join('') + '</ul>');
+          continue;
+        }
+
+        // ordered list
+        if (/^\d+\.\s+/.test(line)) {
+          const items = [];
+          while (i < lines.length && /^\d+\.\s+/.test(lines[i])) {
+            items.push('<li>' + inline(lines[i].replace(/^\d+\.\s+/, '')) + '</li>');
+            i++;
+          }
+          out.push('<ol>' + items.join('') + '</ol>');
+          continue;
+        }
+
+        // blank line
+        if (/^\s*$/.test(line)) { i++; continue; }
+
+        // paragraph (collapse consecutive non-blank, non-special)
+        const buf = [];
+        while (
+          i < lines.length &&
+          !/^\s*$/.test(lines[i]) &&
+          !/^#{1,6}\s+/.test(lines[i]) &&
+          !/^```/.test(lines[i]) &&
+          !/^>\s?/.test(lines[i]) &&
+          !/^[-*]\s+/.test(lines[i]) &&
+          !/^\d+\.\s+/.test(lines[i]) &&
+          !/^---\s*$/.test(lines[i])
+        ) {
+          buf.push(lines[i]);
+          i++;
+        }
+        if (buf.length) {
+          out.push('<p>' + inline(buf.join(' ')) + '</p>');
+        }
+      }
+      return out.join('\n');
+    }
+
+    function renderFeatured() {
+      const sec = document.getElementById('featured-section');
+      const card = document.getElementById('featured-card');
+      const featured = SKILLS.find(function (s) { return s.featured === true; });
+      if (!featured) { sec.style.display = 'none'; return; }
+
+      const statusBadge =
+        '<span class="badge badge-' + featured.status + '">' + featured.status + '</span>';
+      const catBadge =
+        '<span class="badge badge-cat">' + (CATEGORY_LABELS[featured.category] || featured.category) + '</span>';
+
+      var docHtml = '';
+      if (featured.full_doc) {
+        docHtml =
+          '<details class="featured-doc">' +
+            '<summary>Read full concept</summary>' +
+            '<div class="featured-body">' + renderMarkdown(featured.full_doc) + '</div>' +
+          '</details>';
+      }
+
+      card.innerHTML =
+        '<div class="featured-head">' +
+          '<h2 class="featured-title">' + escapeHtml(featured.title) + '</h2>' +
+          '<div class="featured-meta">' + catBadge + ' ' + statusBadge + '</div>' +
+        '</div>' +
+        '<p class="featured-summary">' + escapeHtml(featured.summary) + '</p>' +
+        docHtml;
+
+      sec.style.display = 'block';
     }
 
     // ------- Modal -------
