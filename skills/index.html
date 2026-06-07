@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Skill Library — Humans &amp; Robots</title>
+  <meta name="description" content="Private skill library for Humans and Robots, LLC — the operating manual our agents and teammates use." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=satoshi@400,500,600,700&f[]=jetbrains-mono@400,500&display=swap" rel="stylesheet" />
+
+  <!-- Favicon (same as main site) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='11' cy='12' r='6' fill='none' stroke='%231B474D' stroke-width='2.5'/%3E%3Crect x='15' y='6' width='12' height='12' rx='2' fill='none' stroke='%2320808D' stroke-width='2.5'/%3E%3Ccircle cx='19' cy='10' r='1.2' fill='%2320808D'/%3E%3Ccircle cx='23' cy='10' r='1.2' fill='%2320808D'/%3E%3Cline x1='18' y1='14' x2='24' y2='14' stroke='%2320808D' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='8' y1='22' x2='8' y2='28' stroke='%231B474D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='14' y1='22' x2='14' y2='28' stroke='%231B474D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='19' y1='20' x2='19' y2='28' stroke='%2320808D' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='25' y1='20' x2='25' y2='28' stroke='%2320808D' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <style>
+    /* ============ Tokens (matched to humansnrobots.com) ============ */
+    :root {
+      --font-display: 'Cabinet Grotesk', 'Helvetica Neue', sans-serif;
+      --font-body: 'Satoshi', 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+      --color-bg: #F5E6D3;
+      --color-bg-soft: #EFDDC7;
+      --color-surface: #FFFFFF;
+      --color-surface-2: #FAF0E6;
+      --color-border: #D4C4B0;
+      --color-divider: #E0D0BE;
+
+      --color-text: #0F1A1C;
+      --color-text-muted: #4A5959;
+      --color-text-faint: #8A918F;
+      --color-text-inverse: #F5E6D3;
+
+      --color-primary: #1B474D;       /* deep teal */
+      --color-primary-hover: #163B40;
+      --color-accent: #00D1B2;        /* electric teal */
+      --color-accent-ink: #20808D;
+      --color-accent-warm: #E8B84A;
+      --color-accent-coral: #F26D5B;
+
+      --radius-sm: 8px;
+      --radius: 14px;
+      --radius-lg: 22px;
+      --shadow-sm: 0 1px 2px rgba(15,26,28,.04), 0 2px 4px rgba(15,26,28,.04);
+      --shadow: 0 8px 24px rgba(15,26,28,.08);
+      --shadow-lg: 0 24px 48px rgba(15,26,28,.12);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #0B1416;
+      --color-bg-soft: #0F1A1C;
+      --color-surface: #162225;
+      --color-surface-2: #1A2A2D;
+      --color-border: #2D4245;
+      --color-divider: #243538;
+      --color-text: #F0E3D0;
+      --color-text-muted: #B4A892;
+      --color-text-faint: #6E7D7B;
+      --color-text-inverse: #0F1A1C;
+      --color-primary: #5FE3C9;
+      --color-primary-hover: #4FD3B9;
+      --color-accent: #00D1B2;
+      --color-accent-ink: #5FE3C9;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      line-height: 1.55;
+    }
+    a { color: var(--color-primary); text-decoration: none; }
+    a:hover { color: var(--color-primary-hover); text-decoration: underline; }
+    button { font-family: inherit; cursor: pointer; }
+
+    /* ============ Header ============ */
+    .site-header {
+      position: sticky; top: 0; z-index: 30;
+      background: color-mix(in oklab, var(--color-bg) 86%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .header-inner {
+      max-width: 1240px; margin: 0 auto; padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+      font-family: var(--font-display); font-weight: 800; font-size: 20px;
+      color: var(--color-text); letter-spacing: -0.01em;
+    }
+    .brand:hover { text-decoration: none; }
+    .brand svg { width: 28px; height: 28px; flex: none; }
+    .brand .small { font-weight: 500; color: var(--color-text-muted); margin-left: 6px; font-family: var(--font-body); font-size: 14px; }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .icon-btn {
+      width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center;
+      background: transparent; border: 1px solid var(--color-border); border-radius: 10px;
+      color: var(--color-text); transition: background .15s ease;
+    }
+    .icon-btn:hover { background: var(--color-surface-2); }
+
+    /* ============ Gate ============ */
+    .gate-shell {
+      min-height: calc(100vh - 73px);
+      display: grid; place-items: center; padding: 48px 24px;
+    }
+    .gate-card {
+      width: 100%; max-width: 460px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--shadow);
+    }
+    .gate-lock {
+      width: 56px; height: 56px; border-radius: 16px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent-ink));
+      display: grid; place-items: center; margin-bottom: 20px;
+      color: var(--color-text-inverse);
+    }
+    .gate-card h1 {
+      font-family: var(--font-display); font-weight: 800; font-size: 28px;
+      margin: 0 0 8px; letter-spacing: -0.02em;
+    }
+    .gate-card p { color: var(--color-text-muted); margin: 0 0 24px; }
+    .gate-form { display: flex; flex-direction: column; gap: 12px; }
+    .gate-input {
+      width: 100%; padding: 14px 16px; font: 500 16px/1.4 var(--font-body);
+      background: var(--color-surface-2); color: var(--color-text);
+      border: 1.5px solid var(--color-border); border-radius: 12px;
+      outline: none; transition: border-color .15s ease;
+    }
+    .gate-input:focus { border-color: var(--color-primary); }
+    .gate-btn {
+      padding: 14px 18px; font: 700 16px/1 var(--font-display);
+      background: var(--color-primary); color: var(--color-text-inverse);
+      border: none; border-radius: 12px;
+      transition: background .15s ease, transform .05s ease;
+    }
+    .gate-btn:hover { background: var(--color-primary-hover); }
+    .gate-btn:active { transform: translateY(1px); }
+    .gate-error {
+      color: var(--color-accent-coral); font-size: 14px; min-height: 20px;
+      font-weight: 500;
+    }
+    .gate-foot {
+      margin-top: 18px; padding-top: 18px; border-top: 1px dashed var(--color-divider);
+      color: var(--color-text-faint); font-size: 13px;
+    }
+
+    /* ============ Library Shell ============ */
+    .library { display: none; }
+    .library.is-open { display: block; }
+    .lib-inner { max-width: 1240px; margin: 0 auto; padding: 32px 24px 96px; }
+
+    .hero-row {
+      display: grid; grid-template-columns: 1.5fr 1fr; gap: 32px; align-items: end;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 860px) { .hero-row { grid-template-columns: 1fr; gap: 16px; } }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--color-accent-ink); margin-bottom: 14px;
+    }
+    .eyebrow::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--color-accent);
+    }
+    h1.page-title {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(2rem, 1rem + 3vw, 3.25rem);
+      line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 12px;
+    }
+    .page-sub { color: var(--color-text-muted); font-size: 17px; max-width: 60ch; margin: 0; }
+
+    .meta-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius); padding: 20px;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+    }
+    .meta-stat .n {
+      font-family: var(--font-display); font-weight: 800; font-size: 28px;
+      color: var(--color-primary); line-height: 1;
+    }
+    .meta-stat .l {
+      font-size: 12px; color: var(--color-text-faint); margin-top: 4px;
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    [data-theme="dark"] .meta-stat .n { color: var(--color-primary); }
+
+    /* ============ Search + Filters ============ */
+    .toolbar {
+      position: sticky; top: 73px; z-index: 20;
+      background: color-mix(in oklab, var(--color-bg) 92%, transparent);
+      backdrop-filter: blur(10px);
+      padding: 16px 0; margin: 8px 0 24px;
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .search-wrap {
+      position: relative; display: flex; align-items: center;
+      background: var(--color-surface); border: 1.5px solid var(--color-border);
+      border-radius: 14px; padding: 4px 6px 4px 14px;
+      transition: border-color .15s ease;
+    }
+    .search-wrap:focus-within { border-color: var(--color-primary); }
+    .search-wrap svg { color: var(--color-text-muted); flex: none; }
+    .search-input {
+      flex: 1; border: none; background: transparent;
+      font: 500 16px/1.4 var(--font-body); color: var(--color-text);
+      padding: 12px 12px; outline: none;
+    }
+    .search-input::placeholder { color: var(--color-text-faint); }
+    .kbd-hint {
+      font-family: var(--font-mono); font-size: 11px;
+      color: var(--color-text-faint);
+      border: 1px solid var(--color-border); border-radius: 6px;
+      padding: 4px 7px; margin-right: 4px;
+    }
+    .filters {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
+    }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 13px; border-radius: 999px;
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      color: var(--color-text-muted); font: 600 13px/1 var(--font-body);
+      transition: all .15s ease; cursor: pointer;
+    }
+    .chip:hover { border-color: var(--color-primary); color: var(--color-text); }
+    .chip[aria-pressed="true"] {
+      background: var(--color-primary); color: var(--color-text-inverse);
+      border-color: var(--color-primary);
+    }
+    .chip .count {
+      font-family: var(--font-mono); font-size: 11px; opacity: .7;
+    }
+
+    /* ============ Skill Grid ============ */
+    .results-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 16px; color: var(--color-text-muted); font-size: 14px;
+    }
+    .grid {
+      display: grid; gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+    .card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius); padding: 20px 22px;
+      display: flex; flex-direction: column; gap: 12px;
+      transition: transform .12s ease, box-shadow .15s ease, border-color .15s ease;
+      cursor: pointer; position: relative;
+    }
+    .card:hover {
+      transform: translateY(-2px); box-shadow: var(--shadow);
+      border-color: var(--color-primary);
+    }
+    .card-head {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 10px;
+    }
+    .card-title {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 18px; line-height: 1.25; letter-spacing: -0.01em;
+      color: var(--color-text); margin: 0;
+    }
+    .card-summary {
+      color: var(--color-text-muted); font-size: 14.5px; line-height: 1.5;
+      margin: 0;
+    }
+    .card-foot {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 8px; margin-top: auto; padding-top: 8px;
+      border-top: 1px dashed var(--color-divider);
+      font-size: 12px; color: var(--color-text-faint);
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 3px 9px; border-radius: 999px;
+      font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.02em; text-transform: uppercase;
+    }
+    .badge-live { background: rgba(0,209,178,.15); color: var(--color-accent-ink); }
+    [data-theme="dark"] .badge-live { background: rgba(95,227,201,.15); color: var(--color-primary); }
+    .badge-draft { background: rgba(232,184,74,.18); color: #8a6a14; }
+    [data-theme="dark"] .badge-draft { color: #f4c868; }
+    .badge-placeholder { background: rgba(242,109,91,.18); color: #b03d2b; }
+    [data-theme="dark"] .badge-placeholder { color: #f26d5b; }
+    .badge-cat {
+      background: color-mix(in oklab, var(--color-primary) 12%, transparent);
+      color: var(--color-primary);
+    }
+
+    .empty {
+      padding: 80px 24px; text-align: center; color: var(--color-text-muted);
+      background: var(--color-surface); border: 1px dashed var(--color-border);
+      border-radius: var(--radius); grid-column: 1 / -1;
+    }
+    .empty h3 { font-family: var(--font-display); margin: 0 0 8px; color: var(--color-text); }
+
+    /* ============ Modal ============ */
+    .modal-shell {
+      position: fixed; inset: 0; z-index: 50;
+      background: rgba(15,26,28,.55); backdrop-filter: blur(6px);
+      display: none; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .modal-shell.is-open { display: flex; }
+    .modal {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      max-width: 720px; width: 100%;
+      max-height: 88vh; overflow: auto;
+      box-shadow: var(--shadow-lg);
+      padding: 32px;
+      animation: pop .18s ease;
+    }
+    @keyframes pop { from { transform: scale(.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .modal-close {
+      position: absolute; top: 16px; right: 16px;
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--color-surface-2); border: 1px solid var(--color-border);
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .modal-head { margin-bottom: 18px; }
+    .modal-head h2 {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 26px; line-height: 1.15; margin: 8px 0 6px;
+    }
+    .modal-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .modal section { margin-top: 18px; }
+    .modal section h3 {
+      font-family: var(--font-display); font-weight: 700; font-size: 13px;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--color-accent-ink); margin: 0 0 6px;
+    }
+    .modal p, .modal li { color: var(--color-text-muted); font-size: 15px; line-height: 1.55; margin: 0; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-family: var(--font-mono); font-size: 11px;
+      background: var(--color-surface-2); color: var(--color-text-muted);
+      padding: 4px 8px; border-radius: 6px; border: 1px solid var(--color-divider);
+    }
+    .modal-actions {
+      margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--color-divider);
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .btn-action {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 16px; border-radius: 10px;
+      font: 600 14px/1 var(--font-body);
+      background: var(--color-primary); color: var(--color-text-inverse);
+      border: none;
+    }
+    .btn-action.secondary {
+      background: var(--color-surface-2); color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+    .btn-action:hover { text-decoration: none; opacity: .92; }
+
+    /* ============ Footer ============ */
+    footer.site-foot {
+      border-top: 1px solid var(--color-divider);
+      padding: 28px 24px; text-align: center;
+      color: var(--color-text-faint); font-size: 13px;
+    }
+    footer.site-foot a { color: var(--color-text-muted); }
+
+    /* mark for search highlights */
+    mark.hl {
+      background: rgba(232,184,74,.4); color: inherit;
+      padding: 0 2px; border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="https://humansnrobots.com/" class="brand" aria-label="Humans and Robots — Home">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="11" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <rect x="15" y="6" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="19" cy="10" r="1.2" fill="currentColor"/>
+          <circle cx="23" cy="10" r="1.2" fill="currentColor"/>
+          <line x1="18" y1="14" x2="24" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="8" y1="22" x2="8" y2="28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="14" y1="22" x2="14" y2="28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="19" y1="20" x2="19" y2="28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="25" y1="20" x2="25" y2="28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span>Humans &amp; Robots <span class="small">/ Skills</span></span>
+      </a>
+      <div class="header-actions">
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="icon-btn" id="lock-btn" aria-label="Lock library" title="Lock library" style="display:none">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ Gate ============ -->
+  <div class="gate-shell" id="gate-shell">
+    <div class="gate-card">
+      <div class="gate-lock" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <h1>Skill Library</h1>
+      <p>Private operating manual for Humans &amp; Robots. Enter the team passphrase to unlock.</p>
+      <form class="gate-form" id="gate-form" autocomplete="off">
+        <input
+          class="gate-input"
+          id="gate-input"
+          type="password"
+          placeholder="Team passphrase"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          required />
+        <button class="gate-btn" type="submit">Unlock library →</button>
+        <div class="gate-error" id="gate-error" role="alert" aria-live="polite"></div>
+      </form>
+      <div class="gate-foot">
+        Content is AES-GCM encrypted client-side and never reaches a server. The passphrase derives the decryption key via PBKDF2 (250k iterations).
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ Library ============ -->
+  <main class="library" id="library" aria-hidden="true">
+    <div class="lib-inner">
+      <div class="hero-row">
+        <div>
+          <div class="eyebrow">Operating manual · Updated 2026-06-07</div>
+          <h1 class="page-title">The skills our agents and teammates actually use.</h1>
+          <p class="page-sub">A compounding library of the repeatable methods, playbooks, and operating gates that run Humans &amp; Robots. The thesis: <a href="https://x.com/hnshah/status/2062647149582750101" target="_blank" rel="noopener">skills make judgment reusable</a> — and the private ones are the asset.</p>
+        </div>
+        <div class="meta-card" aria-label="Library stats">
+          <div class="meta-stat"><div class="n" id="stat-total">—</div><div class="l">Total skills</div></div>
+          <div class="meta-stat"><div class="n" id="stat-live">—</div><div class="l">Live</div></div>
+          <div class="meta-stat"><div class="n" id="stat-draft">—</div><div class="l">Draft</div></div>
+          <div class="meta-stat"><div class="n" id="stat-placeholder">—</div><div class="l">Placeholder</div></div>
+        </div>
+      </div>
+
+      <div class="toolbar" role="region" aria-label="Search and filters">
+        <div class="search-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input
+            class="search-input"
+            id="search"
+            type="search"
+            placeholder="Search skills, tags, summaries… (press / to focus)"
+            aria-label="Search skills" />
+          <span class="kbd-hint" aria-hidden="true">/</span>
+        </div>
+        <div class="filters" id="filters" role="toolbar" aria-label="Category filters"></div>
+      </div>
+
+      <div class="results-meta">
+        <span id="results-count">—</span>
+        <span class="kbd-hint" aria-hidden="true">Esc clears filters</span>
+      </div>
+
+      <div class="grid" id="grid"></div>
+    </div>
+  </main>
+
+  <!-- ============ Modal ============ -->
+  <div class="modal-shell" id="modal-shell" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" id="modal" style="position:relative">
+      <button class="modal-close" id="modal-close" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal-head">
+        <div class="modal-meta" id="modal-meta"></div>
+        <h2 id="modal-title">—</h2>
+        <p id="modal-summary" style="margin-top:4px"></p>
+      </div>
+      <section>
+        <h3>When to use</h3>
+        <p id="modal-when"></p>
+      </section>
+      <section>
+        <h3>Owner</h3>
+        <p id="modal-owner"></p>
+      </section>
+      <section id="modal-tags-section">
+        <h3>Tags</h3>
+        <div class="tag-row" id="modal-tags"></div>
+      </section>
+      <section>
+        <h3>Source</h3>
+        <p id="modal-source"></p>
+      </section>
+      <div class="modal-actions">
+        <a class="btn-action" id="modal-source-link" target="_blank" rel="noopener" style="display:none">Open in KB ↗</a>
+        <a class="btn-action secondary" id="modal-improve" href="#">✎ Improve this skill</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-foot">
+    Humans and Robots, LLC · Private skill library · <a href="https://humansnrobots.com/">← Back to site</a>
+  </footer>
+
+  <script>
+  /* ============================================================
+     Skill Library — gate, decrypt, render, search, filter, modal
+     ============================================================ */
+  (function () {
+    'use strict';
+
+    const PAYLOAD_URL = './payload.json';
+    const STORAGE_KEY = 'hnr_skills_unlock';   // sessionStorage marker
+    const KEY_CACHE = 'hnr_skills_key_b64';    // sessionStorage cached derived key (raw base64)
+
+    // ------- Theme -------
+    const themeBtn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      try { localStorage.setItem('hnr_theme', t); } catch (e) {}
+    }
+    (function initTheme() {
+      let t = null;
+      try { t = localStorage.getItem('hnr_theme'); } catch (e) {}
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      applyTheme(t);
+    })();
+    themeBtn.addEventListener('click', function () {
+      const cur = document.documentElement.getAttribute('data-theme') || 'light';
+      applyTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+
+    // ------- Crypto helpers -------
+    function b64ToBytes(b64) {
+      const bin = atob(b64);
+      const out = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+      return out;
+    }
+    function bytesToB64(bytes) {
+      let s = '';
+      for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+      return btoa(s);
+    }
+    async function deriveKey(passphrase, saltBytes, iterations) {
+      const enc = new TextEncoder();
+      const baseKey = await crypto.subtle.importKey(
+        'raw', enc.encode(passphrase), { name: 'PBKDF2' }, false, ['deriveKey']
+      );
+      return crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: saltBytes, iterations: iterations, hash: 'SHA-256' },
+        baseKey,
+        { name: 'AES-GCM', length: 256 },
+        true,                       // extractable so we can cache
+        ['decrypt']
+      );
+    }
+
+    let PAYLOAD = null;             // raw cipher bundle
+    let SKILLS = null;              // decrypted array
+
+    async function fetchPayload() {
+      if (PAYLOAD) return PAYLOAD;
+      const res = await fetch(PAYLOAD_URL, { cache: 'no-store' });
+      if (!res.ok) throw new Error('Payload fetch failed: ' + res.status);
+      PAYLOAD = await res.json();
+      return PAYLOAD;
+    }
+
+    async function decryptWithKey(cryptoKey) {
+      const p = await fetchPayload();
+      const iv = b64ToBytes(p.iv);
+      const ct = b64ToBytes(p.ct);
+      const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, cryptoKey, ct);
+      const text = new TextDecoder().decode(plain);
+      return JSON.parse(text);
+    }
+
+    async function tryPassphrase(passphrase) {
+      const p = await fetchPayload();
+      const salt = b64ToBytes(p.salt);
+      const key = await deriveKey(passphrase, salt, p.iter);
+      const skills = await decryptWithKey(key);
+      // success — cache the raw key bytes in sessionStorage so refresh doesn't re-prompt
+      try {
+        const raw = await crypto.subtle.exportKey('raw', key);
+        sessionStorage.setItem(KEY_CACHE, bytesToB64(new Uint8Array(raw)));
+        sessionStorage.setItem(STORAGE_KEY, '1');
+      } catch (e) {}
+      return skills;
+    }
+
+    async function tryCachedKey() {
+      const b64 = sessionStorage.getItem(KEY_CACHE);
+      if (!b64) return null;
+      try {
+        const raw = b64ToBytes(b64);
+        const key = await crypto.subtle.importKey('raw', raw, { name: 'AES-GCM' }, false, ['decrypt']);
+        return await decryptWithKey(key);
+      } catch (e) {
+        sessionStorage.removeItem(KEY_CACHE);
+        sessionStorage.removeItem(STORAGE_KEY);
+        return null;
+      }
+    }
+
+    // ------- UI elements -------
+    const gateShell = document.getElementById('gate-shell');
+    const gateForm = document.getElementById('gate-form');
+    const gateInput = document.getElementById('gate-input');
+    const gateError = document.getElementById('gate-error');
+    const library = document.getElementById('library');
+    const lockBtn = document.getElementById('lock-btn');
+    const grid = document.getElementById('grid');
+    const filtersEl = document.getElementById('filters');
+    const searchEl = document.getElementById('search');
+    const resultsCount = document.getElementById('results-count');
+    const modalShell = document.getElementById('modal-shell');
+    const modalClose = document.getElementById('modal-close');
+
+    let activeCategory = 'all';
+    let activeQuery = '';
+
+    // ------- Boot -------
+    (async function boot() {
+      try {
+        const cached = await tryCachedKey();
+        if (cached) {
+          SKILLS = cached;
+          unlockUI();
+        }
+      } catch (e) {}
+    })();
+
+    // ------- Gate submit -------
+    gateForm.addEventListener('submit', async function (ev) {
+      ev.preventDefault();
+      gateError.textContent = '';
+      const pass = gateInput.value.trim();
+      if (!pass) { gateError.textContent = 'Enter the team passphrase.'; return; }
+      const btn = gateForm.querySelector('button[type="submit"]');
+      btn.disabled = true; btn.textContent = 'Deriving key…';
+      try {
+        SKILLS = await tryPassphrase(pass);
+        unlockUI();
+      } catch (e) {
+        console.error(e);
+        gateError.textContent = 'That passphrase didn\u2019t unlock the library.';
+        btn.disabled = false; btn.textContent = 'Unlock library →';
+      }
+    });
+
+    function unlockUI() {
+      gateShell.style.display = 'none';
+      library.classList.add('is-open');
+      library.setAttribute('aria-hidden', 'false');
+      lockBtn.style.display = 'inline-flex';
+      renderAll();
+    }
+
+    lockBtn.addEventListener('click', function () {
+      sessionStorage.removeItem(KEY_CACHE);
+      sessionStorage.removeItem(STORAGE_KEY);
+      SKILLS = null;
+      library.classList.remove('is-open');
+      library.setAttribute('aria-hidden', 'true');
+      gateShell.style.display = 'grid';
+      lockBtn.style.display = 'none';
+      gateInput.value = '';
+      setTimeout(function () { gateInput.focus(); }, 30);
+    });
+
+    // ------- Render: stats, filters, grid -------
+    const CATEGORY_LABELS = {
+      'all':           'All',
+      'sales':         'Sales',
+      'marketing':     'Marketing',
+      'content':       'Content',
+      'crm-ops':       'CRM / Ops',
+      'client-delivery': 'Client delivery',
+      'finance':       'Finance',
+      'product':       'Product',
+      'engineering':   'Engineering',
+      'legal':         'Legal',
+      'leadership':    'Leadership',
+      'infra':         'Infra',
+      'meta':          'Meta'
+    };
+
+    function renderAll() {
+      // Stats
+      const total = SKILLS.length;
+      const live = SKILLS.filter(s => s.status === 'live').length;
+      const draft = SKILLS.filter(s => s.status === 'draft').length;
+      const placeholder = SKILLS.filter(s => s.status === 'placeholder').length;
+      document.getElementById('stat-total').textContent = total;
+      document.getElementById('stat-live').textContent = live;
+      document.getElementById('stat-draft').textContent = draft;
+      document.getElementById('stat-placeholder').textContent = placeholder;
+
+      // Category counts
+      const counts = {};
+      for (const s of SKILLS) counts[s.category] = (counts[s.category] || 0) + 1;
+      const cats = ['all'].concat(Object.keys(counts).sort(function (a, b) {
+        return counts[b] - counts[a];
+      }));
+
+      filtersEl.innerHTML = '';
+      cats.forEach(function (c) {
+        const chip = document.createElement('button');
+        chip.className = 'chip';
+        chip.setAttribute('type', 'button');
+        chip.setAttribute('aria-pressed', c === activeCategory ? 'true' : 'false');
+        chip.dataset.cat = c;
+        const label = CATEGORY_LABELS[c] || c;
+        const n = c === 'all' ? total : counts[c];
+        chip.innerHTML = label + ' <span class="count">' + n + '</span>';
+        chip.addEventListener('click', function () {
+          activeCategory = c;
+          updateChipState();
+          renderGrid();
+        });
+        filtersEl.appendChild(chip);
+      });
+
+      renderGrid();
+    }
+
+    function updateChipState() {
+      filtersEl.querySelectorAll('.chip').forEach(function (chip) {
+        chip.setAttribute('aria-pressed', chip.dataset.cat === activeCategory ? 'true' : 'false');
+      });
+    }
+
+    function fuzzyScore(skill, q) {
+      // Simple weighted token-match scorer. Returns null if no match.
+      if (!q) return 0.0001;
+      const tokens = q.toLowerCase().split(/\s+/).filter(Boolean);
+      const hay = {
+        title: (skill.title || '').toLowerCase(),
+        summary: (skill.summary || '').toLowerCase(),
+        when: (skill.when_to_use || '').toLowerCase(),
+        category: (skill.category || '').toLowerCase(),
+        tags: (skill.tags || []).join(' ').toLowerCase(),
+        owner: (skill.owner || '').toLowerCase()
+      };
+      let score = 0;
+      for (const tok of tokens) {
+        let hit = 0;
+        if (hay.title.includes(tok)) hit += 5;
+        if (hay.tags.includes(tok))  hit += 4;
+        if (hay.category.includes(tok)) hit += 3;
+        if (hay.summary.includes(tok)) hit += 2;
+        if (hay.when.includes(tok)) hit += 1.5;
+        if (hay.owner.includes(tok)) hit += 1;
+        if (hit === 0) return null;
+        score += hit;
+      }
+      return score;
+    }
+
+    function highlight(text, q) {
+      if (!q) return escapeHtml(text);
+      const tokens = q.split(/\s+/).filter(Boolean).map(escapeReg);
+      if (!tokens.length) return escapeHtml(text);
+      const re = new RegExp('(' + tokens.join('|') + ')', 'gi');
+      return escapeHtml(text).replace(re, '<mark class="hl">$1</mark>');
+    }
+    function escapeHtml(s) {
+      return String(s || '')
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+    function escapeReg(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+    function renderGrid() {
+      grid.innerHTML = '';
+      const q = activeQuery.trim();
+      let pool = SKILLS.slice();
+      if (activeCategory !== 'all') pool = pool.filter(s => s.category === activeCategory);
+
+      const scored = [];
+      for (const s of pool) {
+        const sc = fuzzyScore(s, q);
+        if (sc !== null) scored.push({ s: s, score: sc });
+      }
+      // Sort: status (live > draft > placeholder) → query relevance → title.
+      // When there's no query, status drives the order so live skills surface first.
+      const statusRank = { live: 0, draft: 1, placeholder: 2 };
+      const hasQuery = !!q;
+      scored.sort(function (a, b) {
+        if (hasQuery && a.score !== b.score) return b.score - a.score;
+        const ar = (a.s.status in statusRank) ? statusRank[a.s.status] : 9;
+        const br = (b.s.status in statusRank) ? statusRank[b.s.status] : 9;
+        const sr = ar - br;
+        if (sr !== 0) return sr;
+        if (!hasQuery && a.score !== b.score) return b.score - a.score;
+        return a.s.title.localeCompare(b.s.title);
+      });
+
+      resultsCount.textContent = scored.length + ' of ' + SKILLS.length + ' skills';
+
+      if (!scored.length) {
+        const empty = document.createElement('div');
+        empty.className = 'empty';
+        empty.innerHTML = '<h3>No skills match.</h3><p>Try clearing filters or searching a different term.</p>';
+        grid.appendChild(empty);
+        return;
+      }
+
+      const frag = document.createDocumentFragment();
+      for (const { s } of scored) {
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', 'Open skill: ' + s.title);
+
+        const statusBadge =
+          '<span class="badge badge-' + s.status + '">' + s.status + '</span>';
+        const catBadge =
+          '<span class="badge badge-cat">' + (CATEGORY_LABELS[s.category] || s.category) + '</span>';
+
+        card.innerHTML =
+          '<div class="card-head">' +
+            '<h2 class="card-title">' + highlight(s.title, q) + '</h2>' +
+          '</div>' +
+          '<p class="card-summary">' + highlight(s.summary, q) + '</p>' +
+          '<div class="card-foot">' +
+            '<span>' + catBadge + ' ' + statusBadge + '</span>' +
+            '<span>' + escapeHtml(s.owner || '—') + '</span>' +
+          '</div>';
+
+        card.addEventListener('click', function () { openModal(s); });
+        card.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openModal(s); }
+        });
+        frag.appendChild(card);
+      }
+      grid.appendChild(frag);
+    }
+
+    // ------- Modal -------
+    function openModal(s) {
+      const meta = document.getElementById('modal-meta');
+      meta.innerHTML =
+        '<span class="badge badge-cat">' + (CATEGORY_LABELS[s.category] || s.category) + '</span>' +
+        '<span class="badge badge-' + s.status + '">' + s.status + '</span>';
+      document.getElementById('modal-title').textContent = s.title;
+      document.getElementById('modal-summary').textContent = s.summary;
+      document.getElementById('modal-when').textContent = s.when_to_use || '—';
+      document.getElementById('modal-owner').textContent = s.owner || '—';
+
+      const tagsEl = document.getElementById('modal-tags');
+      tagsEl.innerHTML = '';
+      (s.tags || []).forEach(function (t) {
+        const span = document.createElement('span');
+        span.className = 'tag';
+        span.textContent = t;
+        tagsEl.appendChild(span);
+      });
+      document.getElementById('modal-tags-section').style.display = (s.tags && s.tags.length) ? 'block' : 'none';
+
+      // Source
+      const src = document.getElementById('modal-source');
+      const srcLink = document.getElementById('modal-source-link');
+      if (s.source_kb) {
+        src.innerHTML = 'KB path: <code>' + escapeHtml(s.source_kb) + '</code>';
+        srcLink.href = 'https://github.com/lachmanbenjamin/humans-and-robots-kb/blob/main/' + s.source_kb;
+        srcLink.style.display = 'inline-flex';
+        srcLink.textContent = 'Open in KB ↗';
+      } else if (s.source_url) {
+        if (s.source_url.startsWith('http')) {
+          src.innerHTML = '<a href="' + escapeHtml(s.source_url) + '" target="_blank" rel="noopener">' + escapeHtml(s.source_url) + '</a>';
+          srcLink.href = s.source_url;
+          srcLink.style.display = 'inline-flex';
+          srcLink.textContent = 'Open source ↗';
+        } else {
+          src.textContent = s.source_url;
+          srcLink.style.display = 'none';
+        }
+      } else {
+        src.innerHTML = '<em>Placeholder — no canonical source yet. Capture the method to promote this to draft.</em>';
+        srcLink.style.display = 'none';
+      }
+
+      // Improve CTA → prefilled email to Ben
+      const improve = document.getElementById('modal-improve');
+      const subject = encodeURIComponent('[Skill] Improve: ' + s.title);
+      const body = encodeURIComponent(
+        'Skill: ' + s.title + ' (' + s.id + ')\n' +
+        'Status: ' + s.status + '\n' +
+        'Category: ' + s.category + '\n\n' +
+        'Suggested improvement:\n\n'
+      );
+      improve.href = 'mailto:ben@humansnrobots.com?subject=' + subject + '&body=' + body;
+
+      modalShell.classList.add('is-open');
+      modalShell.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      modalShell.classList.remove('is-open');
+      modalShell.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    modalClose.addEventListener('click', closeModal);
+    modalShell.addEventListener('click', function (ev) {
+      if (ev.target === modalShell) closeModal();
+    });
+
+    // ------- Search wiring -------
+    let searchTimer = null;
+    searchEl.addEventListener('input', function () {
+      activeQuery = searchEl.value || '';
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(renderGrid, 90);
+    });
+
+    // ------- Keyboard -------
+    document.addEventListener('keydown', function (ev) {
+      const target = ev.target;
+      const isTyping = target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA');
+      if (ev.key === '/' && !isTyping && library.classList.contains('is-open')) {
+        ev.preventDefault();
+        searchEl.focus();
+        searchEl.select();
+      }
+      if (ev.key === 'Escape') {
+        if (modalShell.classList.contains('is-open')) { closeModal(); return; }
+        if (library.classList.contains('is-open') && (searchEl.value || activeCategory !== 'all')) {
+          searchEl.value = ''; activeQuery = ''; activeCategory = 'all';
+          updateChipState();
+          renderGrid();
+        }
+      }
+    });
+
+  })();
+  </script>
+</body>
+</html>
