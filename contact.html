@@ -372,6 +372,17 @@ document.head.appendChild(o)}initApollo();</script>
                 <textarea id="message" name="message" rows="5" required placeholder="Tell us a bit about your business — what you do, where you're located, and what's costing you time or revenue right now." aria-describedby="message-error"></textarea>
                 <span class="form-field-error" id="message-error" role="alert"></span>
               </div>
+              <div class="form-group">
+                <label for="phone">Mobile phone (optional)</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(224) 555-0123" aria-describedby="phone-error">
+                <span class="form-field-error" id="phone-error" role="alert"></span>
+              </div>
+              <div class="form-group form-consent">
+                <label for="sms_consent" style="display:flex; align-items:flex-start; gap:0.6rem; font-weight:400; cursor:pointer;">
+                  <input type="checkbox" id="sms_consent" name="sms_consent" value="yes" style="margin-top:0.25rem; flex-shrink:0;">
+                  <span style="font-size:0.9rem; line-height:1.5;">I agree to receive text messages from Humans &amp; Robots, LLC at the number provided, including replies to my inquiry and occasional updates. Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for help. See our <a href="./sms-terms" target="_blank" rel="noopener" style="color:var(--color-accent); font-weight:600;">SMS Terms</a> and <a href="./privacy" target="_blank" rel="noopener" style="color:var(--color-accent); font-weight:600;">Privacy Policy</a>. Consent is not a condition of purchase.</span>
+                </label>
+              </div>
               <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
               <button type="submit" class="btn btn--primary form-submit">Send Message</button>
               <div class="form-success" id="form-success" role="alert">
