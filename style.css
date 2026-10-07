@@ -2874,3 +2874,7 @@ html.js-reveal .reveal.is-visible {
 @media (min-width: 1100px) {
   .anchor-grid--six { grid-template-columns: repeat(3, 1fr); }
 }
+
+/* Hero stat labels: scale to card width so longer words (e.g. "Alignment") never clip */
+.hero__screen-stats div { container-type: inline-size; }
+.hero__screen-stats span { font-size: min(var(--text-xl), 18cqi); }
