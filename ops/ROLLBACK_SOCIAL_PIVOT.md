@@ -14,7 +14,7 @@ Non-destructive (recommended; keeps history):
 ```bash
 cd humans-and-robots-site
 git checkout master && git pull
-git revert --no-edit <pivot-commit-sha>   # see git log for "Social pivot" commit
+git revert --no-edit b49017d
 git push origin master
 ```
 Whole-site restore to the archive state (also non-destructive):
