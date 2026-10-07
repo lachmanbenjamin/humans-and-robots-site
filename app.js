@@ -189,7 +189,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     var message = fieldVal('message');
 
     var payload = {
-      _subject: 'New checkup request from ' + (name || 'humansnrobots.com'),
+      _subject: 'New Social Audit request from ' + (name || 'humansnrobots.com'),
       _replyto: email,
       _template: 'table',
       _captcha: 'false',
