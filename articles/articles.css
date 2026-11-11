@@ -143,3 +143,9 @@
   font-weight: 600;
   color: var(--color-primary);
 }
+
+.article-replies { margin: var(--space-8) 0; display: grid; gap: var(--space-3); }
+.article-replies figure { margin: 0; }
+.article-replies img { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+.article-replies__gif img { max-width: 360px; }
+.article-replies__cap { font-size: var(--text-sm); color: var(--color-text-muted); margin-top: var(--space-1); }
