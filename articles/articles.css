@@ -149,3 +149,4 @@
 .article-replies img { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
 .article-replies__gif img { max-width: 360px; }
 .article-replies__cap { font-size: var(--text-sm); color: var(--color-text-muted); margin-top: var(--space-1); }
+.article-figure--dm img { max-width: 520px; }
